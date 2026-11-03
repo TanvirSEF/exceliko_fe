@@ -1,6 +1,6 @@
 # Excel Insider — Frontend
 
-Next.js 16 frontend for the Excel Insider blog: a public, SEO-first site and a role-aware team dashboard, served by the FastAPI backend (`api.excelinsider.com`).
+Next.js 16 frontend for the Excel Insider blog: a public, SEO-first site and a role-aware team dashboard, served by the FastAPI backend.
 
 ## Stack
 
@@ -18,9 +18,9 @@ pnpm dev
 Environment (`.env.local`):
 
 ```
-NEXT_PUBLIC_API_URL=https://api.excelinsider.com
-API_URL=https://api.excelinsider.com
-NEXT_PUBLIC_SITE_URL=https://excelinsider.com
+NEXT_PUBLIC_API_URL=http://localhost:8000
+API_URL=http://localhost:8000
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
 ```
 
 Pre-push ritual:
@@ -37,7 +37,7 @@ Set on the service:
 
 - `NEXT_PUBLIC_API_URL=https://api.<domain>`
 - `API_URL` — internal service hostname if routed internally, else the public URL (used server-side for ISR fetches and the `/sitemap.xml` rewrite)
-- `NEXT_PUBLIC_SITE_URL=https://excelinsider.com`
+- `NEXT_PUBLIC_SITE_URL` — public frontend origin
 
 Backend `ALLOWED_ORIGINS` must include the final site origin — dashboard calls hit the API from the browser with credentials.
 

@@ -1,8 +1,9 @@
+import Link from "next/link"
+
 import type { TocEntry } from "@/lib/blocks"
 
 import { LegalSection, LegalSubsection, LegalTable } from "./legal-sections"
 
-const CONTACT_EMAIL = "contact@excelinsider.com"
 const GOOGLE_PRIVACY = "https://business.safety.google/privacy/"
 
 export const cookieToc: TocEntry[] = [
@@ -45,7 +46,7 @@ export function CookieContent() {
           This Cookie Policy explains how Excel Insider (“<strong>Company</strong>,” “
           <strong>we</strong>,” “<strong>us</strong>,” and “<strong>our</strong>”) uses cookies
           and similar technologies to recognize you when you visit our website at{" "}
-          <a href="https://excelinsider.com">https://excelinsider.com</a> (“
+          <Link href="/">this website</Link> (“
           <strong>Website</strong>”). It explains what these technologies are and why we use them,
           as well as your rights to control our use of them.
         </p>
@@ -120,7 +121,7 @@ export function CookieContent() {
                 "Purpose:",
                 "Records a particular ID used to come up with data about website usage by the user",
               ],
-              ["Provider:", ".excelinsider.com"],
+              ["Provider:", "This website"],
               [
                 "Service:",
                 <>
@@ -142,7 +143,7 @@ export function CookieContent() {
                 "Purpose:",
                 "Used to distinguish individual users by means of designation of a randomly generated number as client identifier, which allows calculation of visits and sessions",
               ],
-              ["Provider:", ".excelinsider.com"],
+              ["Provider:", "This website"],
               [
                 "Service:",
                 <>
@@ -340,17 +341,7 @@ export function CookieContent() {
         title="Where Can I Get Further Information?"
       >
         <p>
-          If you have any questions about our use of cookies or other technologies, please email
-          us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or by post to:
-        </p>
-        <p>
-          Nehad Ulfat
-          <br />
-          15, Tallabagh, Moneshwar Road, Jigatola
-          <br />
-          Dhaka, 1209
-          <br />
-          Bangladesh
+          If you have any questions about our use of cookies or other technologies, please reach us through <Link href="/contact/">our contact page</Link>.
         </p>
         <p>Phone: +8801314999034</p>
       </LegalSection>

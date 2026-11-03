@@ -283,7 +283,7 @@ export function InterlinkPanel({ editor, onClose }: InterlinkPanelProps) {
               handleFetchUrlInfo(url)
             }
           }}
-          placeholder="e.g. /excel-vlookup-guide or https://www.excelinsider.com/excel-vlookup-guide"
+          placeholder="e.g. /excel-vlookup-guide or https://example.com/excel-vlookup-guide"
           className="h-9 font-mono text-xs"
         />
       </div>

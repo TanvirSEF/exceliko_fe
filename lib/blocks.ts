@@ -42,12 +42,8 @@ export function extractToc(blocks: Block[]): TocEntry[] {
   return entries
 }
 
-const R2_DEV_HOST = "pub-b39c974f4c124a36a2fb517be38076ec.r2.dev"
-const MEDIA_CDN_HOST = "media.excelinsider.com"
-
 export function toCdnUrl(url: string | null | undefined): string {
-  if (!url) return ""
-  return url.replace(R2_DEV_HOST, MEDIA_CDN_HOST)
+  return url ?? ""
 }
 
 export function getFeaturedImageFromBlocks(blocks: Block[]): string | null {

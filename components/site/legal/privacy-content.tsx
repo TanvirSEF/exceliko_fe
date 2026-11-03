@@ -5,7 +5,6 @@ import { config } from "@/lib/config"
 
 import { InShort, LegalSection, LegalSubsection, LegalTable } from "./legal-sections"
 
-const CONTACT_EMAIL = "contact@excelinsider.com"
 const DSAR_URL = "https://app.termly.io/dsar/48e78c17-7d24-4d63-9d23-98e3f5454abd"
 
 export const privacyToc: TocEntry[] = [
@@ -68,7 +67,7 @@ export function PrivacyContent() {
         <ul>
           <li>
             Visit our website at{" "}
-            <a href="https://excelinsider.com">https://excelinsider.com</a> or any website of ours
+            <Link href="/">this website</Link> or any website of ours
             that links to this Privacy Notice
           </li>
           <li>
@@ -87,7 +86,7 @@ export function PrivacyContent() {
           understand your privacy rights and choices. We are responsible for making decisions about
           how your personal information is processed. If you do not agree with our policies and
           practices, please do not use our Services. If you still have any questions or concerns,
-          please contact us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          please contact us through <Link href="/contact/">our contact page</Link>.
         </p>
       </div>
 
@@ -456,7 +455,7 @@ export function PrivacyContent() {
           deactivate the account and take reasonable measures to promptly delete such data from
           our records. If you become aware of any data we may have collected from children under
           age 18 or the equivalent age as specified by law in your jurisdiction, please contact us
-          at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          at <Link href="/contact/">our contact page</Link>.
         </p>
       </LegalSection>
 
@@ -544,8 +543,8 @@ export function PrivacyContent() {
           please see our <Link href="/cookie-policy">Cookie Notice</Link>.
         </p>
         <p>
-          If you have questions or comments about your privacy rights, you may email us at{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          If you have questions or comments about your privacy rights, you may reach us through{" "}
+          <Link href="/contact/">our contact page</Link>.
         </p>
       </LegalSection>
 
@@ -780,7 +779,7 @@ export function PrivacyContent() {
             <a href={DSAR_URL} target="_blank" rel="noopener noreferrer">
               data subject access request
             </a>
-            , by emailing us at <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>, or by
+            , through <Link href="/contact/">our contact page</Link>, or by
             referring to the contact details at the bottom of this document.
           </p>
           <p>
@@ -811,8 +810,8 @@ export function PrivacyContent() {
         <LegalSubsection id="appeals" title="Appeals">
           <p>
             Under certain US state data protection laws, if we decline to take action regarding
-            your request, you may appeal our decision by emailing us at{" "}
-            <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We will inform you in writing
+            your request, you may appeal our decision through{" "}
+            <Link href="/contact/">our contact page</Link>. We will inform you in writing
             of any action taken or not taken in response to the appeal, including a written
             explanation of the reasons for the decisions. If your appeal is denied, you may submit
             a complaint to your state attorney general.
@@ -946,17 +945,8 @@ export function PrivacyContent() {
 
       <LegalSection id="how-can-you-contact-us-about-this-notice" num="14" title="How can you contact us about this notice?">
         <p>
-          If you have questions or comments about this notice, you may email us at{" "}
-          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> or contact us by post at:
-        </p>
-        <p>
-          Excel Insider
-          <br />
-          15, Tallabagh, Moneshwar Road, Jigatola
-          <br />
-          Dhaka, 1209
-          <br />
-          Bangladesh
+          If you have questions or comments about this notice, you may reach us through{" "}
+          <Link href="/contact/">our contact page</Link>.
         </p>
       </LegalSection>
 

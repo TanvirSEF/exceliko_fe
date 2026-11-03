@@ -1,6 +1,8 @@
 import type { NextConfig } from "next"
 
-const apiUrl = process.env.API_URL ?? "https://api.excelinsider.com"
+import { config } from "./lib/config"
+
+const apiUrl = config.apiUrl
 
 const isDev = process.env.NODE_ENV === "development"
 

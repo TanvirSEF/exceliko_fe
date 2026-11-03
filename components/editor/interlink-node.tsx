@@ -128,7 +128,7 @@ function InterlinkView({
               <input
                 value={url}
                 onChange={(e) => updateAttributes({ url: e.target.value })}
-                placeholder="https://excelinsider.com/blog/..."
+                placeholder="https://example.com/blog/..."
                 className="h-8 w-full rounded-md border border-input bg-background px-2 font-mono text-xs"
               />
             </div>

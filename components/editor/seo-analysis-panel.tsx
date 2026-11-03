@@ -127,7 +127,7 @@ function GooglePreview({
         <div className="min-w-0">
           <p className="truncate text-xs font-medium text-neutral-800">Excel Insider</p>
           <p className="truncate text-[11px] text-neutral-500">
-            excelinsider.com › blog › {slug || "your-post-slug"}
+            example.com › blog › {slug || "your-post-slug"}
           </p>
         </div>
       </div>
@@ -166,7 +166,7 @@ export function SeoAnalysisPanel({
           focusKeyphrase: keyphrase.trim() || undefined,
           slug: slug || undefined,
           canonicalUrl: canonicalUrl || undefined,
-          siteUrl: "https://excelinsider.com",
+          siteUrl: "https://example.com",
           images,
           content,
         },

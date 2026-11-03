@@ -426,13 +426,12 @@ export default function AboutPage() {
               </p>
 
               <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-                <a
-                  href="mailto:contact@excelinsider.com"
+                <Link href="/contact/"
                   className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2 text-xs font-medium text-primary-foreground/90 transition-colors hover:bg-primary-foreground/20"
                 >
                   <IconMail className="h-4 w-4" />
-                  contact@excelinsider.com
-                </a>
+                  Contact us
+                </Link>
               </div>
 
               <div className="pt-3">

@@ -97,7 +97,7 @@ export function CreateUserSheet({ open, onOpenChange }: CreateUserSheetProps) {
               type="email"
               value={email}
               onChange={(event) => setEmail(event.target.value)}
-              placeholder="teammate@excelinsider.com"
+              placeholder="teammate@example.com"
             />
           </div>
           <div className="space-y-2">

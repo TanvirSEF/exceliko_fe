@@ -161,7 +161,7 @@ export function SeoFields({
           value={fields.canonicalUrl}
           disabled={disabled}
           onChange={(event) => onChange({ canonicalUrl: event.target.value })}
-          placeholder="https://excelinsider.com/… (leave empty for default)"
+          placeholder="https://example.com/… (leave empty for default)"
         />
       </div>
 

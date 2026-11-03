@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { IconClock, IconMail, IconMapPin, IconPhone } from "@tabler/icons-react"
+import { IconClock } from "@tabler/icons-react"
 
 import { Breadcrumb } from "@/components/site/breadcrumb"
 import { ContactForm } from "@/components/site/contact-form"
@@ -14,30 +14,9 @@ export const revalidate = 86400
 export const metadata: Metadata = {
   title: "Contact Us | Excel Insider",
   description:
-    "Questions, custom template requests, or spreadsheet troubleshooting — reach the Excel Insider team by form, phone, or email.",
+    "Questions, custom template requests, or spreadsheet troubleshooting — reach the Excel Insider team through the contact form.",
   alternates: { canonical: "/contact/" },
 }
-
-const CONTACT_DETAILS = [
-  {
-    label: "Address",
-    value: "15, Tallabag, Moneshwar Road, Jigatola, Dhaka-1209",
-    icon: IconMapPin,
-    href: undefined,
-  },
-  {
-    label: "Phone",
-    value: "+880 1886 806 860",
-    icon: IconPhone,
-    href: "tel:+8801886806860",
-  },
-  {
-    label: "Email",
-    value: "contact@excelinsider.com",
-    icon: IconMail,
-    href: "mailto:contact@excelinsider.com",
-  },
-]
 
 export default async function ContactPage({ searchParams }: ContactPageProps) {
   const query = await searchParams
@@ -59,44 +38,12 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         </h1>
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Have a question or want to get in touch with us? We&apos;d love to
-          hear from you! Please use the contact form below or reach out
-          directly through the provided details.
+          hear from you! Please use the contact form below.
         </p>
       </header>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-5 lg:gap-8">
         <aside className="space-y-5 lg:col-span-2">
-          {CONTACT_DETAILS.map((item) => {
-            const Icon = item.icon
-            const content = (
-              <>
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="min-w-0 space-y-1">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                    {item.label}
-                  </p>
-                  <p className="text-sm font-medium leading-relaxed text-foreground transition-colors group-hover:text-primary">
-                    {item.value}
-                  </p>
-                </div>
-              </>
-            )
-            const cardClass =
-              "group flex items-start gap-4 rounded-2xl border border-primary/50 bg-card p-5 shadow-2xs transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/80 hover:shadow-md"
-
-            return item.href ? (
-              <a key={item.label} href={item.href} className={cardClass}>
-                {content}
-              </a>
-            ) : (
-              <div key={item.label} className={cardClass}>
-                {content}
-              </div>
-            )
-          })}
-
           <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-chart-2 via-primary to-chart-5 p-6 text-primary-foreground shadow-lg">
             <div
               aria-hidden
@@ -108,8 +55,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
               </div>
               <p className="text-2xl font-bold tracking-tight">24–48 hours</p>
               <p className="text-sm leading-relaxed text-primary-foreground/75">
-                We usually respond within 24–48 hours on business days. For
-                urgent workbook emergencies, call us directly.
+                We usually respond within 24–48 hours on business days.
               </p>
             </div>
           </div>

@@ -761,7 +761,7 @@ Found while mapping the implemented endpoints. Items 1–3 were added to the bac
 ## 18. Deployment (Dokploy)
 
 - Docker service from this repo: Node 22 alpine, `pnpm install --frozen-lockfile && pnpm build`, `pnpm start` (or standalone output). Non-root user, matching backend conventions.
-- Env: `NEXT_PUBLIC_API_URL=https://api.<domain>`, `API_URL` (internal service hostname if routed internally), `NEXT_PUBLIC_SITE_URL=https://excelinsider.com`.
+- Env: `NEXT_PUBLIC_API_URL=https://api.<domain>`, `API_URL` (internal service hostname if routed internally), `NEXT_PUBLIC_SITE_URL=https://example.com`.
 - Backend `ALLOWED_ORIGINS` must include the final site origin (credentials flow for CORS-mode dashboard calls).
 - Health: `/api/auth/session` returning 405/200 is a light liveness check; alternatively a static `/health` route returning `{ok:true}`.
 - Deploys are git-push; keep `pnpm typecheck && pnpm lint` as the pre-push ritual (CI optional, same as backend).

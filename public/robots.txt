@@ -19,5 +19,3 @@ User-agent: Bytespider
 Allow: /llms.txt
 Allow: /.well-known/ard.json
 Disallow: /
-
-Sitemap: https://excelinsider.com/sitemap.xml

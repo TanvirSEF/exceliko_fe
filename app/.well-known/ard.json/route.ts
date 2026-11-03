@@ -1,15 +1,17 @@
 import { NextResponse } from "next/server"
 
+import { config } from "@/lib/config"
+
 export const dynamic = "force-static"
 export const revalidate = 86400
 
 const ardManifest = {
   entries: [
     {
-      identifier: "urn:air:excelinsider.com:knowledge:excel-guides",
+      identifier: `urn:air:${new URL(config.siteUrl).hostname}:knowledge:excel-guides`,
       displayName: "Excel Insider Knowledge Base & Formulas Hub",
       type: "text/markdown",
-      url: "https://excelinsider.com/llms.txt",
+      url: new URL("/llms.txt", config.siteUrl).href,
       capabilities: [
         "ExcelFormulas",
         "FinancialModeling",

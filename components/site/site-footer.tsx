@@ -1,16 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import {
-  IconArrowUpRight,
-  IconBrandFacebook,
-  IconBrandLinkedin,
-  IconBrandPinterest,
-  IconBrandX,
-  IconBrandYoutube,
-  IconMail,
-} from "@tabler/icons-react"
-
-import { cn } from "@/lib/utils"
+import { IconArrowUpRight } from "@tabler/icons-react"
 
 const SERVICES_LINKS = [
   { label: "Services & Solutions", href: "/spreadsheet-solutions/" },
@@ -31,44 +21,6 @@ const COMPANY_LINKS = [
   { label: "Privacy Policy", href: "/privacy-policy/" },
   { label: "Cookie Policy", href: "/cookie-policy/" },
   { label: "Terms of Service", href: "/terms-and-conditions/" },
-]
-
-const SOCIAL_LINKS = [
-  {
-    label: "YouTube",
-    href: "https://www.youtube.com/@ExcelInsider32",
-    icon: IconBrandYoutube,
-    className:
-      "bg-[#FF0000] text-white hover:bg-[#E60000] shadow-sm shadow-[#FF0000]/30",
-  },
-  {
-    label: "X (Twitter)",
-    href: "https://x.com/ex_ins",
-    icon: IconBrandX,
-    className:
-      "bg-black text-white ring-1 ring-white/20 hover:bg-neutral-900 shadow-sm shadow-black/40",
-  },
-  {
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/excel-insider",
-    icon: IconBrandLinkedin,
-    className:
-      "bg-[#0A66C2] text-white hover:bg-[#084e96] shadow-sm shadow-[#0A66C2]/30",
-  },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/people/Excel-Insider/61585095068115",
-    icon: IconBrandFacebook,
-    className:
-      "bg-[#1877F2] text-white hover:bg-[#1464c9] shadow-sm shadow-[#1877F2]/30",
-  },
-  {
-    label: "Pinterest",
-    href: "https://www.pinterest.com/excel_insider/",
-    icon: IconBrandPinterest,
-    className:
-      "bg-[#E60023] text-white hover:bg-[#c5001e] shadow-sm shadow-[#E60023]/30",
-  },
 ]
 
 export function SiteFooter() {
@@ -146,45 +98,6 @@ export function SiteFooter() {
               Your go-to authority resource for mastering essential spreadsheet formulas, solving complex workbook challenges, and accessing bespoke business templates.
             </p>
 
-            {/* Email Contact Badge */}
-            <div>
-              <a
-                href="mailto:contact@excelinsider.com"
-                className="group inline-flex items-center gap-2.5 rounded-xl border border-primary-foreground/25 bg-primary-foreground/10 px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-xs backdrop-blur-xs transition-all duration-200 hover:border-primary-foreground/50 hover:bg-primary-foreground hover:text-primary hover:shadow-md"
-              >
-                <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-lg bg-primary-foreground/20 text-primary-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                  <IconMail className="h-3.5 w-3.5" />
-                </div>
-                <span>contact@excelinsider.com</span>
-              </a>
-            </div>
-
-            {/* Social Media Glass Icons */}
-            <div className="space-y-2.5 pt-1">
-              <p className="text-[13px] font-bold uppercase tracking-wider text-primary-foreground/75">
-                Follow Excel Insider
-              </p>
-              <div className="flex flex-wrap items-center gap-2.5">
-                {SOCIAL_LINKS.map((item) => {
-                  const Icon = item.icon
-                  return (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={item.label}
-                      className={cn(
-                        "flex h-9 w-9 items-center justify-center rounded-full transition-all duration-200 hover:-translate-y-1 hover:scale-110 active:scale-95",
-                        item.className
-                      )}
-                    >
-                      <Icon className="h-4.5 w-4.5" />
-                    </a>
-                  )
-                })}
-              </div>
-            </div>
           </div>
 
           {/* Column 2: Explore Tutorials (2.5 cols) */}

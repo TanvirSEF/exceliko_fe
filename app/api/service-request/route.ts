@@ -108,11 +108,9 @@ export async function POST(request: NextRequest) {
     }
 
     // 2. Dispatch to Discord Webhook
-    const DEFAULT_DISCORD_WEBHOOK_URL =
-      "https://discord.com/api/webhooks/1556008065977942076/9yqS9fTDdkiYAB6jLRqCk_zhlr5IGOueeGvqKFEVBuunAB0q7pfWKuTAEvdYiQsioAJ9"
-    const webhookUrl = process.env.DISCORD_WEBHOOK_URL || DEFAULT_DISCORD_WEBHOOK_URL
+    const webhookUrl = process.env.DISCORD_WEBHOOK_URL?.trim()
 
-    if (webhookUrl && webhookUrl.trim().startsWith("http")) {
+    if (webhookUrl?.startsWith("https://")) {
       try {
         if (uploadedFile && uploadedFile.size <= 25 * 1024 * 1024) {
           const discordFormData = new FormData()
