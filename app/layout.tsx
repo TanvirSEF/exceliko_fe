@@ -66,8 +66,12 @@ export default function RootLayout({
     >
       <head>
         <link rel="ard" href="/.well-known/ard.json" />
-        <link rel="dns-prefetch" href="https://scripts.mediavine.com" />
-        <link rel="preconnect" href="https://scripts.mediavine.com" crossOrigin="" />
+        {config.mediavineTagId && (
+          <>
+            <link rel="dns-prefetch" href="https://scripts.mediavine.com" />
+            <link rel="preconnect" href="https://scripts.mediavine.com" crossOrigin="" />
+          </>
+        )}
         <link rel="preconnect" href="https://securepubads.g.doubleclick.net" crossOrigin="" />
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="" />
       </head>

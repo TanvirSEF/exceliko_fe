@@ -17,8 +17,12 @@ export default function PublicLayout({
       <main className="flex-1">{children}</main>
       <SiteFooter />
       <ChatWidgetLazy />
-      <MediavineTag tagId={config.mediavineTagId} />
-      <MediavineRouteListener />
+      {config.mediavineTagId && (
+        <>
+          <MediavineTag tagId={config.mediavineTagId} />
+          <MediavineRouteListener />
+        </>
+      )}
       <SiteAnalyticsTracker />
     </div>
   )
