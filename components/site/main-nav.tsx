@@ -24,8 +24,8 @@ const LEARNING_TRACK_GROUP_SLUG = "google-sheets"
 
 const MENU_LAYOUT: Record<number, { width: string; columns: string }> = {
   1: { width: "w-[340px]", columns: "grid-cols-1" },
-  2: { width: "w-[660px] xl:w-[700px]", columns: "grid-cols-2" },
-  3: { width: "w-[900px]", columns: "grid-cols-3" },
+  2: { width: "w-[min(700px,calc(100vw-2rem))]", columns: "grid-cols-2" },
+  3: { width: "w-[min(940px,calc(100vw-2rem))]", columns: "grid-cols-3" },
 }
 
 interface MainNavProps {
@@ -39,11 +39,11 @@ function GroupHeading({ group, onNavigate }: { group: NavGroup; onNavigate: () =
         <IconFolders className="h-4.5 w-4.5" />
       </div>
       <div className="min-w-0">
-        <h3 className="truncate text-[13px] font-bold uppercase tracking-wider text-brand">
+        <h3 className="text-[13px] font-bold uppercase tracking-wider text-brand">
           {group.name}
         </h3>
         {group.description && (
-          <p className="line-clamp-1 text-xs text-muted-foreground">{group.description}</p>
+          <p className="line-clamp-2 text-xs text-muted-foreground">{group.description}</p>
         )}
       </div>
     </>
@@ -201,7 +201,7 @@ export function MainNav({ groups = [] }: MainNavProps) {
 
       {/* Spreadsheet Blogs Mega Menu */}
       <div
-        className="relative"
+        className=""
         onMouseEnter={() => handleMouseEnter("blogs")}
         onMouseLeave={handleMouseLeave}
       >
@@ -225,7 +225,7 @@ export function MainNav({ groups = [] }: MainNavProps) {
 
         <div
           className={cn(
-            "absolute top-full -left-28 xl:-left-20 pt-1.5 z-50",
+            "absolute inset-x-0 top-full mx-auto w-fit pt-1.5 z-50",
             activeMenu === "blogs"
               ? "animate-in fade-in-0 zoom-in-95 duration-150"
               : "invisible opacity-0 pointer-events-none"
@@ -268,7 +268,7 @@ export function MainNav({ groups = [] }: MainNavProps) {
                             <IconFileText className="h-3.5 w-3.5" />
                           </div>
                           <div className="min-w-0 space-y-0.5">
-                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-brand transition-colors">
+                            <p className="text-sm font-semibold leading-snug text-foreground group-hover:text-brand transition-colors">
                               {item.name}
                             </p>
                             {item.description && (

@@ -51,7 +51,9 @@ export default async function HomePage() {
     getCurriculum(300).catch(() => [] as CurriculumModule[]),
   ])
 
-  const featuredCategories = categories.filter((c) => c.is_featured)
+  const featuredCategories = categories
+    .flatMap((category) => [category, ...category.children])
+    .filter((category) => category.is_featured)
   const navGroups = buildNavGroups(categories)
 
   return (
