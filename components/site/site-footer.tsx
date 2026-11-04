@@ -86,11 +86,11 @@ export function SiteFooter() {
               className="inline-flex items-center transition-transform hover:opacity-90 active:scale-95"
             >
               <Image
-                src="/logo.png"
+                src="/logo-light.png"
                 alt="Exceliko"
-                width={2172}
-                height={724}
-                className="h-12 sm:h-14 w-auto rounded-xl bg-white px-3 py-1.5 object-contain"
+                width={1086}
+                height={362}
+                className="h-14 sm:h-16 w-auto object-contain"
               />
             </Link>
 
