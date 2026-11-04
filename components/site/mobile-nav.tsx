@@ -30,6 +30,7 @@ import {
 } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { cn } from "@/lib/utils"
+import { shortNavName } from "@/lib/nav-groups"
 import type { NavGroup } from "@/types/api"
 
 const LEARNING_TRACK_GROUP_SLUG = "google-sheets"
@@ -142,7 +143,7 @@ export function MobileNav({ groups = [] }: MobileNavProps) {
                           onClick={handleLinkClick}
                           className="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[15px] text-muted-foreground hover:bg-background hover:text-foreground"
                         >
-                          <span className="truncate">{item.name}</span>
+                          <span className="truncate">{shortNavName(item.name, group.name)}</span>
                         </Link>
                       ))}
                     </div>

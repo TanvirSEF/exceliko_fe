@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useRef } from "react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import {
@@ -10,14 +11,14 @@ import {
   IconReportMoney,
   IconScale,
   IconBook2,
-  IconFolders,
-  IconFileText,
+  IconLayoutGrid,
   IconFileSpreadsheet,
   IconUserCheck,
   IconArrowRight,
 } from "@tabler/icons-react"
 
 import { cn } from "@/lib/utils"
+import { shortNavName } from "@/lib/nav-groups"
 import type { NavGroup } from "@/types/api"
 
 const LEARNING_TRACK_GROUP_SLUG = "google-sheets"
@@ -35,8 +36,12 @@ interface MainNavProps {
 function GroupHeading({ group, onNavigate }: { group: NavGroup; onNavigate: () => void }) {
   const content = (
     <>
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-        <IconFolders className="h-4.5 w-4.5" />
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-brand/5 text-brand ring-1 ring-brand/20">
+        {group.icon_url ? (
+          <Image src={group.icon_url} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
+        ) : (
+          <IconLayoutGrid className="h-4.5 w-4.5" />
+        )}
       </div>
       <div className="min-w-0">
         <h3 className="text-[13px] font-bold uppercase tracking-wider text-brand">
@@ -234,7 +239,7 @@ export function MainNav({ groups = [] }: MainNavProps) {
           onMouseEnter={() => handleMouseEnter("blogs")}
           onMouseLeave={handleMouseLeave}
         >
-          <div className={cn("rounded-2xl shadow-2xl border border-border/70 backdrop-blur-xl bg-background/98 p-4 sm:p-5", menuLayout.width)}>
+          <div className={cn("max-h-[calc(100vh-6.5rem)] overflow-y-auto overscroll-contain rounded-2xl shadow-2xl border border-border/70 backdrop-blur-xl bg-background/98 p-4 sm:p-5", menuLayout.width)}>
             {groups.length > 0 ? (
               <div className={cn("grid gap-5", menuLayout.columns)}>
                 {groups.map((group) => (
@@ -262,14 +267,18 @@ export function MainNav({ groups = [] }: MainNavProps) {
                           key={item.slug}
                           href={`/${item.slug}/`}
                           onClick={() => setActiveMenu(null)}
-                          className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-muted/60 transition-colors group"
+                          className="flex items-start gap-2.5 px-2 py-1.5 rounded-lg hover:bg-muted/60 transition-colors group"
                         >
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-brand/15 group-hover:text-brand transition-colors mt-0.5">
-                            <IconFileText className="h-3.5 w-3.5" />
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-muted/70 text-muted-foreground ring-1 ring-border/60 group-hover:bg-brand/15 group-hover:text-brand group-hover:ring-brand/30 transition-colors mt-0.5">
+                            {item.icon_url ? (
+                              <Image src={item.icon_url} alt="" width={16} height={16} className="h-4 w-4 object-contain" />
+                            ) : (
+                              <IconFileSpreadsheet className="h-3.5 w-3.5" />
+                            )}
                           </div>
                           <div className="min-w-0 space-y-0.5">
                             <p className="text-sm font-semibold leading-snug text-foreground group-hover:text-brand transition-colors">
-                              {item.name}
+                              {shortNavName(item.name, group.name)}
                             </p>
                             {item.description && (
                               <p className="line-clamp-1 text-xs text-muted-foreground">

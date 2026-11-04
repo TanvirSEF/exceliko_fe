@@ -289,12 +289,14 @@ export interface NavItem {
   name: string
   slug: string
   description: string | null
+  icon_url: string | null
 }
 
 export interface NavGroup {
   name: string
   slug: string | null
   description: string | null
+  icon_url: string | null
   items: NavItem[]
 }
 

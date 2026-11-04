@@ -8,8 +8,8 @@ export interface CategoryGroup {
   items: Category[]
 }
 
-function toNavItem({ name, slug, description }: Category): NavItem {
-  return { name, slug, description }
+function toNavItem({ name, slug, description, icon_url }: Category): NavItem {
+  return { name, slug, description, icon_url }
 }
 
 export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
@@ -38,10 +38,29 @@ export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
 }
 
 export function buildNavGroups(tree: Category[]): NavGroup[] {
-  return buildCategoryGroups(tree).map(({ name, slug, description, items }) => ({
+  const categoryById = new Map(tree.map((category) => [category.id, category]))
+
+  return buildCategoryGroups(tree).map(({ id, name, slug, description, items }) => ({
     name,
     slug,
     description,
+    icon_url: categoryById.get(id)?.icon_url ?? null,
     items: items.map(toNavItem),
   }))
+}
+
+export function shortNavName(itemName: string, groupName: string): string {
+  const itemWords = itemName.split(" ")
+  const groupText = ` ${groupName.toLowerCase()} `
+
+  let shared = 0
+  for (let length = itemWords.length - 1; length > 0; length--) {
+    const prefix = itemWords.slice(0, length).join(" ").toLowerCase()
+    if (groupText.includes(` ${prefix} `)) {
+      shared = length
+      break
+    }
+  }
+
+  return itemWords.slice(shared).join(" ")
 }
