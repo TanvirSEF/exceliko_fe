@@ -174,7 +174,7 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
   const socialLinks = getAuthorSocialLinks(author)
   const isFounderAuthor =
     author.id === "e37945f2-9428-44bc-b9c1-f4c12d15be28" ||
-    author.slug === "adminexcelinsider-com" ||
+    author.slug === "adminexceliko-com" ||
     author.slug === "nehad-ulfat"
 
   return (
