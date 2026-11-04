@@ -14,7 +14,6 @@ import {
 import { toast } from "sonner"
 
 import { RoleBadge } from "@/components/dashboard/users/role-badge"
-import { WpImportPanel } from "@/components/dashboard/settings/wp-import-panel"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -450,7 +449,6 @@ export function SettingsView() {
         </Button>
       </section>
 
-      {user.role === "super_admin" && <WpImportPanel />}
     </div>
   )
 }

@@ -11,7 +11,7 @@ import { SeriesView } from "@/components/site/series-view"
 import { getCategoryWithPosts } from "@/lib/api/categories"
 import { getPostBySlug } from "@/lib/api/posts"
 import { getSeriesBySlug } from "@/lib/api/series"
-import { getWpRedirect, looksLikeWpPath } from "@/lib/api/redirects"
+import { getRedirect, isContentPath } from "@/lib/api/redirects"
 import { clamp } from "@/lib/utils"
 import type { Category, Page, PostDetail, PostListItem, SeriesSummary } from "@/types/api"
 
@@ -63,7 +63,7 @@ const resolvePath = cache(
   const path = segments
   const pathname = `/${path.join("/")}`
 
-  if (!looksLikeWpPath(pathname)) {
+  if (!isContentPath(pathname)) {
     return null
   }
 
@@ -103,12 +103,12 @@ const resolvePath = cache(
         }
       }
     } catch {
-      // not a series, continue to WP redirect / post check
+      // not a series, continue to redirect / post check
     }
   }
 
-  // 2. Check WordPress redirects table in database
-  const redirectRow = await getWpRedirect(pathname)
+  // 2. Check redirects table in database
+  const redirectRow = await getRedirect(pathname)
   if (redirectRow?.new_path) {
     if (redirectRow.new_path.startsWith("/blog/")) {
       const slug = redirectRow.new_path.replace("/blog/", "").replace(/\/+$/, "")

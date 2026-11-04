@@ -1,6 +1,6 @@
 import { config } from "@/lib/config"
 
-export interface WpRedirect {
+export interface RedirectRule {
   old_path: string
   new_path: string
   redirect_type: number
@@ -40,7 +40,7 @@ const KNOWN_STATIC_PREFIXES = [
   "/cookie-policy",
 ]
 
-export function looksLikeWpPath(pathname: string): boolean {
+export function isContentPath(pathname: string): boolean {
   if (pathname === "/" || pathname === "/google-sheets") return false
   if (pathname.includes(".")) return false // assets (.png, .ico, .txt, etc.)
   for (const prefix of KNOWN_STATIC_PREFIXES) {
@@ -51,9 +51,9 @@ export function looksLikeWpPath(pathname: string): boolean {
   return true
 }
 
-export async function getWpRedirect(
+export async function getRedirect(
   pathname: string
-): Promise<WpRedirect | null> {
+): Promise<RedirectRule | null> {
   const clean = pathname.replace(/^\/+|\/+$/g, "")
   if (!clean) return null
   try {
@@ -65,7 +65,7 @@ export async function getWpRedirect(
       }
     )
     if (!response.ok) return null
-    return (await response.json()) as WpRedirect
+    return (await response.json()) as RedirectRule
   } catch {
     return null
   }

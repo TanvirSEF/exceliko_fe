@@ -5,10 +5,8 @@ export interface CuratedTopicEntry {
   name: string
 }
 
-// Topic lists extracted from the legacy WordPress site's lesson sidebar
-// (the Bellows accordion on /google-sheets/basics/introduction-to-google-sheets/):
-// the exact curated entries, display names and order per module. The
-// refresh-data and export-data topics appear once wp_cpt_import has run.
+// Curated lesson topics per Google Sheets module: exact entries, display
+// names and order.
 export const GS_CURATED_TOPICS: Record<string, CuratedTopicEntry[]> = {
   "google-sheets-basics": [
     { slug: "introduction", name: "Introduction to Google Sheets" },

@@ -45,7 +45,7 @@ This frontend serves two distinct experiences in one app:
 
 Non-negotiable goals:
 
-- **SEO parity or better vs WordPress** — server-rendered article HTML, metadata, JSON-LD, sitemap, zero broken URLs during migration.
+- **Strong SEO** — server-rendered article HTML, metadata, JSON-LD, sitemap, and no broken URLs when a slug changes.
 - **Every UI honors the backend's 4-role RBAC.** The frontend hides what a role can't use; the backend enforces it. Never show a button that will 403.
 - **Small increments.** Each phase in §16 is one (or a few) working sessions. Nothing else gets built ahead of its phase.
 
@@ -108,7 +108,7 @@ excel_fe/
 │   │   ├── categories/[slug]/page.tsx
 │   │   ├── tags/[slug]/page.tsx     # Uses GET /posts?tag=
 │   │   ├── search/page.tsx
-│   │   ├── not-found.tsx            # Custom 404 (also receives WP misses)
+│   │   ├── not-found.tsx            # Custom 404 (also receives redirect misses)
 │   │   ├── newsletter/unsubscribe/page.tsx
 │   │   └── (auth)/                  # Centered card layout
 │   │       ├── login/page.tsx
@@ -158,7 +158,7 @@ excel_fe/
 ├── types/
 │   └── api.ts                       # Everything in §6 — single source of truth
 │
-├── proxy.ts                         # Next 16 middleware: /dashboard guard + WP redirects (§14)
+├── proxy.ts                         # Next 16 middleware: /dashboard guard + pagination rewrite (§14)
 └── docs/FRONTEND_PRD.md
 ```
 
@@ -539,7 +539,7 @@ Role helper (`lib/auth.ts`): `can(user, "posts:create")`, `can(user, "comments:m
 
 `PostDetail.content_json` is `{ blocks: Block[] }` (types in §6). The backend also returns `content_html` — a server-side render sanitized with **nh3** (strict allowlist; iframes allowed for embeds, schemes http/https/mailto). Backend auto-computes `reading_time_minutes` from `content_json`.
 
-**Public rendering (Phase 3):** prefer a React `BlockRenderer` walking `content_json` — full styling control and a clean upgrade path for interactive Excel blocks. `content_html` is the fallback for imported WP content that doesn't map to blocks. Because nh3 sanitizes at storage time, `dangerouslySetInnerHTML` on `content_html` is acceptable; everything else is escaped text.
+**Public rendering (Phase 3):** prefer a React `BlockRenderer` walking `content_json` — full styling control and a clean upgrade path for interactive Excel blocks. `content_html` is the fallback for HTML content that doesn't map to blocks. Because nh3 sanitizes at storage time, `dangerouslySetInnerHTML` on `content_html` is acceptable; everything else is escaped text.
 
 BlockRenderer component map:
 
@@ -554,7 +554,7 @@ BlockRenderer component map:
 | `image` | `next/image` (remotePatterns → R2 host) | alt required, lazy |
 | `table` | styled `<table>` | header row toggle; responsive overflow-x container |
 
-**Editor (Phase 5):** TipTap instance serializing to exactly these block types — heading (level), blockquote, codeBlock (language attr incl. `excel`), bullet/ordered list, image node (url + alt), table node, and an "embed/raw HTML" node stored as `{type:"html", html}`. On save: `editor.getDocument()` → blocks array → `content_json`. On load: blocks → TipTap JSON. Anything unrepresentable round-trips through the `html` block so WP-imported content never breaks.
+**Editor (Phase 5):** TipTap instance serializing to exactly these block types — heading (level), blockquote, codeBlock (language attr incl. `excel`), bullet/ordered list, image node (url + alt), table node, and an "embed/raw HTML" node stored as `{type:"html", html}`. On save: `editor.getDocument()` → blocks array → `content_json`. On load: blocks → TipTap JSON. Anything unrepresentable round-trips through the `html` block so such content never breaks.
 
 ---
 
@@ -658,7 +658,7 @@ Layout: three-pane — main TipTap canvas, right inspector (tabs: Post / SEO / A
 2. **JSON-LD:** article pages emit per `schema_type`; org + website schema on home.
 3. **Sitemap:** simplest reliable path — `next.config.ts` rewrite `/sitemap.xml` → `${API_URL}/sitemap.xml` (backend regenerates it on publish + 6h). Remove/replace Next's default.
 4. **robots.ts:** allow all, disallow `/dashboard`, `Noindex` for search/auth pages, sitemap pointer.
-5. **WordPress redirects (zero broken URLs):** in `proxy.ts`, on any pathname miss that looks like a WP URL (heuristics: `/yyyy/mm/…`, `/category/…`, old paths), call `GET /api/v1/redirects/{path}`; on hit → `redirect(new_path, redirect_type)`. To stay cheap, only look up when a rendered page would 404 — Next 16 pattern: do the lookup in `not-found` server flow via a lookup helper with a short revalidate cache. (Implementation detail flexible; requirement: no WP URL 404s if a redirect row exists.)
+5. **Redirects (no broken URLs):** in `proxy.ts`, on any pathname miss that looks like an old URL (heuristics: `/yyyy/mm/…`, `/category/…`, old paths), call `GET /api/v1/redirects/{path}`; on hit → `redirect(new_path, redirect_type)`. To stay cheap, only look up when a rendered page would 404 — Next 16 pattern: do the lookup in `not-found` server flow via a lookup helper with a short revalidate cache. (Implementation detail flexible; requirement: no old-URL 404s if a redirect row exists.)
 6. **Perf:** `next/image` with R2 `remotePatterns`, font subsetting (already), route-level ISR, client JS budget — public pages ship no heavy editor code (TipTap loads only under `/dashboard/posts/*` via dynamic import).
 
 ---
@@ -703,7 +703,7 @@ Public layout (header/footer/newsletter form), `PostCard`, home, blog index + pa
 
 ### Phase 5 — Post editor I (requires §17.1)
 Install TipTap set; editor page `/posts/new` + `/posts/[id]` (loads via new `GET /posts/{id}`); block serialization round-trip (§10); Post tab fields; create draft, edit, autosave; slug generation + validation.
-**Done when:** create → edit → save round-trips blocks without loss (incl. a WP-imported `html` block); slug conflicts surface cleanly.
+**Done when:** create → edit → save round-trips blocks without loss (incl. an `html` block); slug conflicts surface cleanly.
 
 ### Phase 6 — Post editor II — workflow + SEO + assets
 Workflow actions (submit/reject/publish/schedule with reason dialog); SEO tab + pixel hints; featured image via media dialog (if Phase 7 not reached, URL input as stopgap); assets tab (upload/list/download/delete); rejection banner for writers; seo_specialist SEO sheet on published posts.
@@ -738,8 +738,8 @@ Public `/search` page (debounced, shareable `?q=`); header search box on public 
 **Done when:** full email flows work against dev backend.
 
 ### Phase 14 — SEO & migration polish
-Sitemap rewrite, robots.ts, WP redirect lookup on 404 (§14.5), OG image fallback, canonical checks, `next/image` remote patterns final, remove demo leftovers (data.json…), favicon/branding.
-**Done when:** old WP URL with a redirect row lands on the new article; `/sitemap.xml` serves backend output.
+Sitemap rewrite, robots.ts, redirect lookup on 404 (§14.5), OG image fallback, canonical checks, `next/image` remote patterns final, remove demo leftovers (data.json…), favicon/branding.
+**Done when:** an old URL with a redirect row lands on the new article; `/sitemap.xml` serves backend output.
 
 ### Phase 15 — Hardening + deploy
 Empty/loading/error audit per §15; a11y pass (focus, labels, contrast, keyboard nav); Lighthouse ≥ 90 all categories on public pages; `pnpm build` clean; Dokploy service (§18); smoke test prod.
