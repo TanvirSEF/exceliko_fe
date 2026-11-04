@@ -147,7 +147,7 @@ export function TopicsExplorer({
       try {
         const params = new URLSearchParams(window.location.search)
         const topicFromUrl = params.get("topic")
-        const topicFromSession = sessionStorage.getItem("excelinsider_active_topic")
+        const topicFromSession = sessionStorage.getItem("exceliko_active_topic")
         const targetSlug = topicFromUrl || topicFromSession
 
         if (targetSlug && sortedCategories.some((c) => c.slug === targetSlug)) {
@@ -170,7 +170,7 @@ export function TopicsExplorer({
   const handleSelectCategory = (slug: string) => {
     setActiveSlug(slug)
     try {
-      sessionStorage.setItem("excelinsider_active_topic", slug)
+      sessionStorage.setItem("exceliko_active_topic", slug)
       const url = new URL(window.location.href)
       url.searchParams.set("topic", slug)
       window.history.replaceState(null, "", url.toString())

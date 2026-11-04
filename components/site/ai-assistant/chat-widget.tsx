@@ -56,7 +56,7 @@ function generateMessageId(prefix: string): string {
 }
 
 export function ChatWidget() {
-  const STORAGE_KEY = "excel_insider_cellie_chat_v1"
+  const STORAGE_KEY = "exceliko_cellie_chat_v1"
   const [isOpen, setIsOpen] = useState(false)
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [input, setInput] = useState("")

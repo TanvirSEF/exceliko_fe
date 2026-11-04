@@ -1,4 +1,4 @@
-# Excel Insider — Next.js Frontend Engineering Specification
+# Exceliko — Next.js Frontend Engineering Specification
 
 **Internal Technical PRD — v1.0**
 **Prepared by:** Tanvir Hasan, Zephlo
@@ -32,7 +32,7 @@
 
 ## 1. Overview & Goals
 
-Excel Insider is a headless architecture:
+Exceliko is a headless architecture:
 
 ```
 Next.js 16 (this repo) → FastAPI REST API (excel_be) → PostgreSQL + Redis + R2
@@ -654,7 +654,7 @@ Layout: three-pane — main TipTap canvas, right inspector (tabs: Post / SEO / A
 
 ## 14. SEO Requirements
 
-1. **Metadata:** every public page implements `generateMetadata` (title template `%s | Excel Insider`), description, canonical, OG/Twitter from post fields.
+1. **Metadata:** every public page implements `generateMetadata` (title template `%s | Exceliko`), description, canonical, OG/Twitter from post fields.
 2. **JSON-LD:** article pages emit per `schema_type`; org + website schema on home.
 3. **Sitemap:** simplest reliable path — `next.config.ts` rewrite `/sitemap.xml` → `${API_URL}/sitemap.xml` (backend regenerates it on publish + 6h). Remove/replace Next's default.
 4. **robots.ts:** allow all, disallow `/dashboard`, `Noindex` for search/auth pages, sitemap pointer.

@@ -1,6 +1,6 @@
-# Excel Insider — Frontend
+# Exceliko — Frontend
 
-Next.js 16 frontend for the Excel Insider blog: a public, SEO-first site and a role-aware team dashboard, served by the FastAPI backend.
+Next.js 16 frontend for the Exceliko blog: a public, SEO-first site and a role-aware team dashboard, served by the FastAPI backend.
 
 ## Stack
 
