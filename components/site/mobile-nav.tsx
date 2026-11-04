@@ -123,7 +123,11 @@ export function MobileNav({ groups = [] }: MobileNavProps) {
                       className={cn("space-y-1", index > 0 && "pt-1.5 border-t border-border/30")}
                     >
                       <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
-                        <IconFolders className="h-3.5 w-3.5" />
+                        {group.icon_url ? (
+                          <Image src={group.icon_url} alt="" width={20} height={20} className="h-5 w-5 rounded-md" />
+                        ) : (
+                          <IconFolders className="h-3.5 w-3.5" />
+                        )}
                         <span>{group.name}</span>
                       </p>
                       {group.slug === LEARNING_TRACK_GROUP_SLUG && (

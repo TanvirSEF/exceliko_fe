@@ -36,13 +36,13 @@ interface MainNavProps {
 function GroupHeading({ group, onNavigate }: { group: NavGroup; onNavigate: () => void }) {
   const content = (
     <>
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-brand/5 text-brand ring-1 ring-brand/20">
-        {group.icon_url ? (
-          <Image src={group.icon_url} alt="" width={20} height={20} className="h-5 w-5 object-contain" />
-        ) : (
+      {group.icon_url ? (
+        <Image src={group.icon_url} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-xl" />
+      ) : (
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-brand/5 text-brand ring-1 ring-brand/20">
           <IconLayoutGrid className="h-4.5 w-4.5" />
-        )}
-      </div>
+        </div>
+      )}
       <div className="min-w-0">
         <h3 className="text-[13px] font-bold uppercase tracking-wider text-brand">
           {group.name}

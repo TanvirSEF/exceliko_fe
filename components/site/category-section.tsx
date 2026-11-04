@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { IconArrowRight, IconFolder, IconFolders } from "@tabler/icons-react"
 
@@ -12,9 +13,13 @@ export function CategorySection({ group }: CategorySectionProps) {
     <section id={group.id} className="scroll-mt-24 space-y-6 pt-4">
       <div className="relative overflow-hidden rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/8 via-brand/3 to-transparent p-6 sm:p-8 backdrop-blur-sm dark:from-brand/20 dark:via-background dark:to-background">
         <div className="flex items-start gap-4">
-          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand/30 bg-brand/15 text-brand shadow-2xs">
-            <IconFolders className="h-6 w-6" />
-          </div>
+          {group.icon_url ? (
+            <Image src={group.icon_url} alt="" width={48} height={48} className="h-12 w-12 shrink-0 rounded-xl shadow-2xs" />
+          ) : (
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-brand/30 bg-brand/15 text-brand shadow-2xs">
+              <IconFolders className="h-6 w-6" />
+            </div>
+          )}
 
           <div className="space-y-1">
             <span className="text-xs sm:text-[13px] font-semibold text-muted-foreground">

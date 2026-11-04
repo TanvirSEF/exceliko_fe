@@ -5,6 +5,7 @@ export interface CategoryGroup {
   name: string
   slug: string | null
   description: string | null
+  icon_url: string | null
   items: Category[]
 }
 
@@ -20,6 +21,7 @@ export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
       name: category.name,
       slug: category.slug,
       description: category.description,
+      icon_url: category.icon_url,
       items: category.children,
     }))
 
@@ -30,6 +32,7 @@ export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
       name: groups.length > 0 ? "More Topics" : "Topics",
       slug: null,
       description: null,
+      icon_url: null,
       items: standalone,
     })
   }
@@ -38,13 +41,11 @@ export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
 }
 
 export function buildNavGroups(tree: Category[]): NavGroup[] {
-  const categoryById = new Map(tree.map((category) => [category.id, category]))
-
-  return buildCategoryGroups(tree).map(({ id, name, slug, description, items }) => ({
+  return buildCategoryGroups(tree).map(({ name, slug, description, icon_url, items }) => ({
     name,
     slug,
     description,
-    icon_url: categoryById.get(id)?.icon_url ?? null,
+    icon_url,
     items: items.map(toNavItem),
   }))
 }
