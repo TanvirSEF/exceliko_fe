@@ -29,7 +29,7 @@ export async function serverFetch<T>(
       next: { revalidate, tags },
       headers: {
         Accept: "application/json",
-        "User-Agent": "ExcelInsider-Web/1.0",
+        "User-Agent": "Exceliko-Web/1.0",
       },
     })
   } catch {

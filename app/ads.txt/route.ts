@@ -15,7 +15,7 @@ export async function GET() {
     const res = await fetch(url, {
       next: { revalidate: 86400 },
       headers: {
-        "User-Agent": "ExcelInsider-AdsTxt-Fetcher/1.0",
+        "User-Agent": "Exceliko-AdsTxt-Fetcher/1.0",
       },
     })
 

@@ -3,7 +3,7 @@
 **Internal Technical PRD — v1.0**
 **Prepared by:** Tanvir Hasan, Zephlo
 **Purpose:** A complete, implementation-ready frontend specification. Feed this document to an AI coding assistant (Claude Code, Cursor, etc.) **one phase at a time** — not all at once. Every phase is a small, independently shippable increment.
-**Companion doc:** `excel_be/docs/Excel Insider - FastAPI Backend PRD.md` (backend)
+**Companion doc:** `excel_be/docs/Exceliko - FastAPI Backend PRD.md` (backend)
 
 ---
 
