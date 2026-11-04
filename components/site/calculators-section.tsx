@@ -1,4 +1,5 @@
 import Link from "next/link"
+import type { TablerIcon } from "@tabler/icons-react"
 import {
   IconArrowRight,
   IconChartHistogram,
@@ -8,203 +9,156 @@ import {
 } from "@tabler/icons-react"
 
 import { SectionHeading } from "@/components/site/section-heading"
-import { ACCOUNTING_HUB, FINANCE_HUB, STATS_HUB } from "@/lib/calculators"
+import {
+  ACCOUNTING_HUB,
+  FINANCE_HUB,
+  STATS_HUB,
+  getAccountingCalculator,
+  getFinanceCalculator,
+  getStatsCalculator,
+  type CalculatorEntry,
+  type CalculatorHub,
+} from "@/lib/calculators"
 
-interface FeaturedTool {
-  name: string
-  slug: string
-}
-
-interface DomainCard {
+interface HubCard {
   id: string
   title: string
-  category: string
   description: string
-  hubHref: string
-  icon: typeof IconReportMoney
-  count: number
-  accentBg: string
-  accentText: string
-  accentBorder: string
-  badgeClass: string
-  tools: FeaturedTool[]
+  icon: TablerIcon
+  hub: CalculatorHub
+  find: (slug: string) => CalculatorEntry | undefined
+  featured: string[]
 }
 
-const DOMAIN_CARDS: DomainCard[] = [
+const HUB_CARDS: HubCard[] = [
   {
     id: "finance",
     title: "Financial & Investment",
-    category: "Finance Hub",
     description:
       "Model investment yields, calculate Internal Rate of Return (IRR), DRIP compounding, and analyze rental property ROI.",
-    hubHref: "/calculator/finance",
     icon: IconReportMoney,
-    count: FINANCE_HUB.groups.reduce((acc, g) => acc + g.calculators.length, 0),
-    accentBg: "bg-brand/10",
-    accentText: "text-brand",
-    accentBorder: "border-brand/30 group-hover:border-brand/60",
-    badgeClass: "bg-brand/10 text-brand border-brand/20",
-    tools: [
-      {
-        name: "Internal Rate of Return (IRR)",
-        slug: "internal-rate-of-return",
-      },
-      {
-        name: "Dividend Reinvestment (DRIP)",
-        slug: "dividend-reinvestment-plan",
-      },
-      {
-        name: "Rental Property ROI",
-        slug: "rental-property-roi",
-      },
-      {
-        name: "Stock Profit & Loss",
-        slug: "share-profit",
-      },
+    hub: FINANCE_HUB,
+    find: getFinanceCalculator,
+    featured: [
+      "internal-rate-of-return",
+      "dividend-reinvestment-plan",
+      "rental-property-roi",
+      "share-profit",
     ],
   },
   {
     id: "accounting",
     title: "Accounting & Business",
-    category: "Accounting Hub",
     description:
       "Calculate retail margins, working capital cycles, overtime wages, and tiered sales commission schedules.",
-    hubHref: "/calculator/accounting",
     icon: IconScale,
-    count: ACCOUNTING_HUB.groups.reduce((acc, g) => acc + g.calculators.length, 0),
-    accentBg: "bg-blue-500/10",
-    accentText: "text-blue-600 dark:text-blue-400",
-    accentBorder: "border-blue-500/30 group-hover:border-blue-500/60",
-    badgeClass: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20",
-    tools: [
-      {
-        name: "Retail Profit Margin",
-        slug: "retail-profit-margin",
-      },
-      {
-        name: "Payroll & Overtime Wages",
-        slug: "payroll-with-overtime",
-      },
-      {
-        name: "Cash Conversion Cycle",
-        slug: "cash-conversion-cycle",
-      },
-      {
-        name: "Sales Commission Tier",
-        slug: "sales-commission",
-      },
+    hub: ACCOUNTING_HUB,
+    find: getAccountingCalculator,
+    featured: [
+      "retail-profit-margin",
+      "payroll-with-overtime",
+      "cash-conversion-cycle",
+      "sales-commission",
     ],
   },
   {
     id: "statistics",
     title: "Statistics & Probability",
-    category: "Statistics Hub",
     description:
       "Run one-way ANOVA hypothesis tests, convert Z-scores to percentiles, and calculate weighted averages and geometric means.",
-    hubHref: "/calculator/statistics",
     icon: IconChartHistogram,
-    count: STATS_HUB.groups.reduce((acc, g) => acc + g.calculators.length, 0),
-    accentBg: "bg-slate-500/10",
-    accentText: "text-slate-600 dark:text-slate-300",
-    accentBorder: "border-slate-500/30 group-hover:border-slate-500/60",
-    badgeClass: "bg-slate-500/10 text-slate-600 dark:text-slate-300 border-slate-500/20",
-    tools: [
-      {
-        name: "Weighted Average Grade",
-        slug: "weighted-average-grade",
-      },
-      {
-        name: "One-Way ANOVA Test",
-        slug: "one-way-analysis-of-variance",
-      },
-      {
-        name: "Z-Score to Percentile",
-        slug: "z-score-to-percentile",
-      },
-      {
-        name: "Geometric Mean Rate",
-        slug: "geometric-mean",
-      },
+    hub: STATS_HUB,
+    find: getStatsCalculator,
+    featured: [
+      "weighted-average-grade",
+      "one-way-analysis-of-variance",
+      "z-score-to-percentile",
+      "geometric-mean",
     ],
   },
 ]
+
+function countCalculators(hub: CalculatorHub) {
+  return hub.groups.reduce((total, group) => total + group.calculators.length, 0)
+}
+
+const TOTAL_CALCULATORS = HUB_CARDS.reduce((total, card) => total + countCalculators(card.hub), 0)
 
 export function CalculatorsSection() {
   return (
     <section className="py-12 sm:py-16">
       <SectionHeading
-        badge="45 Free Tools"
+        badge={`${TOTAL_CALCULATORS} Free Tools`}
         title="Instant Browser-Based Calculators"
         subtitle="Three libraries of instant, browser-based calculators for statistics, finance, and accounting — every formula explained, every result step by step."
-        action={{ label: "View All 45 Calculators", href: "/calculator/" }}
+        action={{ label: `View All ${TOTAL_CALCULATORS} Calculators`, href: "/calculator/" }}
       />
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {DOMAIN_CARDS.map((card) => {
-          const Icon = card.icon
+        {HUB_CARDS.map((card) => {
+          const hubHref = `/calculator/${card.hub.slug}/`
+          const count = countCalculators(card.hub)
+          const tools = card.featured
+            .map((slug) => card.find(slug))
+            .filter((tool): tool is CalculatorEntry => Boolean(tool))
+
           return (
-            <div
+            <article
               key={card.id}
-              className={`group flex flex-col justify-between rounded-2xl border ${card.accentBorder} bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card p-6 shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl"
             >
-              <div>
-                <div className="flex items-center justify-between">
-                  <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-xl ${card.accentBg} ${card.accentText}`}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <span
-                    className={`inline-flex items-center rounded-full border px-2.5 py-1 text-xs sm:text-[13px] font-semibold ${card.badgeClass}`}
-                  >
-                    {card.count} Free Tools
-                  </span>
-                </div>
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand to-brand-light opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+              />
 
-                <div className="mt-4 space-y-1">
-                  <p className="text-xs sm:text-[13px] font-bold uppercase tracking-wider text-muted-foreground">
-                    {card.category}
-                  </p>
-                  <h3 className="text-lg sm:text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-primary">
-                    {card.title}
-                  </h3>
-                </div>
-
-                <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground sm:text-sm">
-                  {card.description}
-                </p>
-
-                <div className="mt-5 space-y-1.5 pt-4 border-t border-border/50">
-                  <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground/80 mb-2">
-                    Popular Calculators
-                  </p>
-                  {card.tools.map((tool) => (
-                    <Link
-                      key={tool.slug}
-                      href={`${card.hubHref}/${tool.slug}/`}
-                      prefetch={false}
-                      className="flex items-center justify-between p-2 rounded-lg text-[13px] sm:text-sm font-medium text-foreground hover:bg-muted/70 hover:text-primary transition-colors group/item"
-                    >
-                      <span className="truncate group-hover/item:translate-x-0.5 transition-transform">
-                        {tool.name}
-                      </span>
-                      <IconChevronRight className="h-4 w-4 text-muted-foreground group-hover/item:text-primary transition-colors shrink-0 ml-2" />
-                    </Link>
-                  ))}
-                </div>
+              <div className="flex items-start justify-between gap-3">
+                <span className="flex size-12 items-center justify-center rounded-xl bg-gradient-to-br from-navy to-navy-soft text-brand-light shadow-md ring-1 ring-navy/20">
+                  <card.icon className="size-6" />
+                </span>
+                <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+                  {count} calculators
+                </span>
               </div>
 
-              <div className="mt-5 pt-4 border-t border-border/50">
+              <h3 className="mt-5 text-xl font-bold tracking-tight text-foreground transition-colors group-hover:text-brand">
+                <Link href={hubHref} prefetch={false}>
+                  {card.title}
+                </Link>
+              </h3>
+              <p className="mt-2 text-[15px] leading-relaxed text-muted-foreground md:min-h-[4.6rem]">
+                {card.description}
+              </p>
+
+              <p className="mt-6 text-xs font-bold uppercase tracking-wider text-muted-foreground/80">
+                Popular
+              </p>
+              <ul className="mt-2 divide-y divide-border/60 border-y border-border/60">
+                {tools.map((tool) => (
+                  <li key={tool.slug}>
+                    <Link
+                      href={`${hubHref}${tool.slug}/`}
+                      prefetch={false}
+                      className="group/item flex items-center justify-between gap-3 py-2.5 text-sm font-medium text-foreground transition-colors hover:text-brand"
+                    >
+                      <span className="truncate">{tool.name}</span>
+                      <IconChevronRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover/item:translate-x-0.5 group-hover/item:text-brand" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="mt-auto pt-5">
                 <Link
-                  href={`${card.hubHref}/`}
+                  href={hubHref}
                   prefetch={false}
-                  className={`inline-flex items-center gap-1.5 text-[13px] sm:text-sm font-semibold ${card.accentText} hover:underline`}
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline"
                 >
-                  <span>Explore all {card.title} tools</span>
-                  <IconArrowRight className="h-4 w-4" />
+                  Explore all {count} tools
+                  <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </div>
-            </div>
+            </article>
           )
         })}
       </div>
