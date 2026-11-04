@@ -7,6 +7,7 @@ import { GoogleAnalytics } from "@/components/shared/google-analytics"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import { config } from "@/lib/config"
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
 const poppins = Poppins({
@@ -27,11 +28,10 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(config.siteUrl),
   title: {
-    default: "Exceliko | Spreadsheet Services, Templates & Courses",
+    default: SITE_TITLE,
     template: "%s | Exceliko",
   },
-  description:
-    "Practical, example-driven Excel articles — formulas, shortcuts, Power Query, VBA and more.",
+  description: SITE_DESCRIPTION,
   openGraph: {
     siteName: "Exceliko",
     type: "website",

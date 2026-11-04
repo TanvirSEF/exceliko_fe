@@ -1,6 +1,10 @@
 import { config } from "@/lib/config"
 import type { PostDetail, PostListItem, SeriesSummary } from "@/types/api"
 
+export const SITE_TITLE = "Exceliko | Excel & Google Sheets Tutorials & Calculators"
+export const SITE_DESCRIPTION =
+  "Learn Excel and Google Sheets with step-by-step tutorials, use free finance, accounting and statistics calculators, or get a custom spreadsheet built for you."
+
 export function buildArticleJsonLd(post: PostDetail, path?: string) {
   const image = post.og_image_url ?? post.featured_image_url
   const rawPath = path ?? `/blog/${post.slug}/`

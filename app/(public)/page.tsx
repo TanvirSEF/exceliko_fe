@@ -12,6 +12,7 @@ import { NewsletterBand } from "@/components/site/newsletter/newsletter-band"
 import { getCategoryTree } from "@/lib/api/categories"
 import { buildNavGroups, withPublishedPosts } from "@/lib/nav-groups"
 import { getCurriculum } from "@/lib/api/curriculum"
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/lib/seo"
 import { getPosts } from "@/lib/api/posts"
 import type { CurriculumModule, Page, PostListItem } from "@/types/api"
 
@@ -19,19 +20,20 @@ export const revalidate = 3600
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Exceliko | Spreadsheet Services, Templates & Courses",
+    absolute: SITE_TITLE,
   },
+  description: SITE_DESCRIPTION,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Exceliko | Spreadsheet Services, Templates & Courses",
-    description:
-      "Practical, example-driven Excel articles — formulas, shortcuts, Power Query, VBA and more.",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     url: "/",
     images: ["/og-default.png"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Exceliko | Spreadsheet Services, Templates & Courses",
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
     images: ["/og-default.png"],
   },
 }

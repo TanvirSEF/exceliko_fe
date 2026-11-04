@@ -1,170 +1,95 @@
 import Link from "next/link"
-import { IconArrowRight, IconFolder } from "@tabler/icons-react"
+import { IconArrowRight } from "@tabler/icons-react"
 
-import type { Category } from "@/types/api"
+import { HeroVisual } from "@/components/site/hero-visual"
 import { Button } from "@/components/ui/button"
+import type { Category } from "@/types/api"
 
-const SPREADSHEET_ROWS = [
-  { id: 2, month: "January",  revenue: "$12,400", growth: "8.2%",  negative: false, active: false },
-  { id: 3, month: "February", revenue: "$15,800", growth: "11.4%", negative: false, active: false },
-  { id: 4, month: "March",    revenue: "$19,350", growth: "22.5%", negative: false, active: true  },
-  { id: 5, month: "April",    revenue: "$17,900", growth: "-7.5%", negative: true,  active: false },
-  { id: 6, month: "May",      revenue: "$23,120", growth: "29.2%", negative: false, active: false },
+const CALCULATOR_TOPICS = [
+  { label: "Finance calculators", href: "/calculator/finance/" },
+  { label: "Accounting calculators", href: "/calculator/accounting/" },
+  { label: "Statistics calculators", href: "/calculator/statistics/" },
 ]
 
-function ExcelWindowMockup() {
-  return (
-    <div className="w-full overflow-hidden rounded-xl border border-primary-foreground/20 bg-primary-foreground text-xs sm:text-sm shadow-xl">
-      {/* Window chrome */}
-      <div className="flex items-center gap-2 border-b border-border bg-muted/60 px-4 py-3">
-        <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
-        <span className="h-2.5 w-2.5 rounded-full bg-chart-1/80" />
-        <span className="h-2.5 w-2.5 rounded-full bg-primary/80" />
-        <span className="ml-3 truncate font-mono text-xs text-muted-foreground">
-          Revenue_Analysis_2025.xlsx
-        </span>
-      </div>
-
-      {/* Formula bar */}
-      <div className="flex items-center gap-1.5 border-b border-border bg-background px-3 py-2">
-        <div className="flex w-10 shrink-0 items-center justify-center rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground">
-          B4
-        </div>
-        <span className="font-mono text-xs font-bold text-primary">fx</span>
-        <span className="font-mono text-xs text-foreground/80">
-          =<span className="text-primary">XLOOKUP</span>
-          <span className="text-muted-foreground">(A4, </span>
-          <span className="text-chart-2">Months</span>
-          <span className="text-muted-foreground">, </span>
-          <span className="text-chart-2">Revenue</span>
-          <span className="text-muted-foreground">)</span>
-        </span>
-      </div>
-
-      {/* Column headers */}
-      <div className="grid grid-cols-[32px_1fr_96px_72px] border-b border-border bg-muted/40 text-xs font-semibold tracking-wide text-muted-foreground">
-        <div className="border-r border-border py-1.5 text-center">#</div>
-        <div className="border-r border-border px-3 py-1.5">Month</div>
-        <div className="border-r border-border px-3 py-1.5 text-right">Revenue</div>
-        <div className="px-3 py-1.5 text-right">Growth</div>
-      </div>
-
-      {/* Data rows */}
-      {SPREADSHEET_ROWS.map((row) => (
-        <div
-          key={row.id}
-          className={`grid grid-cols-[32px_1fr_96px_72px] border-b border-border/50 text-xs last:border-0 transition-colors ${
-            row.active ? "bg-primary/8 font-medium" : "bg-background hover:bg-muted/30"
-          }`}
-        >
-          <div className={`border-r border-border/50 py-2.5 text-center font-mono text-xs ${row.active ? "font-bold text-primary" : "text-muted-foreground/40"}`}>
-            {row.id}
-          </div>
-          <div className={`border-r border-border/50 px-3 py-2.5 ${row.active ? "font-semibold text-foreground" : "text-foreground/80"}`}>
-            {row.month}
-            {row.active && (
-              <span className="ml-2 inline-flex items-center rounded bg-primary/12 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-primary">
-                active
-              </span>
-            )}
-          </div>
-          <div className={`border-r border-border/50 px-3 py-2.5 text-right font-mono ${row.active ? "font-bold text-primary" : "text-foreground/80"}`}>
-            {row.revenue}
-          </div>
-          <div className={`px-3 py-2.5 text-right font-mono font-medium ${row.negative ? "text-destructive" : row.active ? "font-bold text-primary" : "text-chart-2"}`}>
-            {row.growth}
-          </div>
-        </div>
-      ))}
-
-      {/* Status bar */}
-      <div className="flex items-center justify-between border-t border-border bg-muted/30 px-4 py-2 text-xs text-muted-foreground">
-        <span>Sheet1 · 5 rows · Formula verified</span>
-        <span className="font-semibold text-primary">Excel 365</span>
-      </div>
-    </div>
-  )
-}
-
 export function HomeHero({ categories = [] }: { categories?: Category[] }) {
-  const pills = categories.slice(0, 4)
+  const topics =
+    categories.length > 0
+      ? categories.slice(0, 4).map((category) => ({
+          label: category.name,
+          href: `/${category.slug}/`,
+        }))
+      : CALCULATOR_TOPICS
 
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
-      {/* Large glow - top right, cyan tinted */}
-      <div aria-hidden className="pointer-events-none absolute -right-40 -top-40 h-[580px] w-[580px] rounded-full bg-brand-light/12 blur-3xl" />
-      {/* Medium glow - center left */}
-      <div aria-hidden className="pointer-events-none absolute left-1/4 top-1/2 h-72 w-72 -translate-y-1/2 rounded-full bg-white/6 blur-3xl" />
-      {/* Small glow - bottom right */}
-      <div aria-hidden className="pointer-events-none absolute -bottom-16 right-1/4 h-48 w-48 rounded-full bg-white/8 blur-2xl" />
-      {/* Angular aurora ribbons */}
-      <div aria-hidden className="pointer-events-none absolute -left-24 -top-1/3 h-[170%] w-64 rotate-[20deg] bg-gradient-to-b from-brand-light/10 via-brand-light/4 to-transparent" />
-      <div aria-hidden className="pointer-events-none absolute left-1/4 -top-1/3 h-[170%] w-44 rotate-[20deg] bg-gradient-to-b from-white/6 to-transparent" />
-      {/* Diagonal shine streak */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 bg-gradient-to-bl from-white/8 via-transparent to-transparent" />
-      {/* Bottom fade into page */}
-      <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-background/15 to-transparent" />
+    <section
+      aria-labelledby="home-hero-title"
+      className="relative isolate w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(48rem_32rem_at_88%_0%,color-mix(in_oklab,var(--brand-light)_18%,transparent),transparent)]"
+      />
+      <div
+        aria-hidden
+        className="absolute -left-24 -top-1/3 -z-10 h-[170%] w-56 rotate-[20deg] bg-gradient-to-b from-brand-light/10 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="absolute left-1/4 -top-1/3 -z-10 h-[170%] w-40 rotate-[20deg] bg-gradient-to-b from-white/6 to-transparent"
+      />
 
-      <div className="relative mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-6 py-16 sm:py-20 lg:grid-cols-[1.35fr_1fr] lg:gap-12 xl:gap-16 lg:px-12 lg:py-24">
-
-        {/* ── Left: Content ── */}
-        <div className="space-y-8">
-
-          {/* H1 */}
-          <h1 className="text-2xl font-bold leading-[1.14] tracking-tight text-primary-foreground sm:text-[2rem] md:text-[2.2rem] lg:text-[2.15rem] xl:text-[2.5rem]">
-            <span className="block">
-              Custom Excel &amp; Google Sheets Solutions
-            </span>
+      <div className="mx-auto grid max-w-7xl items-center gap-8 px-5 py-12 sm:px-8 sm:py-14 lg:px-12 xl:grid-cols-[1.3fr_1fr] xl:py-12">
+        <div className="space-y-5">
+          <h1
+            id="home-hero-title"
+            className="text-balance text-[1.85rem] font-bold leading-[1.15] tracking-tight text-white sm:text-4xl xl:text-[2.6rem]"
+          >
+            Excel &amp; Google Sheets
             <span className="block text-brand-light">
-              Tools, Automation, Templates, Advanced Courses &amp; Free Tutorials
+              tutorials, calculators and custom solutions
             </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="max-w-xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-            Need a spreadsheet built, fixed, or automated? Our experts create solutions designed
-            around your business. Prefer to learn on your own? Start with our Power Query course or
-            explore our free tutorials.
+          <p className="max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
+            Learn formulas step by step, use free calculators, or have an expert build the
+            spreadsheet for you.
           </p>
 
-          {/* CTAs */}
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-1">
             <Button
               asChild
-              size="lg"
-              className="h-11 rounded-lg bg-primary-foreground px-6 text-sm sm:text-base font-semibold text-primary hover:bg-primary-foreground/90 shadow-none"
+              className="h-11 w-full rounded-lg bg-white px-6 text-[15px] font-semibold text-navy hover:bg-white/90 sm:w-auto"
             >
-              <Link href="/blog" className="flex items-center gap-2">
-                Browse Tutorials
-                <IconArrowRight className="h-4 w-4" />
+              <Link href="/calculator/">
+                Try free calculators
+                <IconArrowRight className="size-4" />
               </Link>
+            </Button>
+            <Button
+              asChild
+              variant="ghost"
+              className="h-11 w-full rounded-lg border border-white/25 px-6 text-[15px] font-semibold text-white hover:bg-white/10 hover:text-white dark:hover:bg-white/10 sm:w-auto"
+            >
+              <Link href="/blog/">Browse tutorials</Link>
             </Button>
           </div>
 
-          {pills.length > 0 ? (
-            <div className="border-t border-primary-foreground/15 pt-6 space-y-3">
-              <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/60">
-                Topics
-              </p>
-              <div className="flex flex-wrap gap-2">
-                {pills.map((pill) => (
-                  <Link
-                    key={pill.slug}
-                    href={`/${pill.slug}/`}
-                    className="flex items-center gap-1.5 rounded-md border border-primary-foreground/20 bg-primary-foreground/8 px-3 py-1.5 text-xs sm:text-[13px] font-medium text-primary-foreground/80 transition-colors hover:border-primary-foreground/40 hover:bg-primary-foreground/15 hover:text-primary-foreground"
-                  >
-                    <IconFolder className="h-4 w-4 shrink-0" />
-                    {pill.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          ) : null}
+          <ul className="flex flex-wrap gap-2 pt-1">
+            {topics.map((topic) => (
+              <li key={topic.href}>
+                <Link
+                  href={topic.href}
+                  className="inline-flex rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-[13px] font-medium text-white/80 transition-colors hover:border-white/40 hover:bg-white/12 hover:text-white"
+                >
+                  {topic.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* -- Right: Excel Mockup - hidden on mobile -- */}
-        <div className="hidden lg:block w-full max-w-[480px] lg:justify-self-end">
-          <ExcelWindowMockup />
+        <div className="hidden xl:block">
+          <HeroVisual />
         </div>
       </div>
     </section>
