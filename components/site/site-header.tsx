@@ -4,14 +4,14 @@ import Image from "next/image"
 import { MainNav } from "@/components/site/main-nav"
 import { MobileNav } from "@/components/site/mobile-nav"
 import { SearchDialog } from "@/components/site/search-dialog"
-import { getCategories } from "@/lib/api/categories"
+import { getCategoryTree } from "@/lib/api/categories"
 import { getPosts } from "@/lib/api/posts"
 import { buildNavGroups } from "@/lib/nav-groups"
 import type { NavGroup } from "@/types/api"
 
 export async function SiteHeader() {
   const [categories, trending] = await Promise.all([
-    getCategories(600).catch(() => []),
+    getCategoryTree(600),
     getPosts({ trending: true, page_size: 6 }, 600).catch(() => null),
   ])
   const navGroups: NavGroup[] = buildNavGroups(categories)

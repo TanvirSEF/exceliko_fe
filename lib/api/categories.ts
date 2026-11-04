@@ -5,6 +5,15 @@ export function getCategories(revalidate = 86400) {
   return serverFetch<Category[]>("/categories", { revalidate, tags: ["categories"] })
 }
 
+export async function getCategoryTree(revalidate = 86400) {
+  try {
+    return await getCategories(revalidate)
+  } catch (error) {
+    if (process.env.NEXT_PHASE === "phase-production-build") return []
+    throw error
+  }
+}
+
 export function getCategoryWithPosts(
   slug: string,
   { page = 1, page_size = 12 }: { page?: number; page_size?: number } = {},

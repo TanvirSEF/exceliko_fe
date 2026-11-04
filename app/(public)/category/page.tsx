@@ -5,7 +5,7 @@ import { IconArrowRight, IconCalculator } from "@tabler/icons-react"
 import { Breadcrumb } from "@/components/site/breadcrumb"
 import { CategoriesNavPills } from "@/components/site/categories-nav-pills"
 import { CategorySection } from "@/components/site/category-section"
-import { getCategories } from "@/lib/api/categories"
+import { getCategoryTree } from "@/lib/api/categories"
 import { buildCategoryGroups } from "@/lib/nav-groups"
 
 export const revalidate = 86400
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 }
 
 export default async function CategoriesPage() {
-  const categories = await getCategories().catch(() => [])
+  const categories = await getCategoryTree()
   const groups = buildCategoryGroups(categories)
 
   const navGroups = groups.map((group) => ({

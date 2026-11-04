@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { IconArrowUpRight } from "@tabler/icons-react"
 
-import { getCategories } from "@/lib/api/categories"
+import { getCategoryTree } from "@/lib/api/categories"
 import { buildNavGroups } from "@/lib/nav-groups"
 
 const SERVICES_LINKS = [
@@ -20,7 +20,7 @@ const COMPANY_LINKS = [
 ]
 
 export async function SiteFooter() {
-  const categories = await getCategories(600).catch(() => [])
+  const categories = await getCategoryTree(600)
   const exploreLinks = buildNavGroups(categories)
     .flatMap((group) => group.items)
     .slice(0, 5)

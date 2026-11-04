@@ -139,60 +139,64 @@ export function MainNav({ groups = [] }: MainNavProps) {
           />
         </button>
 
-        {activeMenu === "pricing" && (
-          <div
-            className="absolute top-full left-0 pt-1.5 z-50 animate-in fade-in-0 zoom-in-95 duration-150"
-            onMouseEnter={() => handleMouseEnter("pricing")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="w-72 p-2 rounded-xl shadow-xl border border-border/70 backdrop-blur-md bg-background/95">
-              <Link
-                prefetch={false}
-                href="/spreadsheet-solutions/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                  <IconUserCheck className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Services & Solutions</p>
-                  <p className="text-xs text-muted-foreground">Expert help plans from $19 — Basic, Premium & Advanced</p>
-                </div>
-              </Link>
+        <div
+          className={cn(
+            "absolute top-full left-0 pt-1.5 z-50",
+            activeMenu === "pricing"
+              ? "animate-in fade-in-0 zoom-in-95 duration-150"
+              : "invisible opacity-0 pointer-events-none"
+          )}
+          aria-hidden={activeMenu !== "pricing"}
+          onMouseEnter={() => handleMouseEnter("pricing")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="w-72 p-2 rounded-xl shadow-xl border border-border/70 backdrop-blur-md bg-background/95">
+            <Link
+              prefetch={false}
+              href="/spreadsheet-solutions/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                <IconUserCheck className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Services & Solutions</p>
+                <p className="text-xs text-muted-foreground">Expert help plans from $19 — Basic, Premium & Advanced</p>
+              </div>
+            </Link>
 
-              <Link
-                prefetch={false}
-                href="/custom-templates/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-                  <IconFileSpreadsheet className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Custom Templates</p>
-                  <p className="text-xs text-muted-foreground">Bespoke templates from $25 — Excel or Google Sheets</p>
-                </div>
-              </Link>
+            <Link
+              prefetch={false}
+              href="/custom-templates/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                <IconFileSpreadsheet className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Custom Templates</p>
+                <p className="text-xs text-muted-foreground">Bespoke templates from $25 — Excel or Google Sheets</p>
+              </div>
+            </Link>
 
-              <Link
-                prefetch={false}
-                href="/custom-tools/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
-                  <IconCode className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Custom Spreadsheet Tools</p>
-                  <p className="text-xs text-muted-foreground">Custom tools & Workspace add-ons from $500</p>
-                </div>
-              </Link>
-            </div>
+            <Link
+              prefetch={false}
+              href="/custom-tools/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                <IconCode className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Custom Spreadsheet Tools</p>
+                <p className="text-xs text-muted-foreground">Custom tools & Workspace add-ons from $500</p>
+              </div>
+            </Link>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Spreadsheet Blogs Mega Menu */}
@@ -219,85 +223,89 @@ export function MainNav({ groups = [] }: MainNavProps) {
           />
         </button>
 
-        {activeMenu === "blogs" && (
-          <div
-            className="absolute top-full -left-28 xl:-left-20 pt-1.5 z-50 animate-in fade-in-0 zoom-in-95 duration-150"
-            onMouseEnter={() => handleMouseEnter("blogs")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className={cn("rounded-2xl shadow-2xl border border-border/70 backdrop-blur-xl bg-background/98 p-4 sm:p-5", menuLayout.width)}>
-              {groups.length > 0 ? (
-                <div className={cn("grid gap-5", menuLayout.columns)}>
-                  {groups.map((group) => (
-                    <div key={group.slug ?? group.name} className="space-y-2">
-                      <GroupHeading group={group} onNavigate={() => setActiveMenu(null)} />
+        <div
+          className={cn(
+            "absolute top-full -left-28 xl:-left-20 pt-1.5 z-50",
+            activeMenu === "blogs"
+              ? "animate-in fade-in-0 zoom-in-95 duration-150"
+              : "invisible opacity-0 pointer-events-none"
+          )}
+          aria-hidden={activeMenu !== "blogs"}
+          onMouseEnter={() => handleMouseEnter("blogs")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className={cn("rounded-2xl shadow-2xl border border-border/70 backdrop-blur-xl bg-background/98 p-4 sm:p-5", menuLayout.width)}>
+            {groups.length > 0 ? (
+              <div className={cn("grid gap-5", menuLayout.columns)}>
+                {groups.map((group) => (
+                  <div key={group.slug ?? group.name} className="space-y-2">
+                    <GroupHeading group={group} onNavigate={() => setActiveMenu(null)} />
 
-                      {group.slug === LEARNING_TRACK_GROUP_SLUG && (
+                    {group.slug === LEARNING_TRACK_GROUP_SLUG && (
+                      <Link
+                        prefetch={false}
+                        href="/google-sheets"
+                        onClick={() => setActiveMenu(null)}
+                        className="flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 p-2 transition-colors hover:bg-brand/20"
+                      >
+                        <span className="text-[13px] font-bold text-brand">
+                          Learning Track — step-by-step course
+                        </span>
+                        <IconArrowRight className="h-3.5 w-3.5 shrink-0 text-brand" />
+                      </Link>
+                    )}
+
+                    <div className="space-y-0.5">
+                      {group.items.map((item) => (
                         <Link
                           prefetch={false}
-                          href="/google-sheets"
+                          key={item.slug}
+                          href={`/${item.slug}/`}
                           onClick={() => setActiveMenu(null)}
-                          className="flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 p-2 transition-colors hover:bg-brand/20"
+                          className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-muted/60 transition-colors group"
                         >
-                          <span className="text-[13px] font-bold text-brand">
-                            Learning Track — step-by-step course
-                          </span>
-                          <IconArrowRight className="h-3.5 w-3.5 shrink-0 text-brand" />
-                        </Link>
-                      )}
-
-                      <div className="space-y-0.5">
-                        {group.items.map((item) => (
-                          <Link
-                            prefetch={false}
-                            key={item.slug}
-                            href={`/${item.slug}/`}
-                            onClick={() => setActiveMenu(null)}
-                            className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-muted/60 transition-colors group"
-                          >
-                            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-brand/15 group-hover:text-brand transition-colors mt-0.5">
-                              <IconFileText className="h-3.5 w-3.5" />
-                            </div>
-                            <div className="min-w-0 space-y-0.5">
-                              <p className="truncate text-sm font-semibold text-foreground group-hover:text-brand transition-colors">
-                                {item.name}
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-brand/15 group-hover:text-brand transition-colors mt-0.5">
+                            <IconFileText className="h-3.5 w-3.5" />
+                          </div>
+                          <div className="min-w-0 space-y-0.5">
+                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-brand transition-colors">
+                              {item.name}
+                            </p>
+                            {item.description && (
+                              <p className="line-clamp-1 text-xs text-muted-foreground">
+                                {item.description}
                               </p>
-                              {item.description && (
-                                <p className="line-clamp-1 text-xs text-muted-foreground">
-                                  {item.description}
-                                </p>
-                              )}
-                            </div>
-                          </Link>
-                        ))}
-                      </div>
+                            )}
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <p className="py-4 text-center text-sm text-muted-foreground">
-                  Categories are on the way.
-                </p>
-              )}
-
-              <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between gap-3">
-                <p className="text-[13px] text-muted-foreground flex items-center gap-1.5">
-                  <IconBook2 className="h-3.5 w-3.5 text-primary" />
-                  <span>Looking for more? Explore all spreadsheet articles.</span>
-                </p>
-                <Link
-                  prefetch={false}
-                  href="/category"
-                  onClick={() => setActiveMenu(null)}
-                  className="inline-flex shrink-0 items-center gap-1 text-[13px] font-semibold text-primary hover:text-primary/80 transition-colors px-2.5 py-1 rounded-md hover:bg-primary/10"
-                >
-                  <span>Browse All Categories</span>
-                  <IconArrowRight className="h-3 w-3" />
-                </Link>
+                  </div>
+                ))}
               </div>
+            ) : (
+              <p className="py-4 text-center text-sm text-muted-foreground">
+                Categories are on the way.
+              </p>
+            )}
+
+            <div className="mt-4 pt-3 border-t border-border/60 flex items-center justify-between gap-3">
+              <p className="text-[13px] text-muted-foreground flex items-center gap-1.5">
+                <IconBook2 className="h-3.5 w-3.5 text-primary" />
+                <span>Looking for more? Explore all spreadsheet articles.</span>
+              </p>
+              <Link
+                prefetch={false}
+                href="/category"
+                onClick={() => setActiveMenu(null)}
+                className="inline-flex shrink-0 items-center gap-1 text-[13px] font-semibold text-primary hover:text-primary/80 transition-colors px-2.5 py-1 rounded-md hover:bg-primary/10"
+              >
+                <span>Browse All Categories</span>
+                <IconArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
-        )}
+        </div>
       </div>
 
       {/* Calculators Dropdown */}
@@ -324,72 +332,76 @@ export function MainNav({ groups = [] }: MainNavProps) {
           />
         </button>
 
-        {activeMenu === "calculators" && (
-          <div
-            className="absolute top-full left-0 pt-1.5 z-50 animate-in fade-in-0 zoom-in-95 duration-150"
-            onMouseEnter={() => handleMouseEnter("calculators")}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="w-72 p-2 rounded-xl shadow-xl border border-border/70 backdrop-blur-md bg-background/95">
-              <Link
-                prefetch={false}
-                href="/calculator/statistics/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
-                  <IconChartHistogram className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Statistics</p>
-                  <p className="text-xs text-muted-foreground">Mean, median, deviation & probability tools</p>
-                </div>
-              </Link>
+        <div
+          className={cn(
+            "absolute top-full left-0 pt-1.5 z-50",
+            activeMenu === "calculators"
+              ? "animate-in fade-in-0 zoom-in-95 duration-150"
+              : "invisible opacity-0 pointer-events-none"
+          )}
+          aria-hidden={activeMenu !== "calculators"}
+          onMouseEnter={() => handleMouseEnter("calculators")}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div className="w-72 p-2 rounded-xl shadow-xl border border-border/70 backdrop-blur-md bg-background/95">
+            <Link
+              prefetch={false}
+              href="/calculator/statistics/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-blue-500/10 text-blue-600 dark:text-blue-400">
+                <IconChartHistogram className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Statistics</p>
+                <p className="text-xs text-muted-foreground">Mean, median, deviation & probability tools</p>
+              </div>
+            </Link>
 
-              <Link
-                prefetch={false}
-                href="/calculator/finance/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
-                  <IconReportMoney className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Finance</p>
-                  <p className="text-xs text-muted-foreground">Loans, interest, investments & valuation</p>
-                </div>
-              </Link>
+            <Link
+              prefetch={false}
+              href="/calculator/finance/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                <IconReportMoney className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Finance</p>
+                <p className="text-xs text-muted-foreground">Loans, interest, investments & valuation</p>
+              </div>
+            </Link>
 
-              <Link
-                prefetch={false}
-                href="/calculator/accounting/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
-              >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
-                  <IconScale className="h-4 w-4" />
-                </div>
-                <div className="space-y-0.5">
-                  <p className="text-sm font-semibold text-foreground">Accounting</p>
-                  <p className="text-xs text-muted-foreground">Margin, markup, depreciation & tax</p>
-                </div>
-              </Link>
+            <Link
+              prefetch={false}
+              href="/calculator/accounting/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
+            >
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400">
+                <IconScale className="h-4 w-4" />
+              </div>
+              <div className="space-y-0.5">
+                <p className="text-sm font-semibold text-foreground">Accounting</p>
+                <p className="text-xs text-muted-foreground">Margin, markup, depreciation & tax</p>
+              </div>
+            </Link>
 
-              <div className="my-1.5 h-px bg-border/60" />
+            <div className="my-1.5 h-px bg-border/60" />
 
-              <Link
-                prefetch={false}
-                href="/calculator/"
-                onClick={() => setActiveMenu(null)}
-                className="flex items-center justify-between p-2 rounded-lg text-xs font-medium text-primary hover:text-primary hover:bg-muted/40 transition-colors"
-              >
-                <span>View All Calculators</span>
-                <IconArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
+            <Link
+              prefetch={false}
+              href="/calculator/"
+              onClick={() => setActiveMenu(null)}
+              className="flex items-center justify-between p-2 rounded-lg text-xs font-medium text-primary hover:text-primary hover:bg-muted/40 transition-colors"
+            >
+              <span>View All Calculators</span>
+              <IconArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
-        )}
+        </div>
       </div>
 
 

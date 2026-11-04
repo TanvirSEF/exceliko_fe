@@ -9,11 +9,11 @@ import { TopicsExplorer } from "@/components/site/topics-explorer"
 import { FaqSection } from "@/components/site/faq-section"
 import { CalculatorsSection } from "@/components/site/calculators-section"
 import { NewsletterBand } from "@/components/site/newsletter/newsletter-band"
-import { getCategories } from "@/lib/api/categories"
+import { getCategoryTree } from "@/lib/api/categories"
 import { buildNavGroups } from "@/lib/nav-groups"
 import { getCurriculum } from "@/lib/api/curriculum"
 import { getPosts } from "@/lib/api/posts"
-import type { Category, CurriculumModule, Page, PostListItem } from "@/types/api"
+import type { CurriculumModule, Page, PostListItem } from "@/types/api"
 
 export const revalidate = 3600
 
@@ -47,7 +47,7 @@ const emptyPosts: Page<PostListItem> = {
 export default async function HomePage() {
   const [trending, categories, trackModules] = await Promise.all([
     getPosts({ trending: true, page_size: 10 }, 300).catch(() => emptyPosts),
-    getCategories(300).catch(() => [] as Category[]),
+    getCategoryTree(300),
     getCurriculum(300).catch(() => [] as CurriculumModule[]),
   ])
 
