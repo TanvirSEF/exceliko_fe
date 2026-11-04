@@ -39,12 +39,12 @@ export default function AuthLayout({
 
         <Link href="/" className="relative block w-fit" aria-label="Exceliko">
           <Image
-            src="/logo.png"
+            src="/logo-light.png"
             alt="Exceliko"
-            width={233}
-            height={60}
+            width={1086}
+            height={362}
             priority
-            className="h-14 w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 
