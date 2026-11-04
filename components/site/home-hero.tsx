@@ -1,21 +1,8 @@
 import Link from "next/link"
-import {
-  IconArrowRight,
-  IconMathFunction,
-  IconTable,
-  IconCode,
-  IconChartBar,
-} from "@tabler/icons-react"
+import { IconArrowRight, IconFolder } from "@tabler/icons-react"
 
 import type { Category } from "@/types/api"
 import { Button } from "@/components/ui/button"
-
-const TOPIC_PILLS = [
-  { label: "Excel Formulas", href: "/excel-functions-formulas/", icon: IconMathFunction },
-  { label: "Google Sheets", href: "/google-sheets/", icon: IconTable },
-  { label: "VBA & Macros", href: "/excel-vba/", icon: IconCode },
-  { label: "Charts & Dashboards", href: "/excel-charts/", icon: IconChartBar },
-]
 
 const SPREADSHEET_ROWS = [
   { id: 2, month: "January",  revenue: "$12,400", growth: "8.2%",  negative: false, active: false },
@@ -99,15 +86,8 @@ function ExcelWindowMockup() {
   )
 }
 
-export function HomeHero({ categories }: { categories?: Category[] } = {}) {
-  const pills =
-    categories && categories.length > 0
-      ? categories.slice(0, 4).map((c) => ({
-          label: c.name,
-          href: `/${c.slug}/`,
-          icon: IconMathFunction,
-        }))
-      : TOPIC_PILLS
+export function HomeHero({ categories = [] }: { categories?: Category[] }) {
+  const pills = categories.slice(0, 4)
 
   return (
     <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
@@ -161,27 +141,25 @@ export function HomeHero({ categories }: { categories?: Category[] } = {}) {
             </Button>
           </div>
 
-          {/* Topic chips */}
-          <div className="border-t border-primary-foreground/15 pt-6 space-y-3">
-            <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/60">
-              Topics
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {pills.map((pill) => {
-                const Icon = pill.icon
-                return (
+          {pills.length > 0 ? (
+            <div className="border-t border-primary-foreground/15 pt-6 space-y-3">
+              <p className="text-xs font-semibold uppercase tracking-widest text-primary-foreground/60">
+                Topics
+              </p>
+              <div className="flex flex-wrap gap-2">
+                {pills.map((pill) => (
                   <Link
-                    key={pill.label}
-                    href={pill.href}
+                    key={pill.slug}
+                    href={`/${pill.slug}/`}
                     className="flex items-center gap-1.5 rounded-md border border-primary-foreground/20 bg-primary-foreground/8 px-3 py-1.5 text-xs sm:text-[13px] font-medium text-primary-foreground/80 transition-colors hover:border-primary-foreground/40 hover:bg-primary-foreground/15 hover:text-primary-foreground"
                   >
-                    <Icon className="h-4 w-4 shrink-0" />
-                    {pill.label}
+                    <IconFolder className="h-4 w-4 shrink-0" />
+                    {pill.name}
                   </Link>
-                )
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
 
         {/* -- Right: Excel Mockup - hidden on mobile -- */}

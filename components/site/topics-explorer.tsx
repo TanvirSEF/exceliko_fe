@@ -14,132 +14,28 @@ import { SectionHeading } from "@/components/site/section-heading"
 import { Skeleton } from "@/components/ui/skeleton"
 import { usePostsByCategory } from "@/lib/queries/posts"
 import { cn } from "@/lib/utils"
-import type { Category, PostListItem } from "@/types/api"
+import type { NavGroup, PostListItem } from "@/types/api"
 
 interface TopicsExplorerProps {
-  categories: Category[]
+  groups: NavGroup[]
   initialCategorySlug?: string
   initialPosts?: PostListItem[]
 }
 
-const FALLBACK_CATEGORIES: Category[] = [
-  {
-    id: "1",
-    name: "Excel Formulas",
-    slug: "formulas",
-    parent_id: null,
-    order_index: 1,
-    description: "Formulas and functions articles",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-  {
-    id: "2",
-    name: "VBA & Macros",
-    slug: "vba-macros",
-    parent_id: null,
-    order_index: 2,
-    description: "VBA and automation tutorials",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-  {
-    id: "3",
-    name: "Charts & Dashboards",
-    slug: "dashboards",
-    parent_id: null,
-    order_index: 3,
-    description: "Data visualization and reporting",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-  {
-    id: "4",
-    name: "Google Sheets",
-    slug: "google-sheets",
-    parent_id: null,
-    order_index: 4,
-    description: "Cloud spreadsheet tutorials",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-  {
-    id: "5",
-    name: "Data Analysis & Power Query",
-    slug: "data-analysis",
-    parent_id: null,
-    order_index: 5,
-    description: "Data cleaning and transformation",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-  {
-    id: "6",
-    name: "Finance & Accounting",
-    slug: "finance",
-    parent_id: null,
-    order_index: 6,
-    description: "Financial modeling and valuation",
-    icon_url: null,
-    color_hex: null,
-    is_featured: true,
-    seo_title: null,
-    seo_description: null,
-    children: [],
-  },
-]
-
-function isGoogle(cat: Category) {
-  const slug = cat.slug.toLowerCase()
-  const name = cat.name.toLowerCase()
-  return (
-    slug.includes("google") ||
-    slug.includes("sheets") ||
-    name.includes("google") ||
-    name.includes("sheets")
-  )
+export function TopicsExplorer(props: TopicsExplorerProps) {
+  if (props.groups.every((group) => group.items.length === 0)) return null
+  return <TopicsExplorerContent {...props} />
 }
 
-export function TopicsExplorer({
-  categories = [],
+function TopicsExplorerContent({
+  groups,
   initialCategorySlug,
   initialPosts = [],
 }: TopicsExplorerProps) {
-  const displayCategories =
-    categories.length > 0 ? categories : FALLBACK_CATEGORIES
-
-  const { excelCategories, googleCategories, sortedCategories } = useMemo(() => {
-    const excel = displayCategories.filter((c) => !isGoogle(c))
-    const google = displayCategories.filter((c) => isGoogle(c))
-    return {
-      excelCategories: excel,
-      googleCategories: google,
-      sortedCategories: [...excel, ...google],
-    }
-  }, [displayCategories])
+  const items = useMemo(() => groups.flatMap((group) => group.items), [groups])
 
   const [activeSlug, setActiveSlug] = useState<string>(
-    initialCategorySlug || sortedCategories[0]?.slug || "formulas"
+    initialCategorySlug || items[0].slug
   )
 
   useEffect(() => {
@@ -150,7 +46,7 @@ export function TopicsExplorer({
         const topicFromSession = sessionStorage.getItem("exceliko_active_topic")
         const targetSlug = topicFromUrl || topicFromSession
 
-        if (targetSlug && sortedCategories.some((c) => c.slug === targetSlug)) {
+        if (targetSlug && items.some((item) => item.slug === targetSlug)) {
           setActiveSlug(targetSlug)
         }
       } catch {
@@ -165,7 +61,7 @@ export function TopicsExplorer({
       window.removeEventListener("popstate", syncTopic)
       window.removeEventListener("pageshow", syncTopic)
     }
-  }, [sortedCategories])
+  }, [items])
 
   const handleSelectCategory = (slug: string) => {
     setActiveSlug(slug)
@@ -179,10 +75,7 @@ export function TopicsExplorer({
     }
   }
 
-  const activeCategory =
-    sortedCategories.find((c) => c.slug === activeSlug) ||
-    sortedCategories[0] ||
-    FALLBACK_CATEGORIES[0]
+  const activeCategory = items.find((item) => item.slug === activeSlug) ?? items[0]
 
   const { data: postsData, isPending } = usePostsByCategory(
     activeSlug,
@@ -204,8 +97,8 @@ export function TopicsExplorer({
     <section id="topics-explorer" className="py-14 sm:py-18 scroll-mt-20">
       <SectionHeading
         badge="Topic Directory"
-        title="All Topics from Excel & Google Sheets"
-        subtitle="Explore in-depth articles across every Excel and Google Sheets category. Select any topic to view the latest tutorials."
+        title="All Topics"
+        subtitle="Explore in-depth articles across every category. Select any topic to view the latest tutorials."
         action={{
           label: `Browse ${activeCategory.name} archive`,
           href: `/${activeCategory.slug}/`,
@@ -217,13 +110,13 @@ export function TopicsExplorer({
         <div className="flex flex-col gap-2 h-full">
           {/* Mobile Horizontal Category Bar */}
           <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none lg:hidden">
-            {sortedCategories.map((category) => {
-              const isActive = category.slug === activeSlug
+            {items.map((item) => {
+              const isActive = item.slug === activeSlug
               return (
                 <button
-                  key={category.id || category.slug}
+                  key={item.slug}
                   type="button"
-                  onClick={() => handleSelectCategory(category.slug)}
+                  onClick={() => handleSelectCategory(item.slug)}
                   className={cn(
                     "flex shrink-0 items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition-all cursor-pointer whitespace-nowrap",
                     isActive
@@ -231,7 +124,7 @@ export function TopicsExplorer({
                       : "border border-border/80 bg-card text-muted-foreground hover:border-primary/40 hover:text-foreground"
                   )}
                 >
-                  <span>{category.name}</span>
+                  <span>{item.name}</span>
                 </button>
               )
             })}
@@ -239,62 +132,20 @@ export function TopicsExplorer({
 
           {/* Desktop Vertical Category Sidebar */}
           <div className="hidden lg:flex flex-col gap-1 rounded-2xl border border-primary/50 bg-card p-3 shadow-2xs h-full">
-            <p className="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-muted-foreground/75">
-              Excel Topics
-            </p>
-            {excelCategories.map((category) => {
-              const isActive = category.slug === activeSlug
-              const Icon = isActive ? IconFolderOpen : IconFolder
-              return (
-                <button
-                  key={category.id || category.slug}
-                  type="button"
-                  onClick={() => handleSelectCategory(category.slug)}
-                  className={cn(
-                    "group flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium transition-all duration-200 text-left cursor-pointer",
-                    isActive
-                      ? "bg-primary text-primary-foreground font-semibold shadow-xs"
-                      : "text-foreground/80 hover:bg-muted/70 hover:text-foreground"
-                  )}
-                >
-                  <div className="flex items-center gap-2.5 truncate">
-                    <Icon
-                      className={cn(
-                        "h-4 w-4 shrink-0 transition-colors",
-                        isActive
-                          ? "text-primary-foreground"
-                          : "text-primary"
-                      )}
-                    />
-                    <span className="truncate">{category.name}</span>
-                  </div>
-
-                  <IconArrowRight
-                    className={cn(
-                      "h-3.5 w-3.5 shrink-0 transition-transform duration-200",
-                      isActive
-                        ? "text-primary-foreground translate-x-0.5"
-                        : "opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 text-muted-foreground"
-                    )}
-                  />
-                </button>
-              )
-            })}
-
-            {googleCategories.length > 0 ? (
-              <>
-                <div className="my-2 border-t border-border/60" />
-                <p className="px-3 pt-1 pb-1 text-xs font-bold uppercase tracking-wider text-muted-foreground/75">
-                  Google Sheets
+            {groups.map((group, groupIndex) => (
+              <div key={group.slug ?? group.name} className="flex flex-col gap-1">
+                {groupIndex > 0 ? <div className="my-2 border-t border-border/60" /> : null}
+                <p className="px-3 pt-2 pb-1 text-xs font-bold uppercase tracking-wider text-muted-foreground/75">
+                  {group.name}
                 </p>
-                {googleCategories.map((category) => {
-                  const isActive = category.slug === activeSlug
+                {group.items.map((item) => {
+                  const isActive = item.slug === activeSlug
                   const Icon = isActive ? IconFolderOpen : IconFolder
                   return (
                     <button
-                      key={category.id || category.slug}
+                      key={item.slug}
                       type="button"
-                      onClick={() => handleSelectCategory(category.slug)}
+                      onClick={() => handleSelectCategory(item.slug)}
                       className={cn(
                         "group flex w-full items-center justify-between rounded-xl px-3.5 py-2.5 text-[15px] font-medium transition-all duration-200 text-left cursor-pointer",
                         isActive
@@ -306,12 +157,10 @@ export function TopicsExplorer({
                         <Icon
                           className={cn(
                             "h-4 w-4 shrink-0 transition-colors",
-                            isActive
-                              ? "text-primary-foreground"
-                              : "text-primary"
+                            isActive ? "text-primary-foreground" : "text-primary"
                           )}
                         />
-                        <span className="truncate">{category.name}</span>
+                        <span className="truncate">{item.name}</span>
                       </div>
 
                       <IconArrowRight
@@ -325,8 +174,8 @@ export function TopicsExplorer({
                     </button>
                   )
                 })}
-              </>
-            ) : null}
+              </div>
+            ))}
           </div>
         </div>
 

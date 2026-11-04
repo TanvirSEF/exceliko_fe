@@ -1,33 +1,20 @@
 "use client"
 
-import type { TablerIcon } from "@tabler/icons-react"
-import { IconBrandGoogle, IconBrandOffice, IconFolder, IconLayoutGrid } from "@tabler/icons-react"
-
-import { cn } from "@/lib/utils"
+import { IconFolder, IconLayoutGrid } from "@tabler/icons-react"
 
 interface CategoriesNavPillsProps {
   groups: {
     id: string
     title: string
-    platform: "excel" | "google" | "other"
     count: number
   }[]
 }
 
-const PLATFORM_ICONS: Record<string, TablerIcon> = {
-  excel: IconBrandOffice,
-  google: IconBrandGoogle,
-  other: IconFolder,
-}
-
 export function CategoriesNavPills({ groups }: CategoriesNavPillsProps) {
-  const totalCount = groups.reduce((acc, g) => acc + g.count, 0)
+  const totalCount = groups.reduce((acc, group) => acc + group.count, 0)
 
   const scrollToSection = (id: string) => {
-    const el = document.getElementById(id)
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
   return (
@@ -44,42 +31,20 @@ export function CategoriesNavPills({ groups }: CategoriesNavPillsProps) {
         </span>
       </button>
 
-      {groups.map((group) => {
-        const Icon = PLATFORM_ICONS[group.platform] ?? IconFolder
-        const isExcel = group.platform === "excel"
-        const isGoogle = group.platform === "google"
-
-        return (
-          <button
-            key={group.id}
-            type="button"
-            onClick={() => scrollToSection(group.id)}
-            className={cn(
-              "inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs",
-              isExcel &&
-                "border-brand/30 bg-brand/10 text-brand hover:bg-brand/20 hover:border-brand/50",
-              isGoogle &&
-                "border-brand/30 bg-brand/10 text-brand hover:bg-brand/20 hover:border-brand/50",
-              !isExcel &&
-                !isGoogle &&
-                "border-border/80 bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
-            )}
-          >
-            <Icon className="h-4 w-4 shrink-0" />
-            <span>{group.title}</span>
-            <span
-              className={cn(
-                "rounded-full px-2 py-0.5 text-xs font-semibold",
-                isExcel && "bg-brand/20 text-brand",
-                isGoogle && "bg-brand/20 text-brand",
-                !isExcel && !isGoogle && "bg-background text-muted-foreground"
-              )}
-            >
-              {group.count}
-            </span>
-          </button>
-        )
-      })}
+      {groups.map((group) => (
+        <button
+          key={group.id}
+          type="button"
+          onClick={() => scrollToSection(group.id)}
+          className="inline-flex items-center gap-2 rounded-full border border-brand/30 bg-brand/10 px-4 py-1.5 text-xs sm:text-sm font-semibold text-brand transition-all cursor-pointer shadow-2xs hover:bg-brand/20 hover:border-brand/50"
+        >
+          <IconFolder className="h-4 w-4 shrink-0" />
+          <span>{group.title}</span>
+          <span className="rounded-full bg-brand/20 px-2 py-0.5 text-xs font-semibold text-brand">
+            {group.count}
+          </span>
+        </button>
+      ))}
     </div>
   )
 }

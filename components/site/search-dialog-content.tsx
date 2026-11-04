@@ -5,10 +5,7 @@ import { useRouter } from "next/navigation"
 import {
   IconSearch,
   IconArrowRight,
-  IconMathFunction,
-  IconTable,
-  IconCode,
-  IconChartBar,
+  IconFolder,
   IconX,
   IconCornerDownLeft,
 } from "@tabler/icons-react"
@@ -19,31 +16,21 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-
-const QUICK_CATEGORIES = [
-  { label: "Excel Formulas", href: "/excel-functions-formulas/", icon: IconMathFunction, color: "text-brand bg-brand/10" },
-  { label: "Google Sheets", href: "/google-sheets-basics/", icon: IconTable, color: "text-brand bg-brand/10" },
-  { label: "VBA & Macros", href: "/excel-vba/", icon: IconCode, color: "text-amber-500 bg-amber-500/10" },
-  { label: "Charts & Visuals", href: "/excel-charts/", icon: IconChartBar, color: "text-purple-500 bg-purple-500/10" },
-]
-
-const POPULAR_SEARCHES = [
-  "VLOOKUP Formula",
-  "XLOOKUP vs VLOOKUP",
-  "INDEX MATCH Tutorial",
-  "Conditional Formatting",
-  "Google Sheets QUERY",
-  "Excel Pivot Tables",
-  "SUMIFS Multiple Criteria",
-  "VBA Macro Loop",
-]
+import type { NavItem } from "@/types/api"
 
 interface SearchDialogContentProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  categories: NavItem[]
+  trendingTitles: string[]
 }
 
-export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentProps) {
+export function SearchDialogContent({
+  open,
+  onOpenChange,
+  categories,
+  trendingTitles,
+}: SearchDialogContentProps) {
   const [query, setQuery] = useState("")
   const router = useRouter()
 
@@ -107,51 +94,52 @@ export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentP
         </form>
 
         <div className="max-h-[60vh] overflow-y-auto p-5 space-y-6">
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-              Browse Categories
-            </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {QUICK_CATEGORIES.map((cat) => {
-                const Icon = cat.icon
-                return (
+          {categories.length > 0 ? (
+            <div className="space-y-2.5">
+              <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+                Browse Categories
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {categories.map((category) => (
                   <button
-                    key={cat.label}
+                    key={category.slug}
                     type="button"
-                    onClick={() => handleNavigate(cat.href)}
+                    onClick={() => handleNavigate(`/${category.slug}/`)}
                     className="group flex items-center gap-2.5 rounded-xl border border-border/50 bg-muted/20 p-2.5 text-left text-sm font-medium text-foreground transition-all duration-150 hover:border-border hover:bg-muted/60"
                   >
-                    <div className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-lg ${cat.color}`}>
-                      <Icon className="h-4 w-4" />
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
+                      <IconFolder className="h-4 w-4" />
                     </div>
-                    <span className="truncate">{cat.label}</span>
+                    <span className="truncate">{category.name}</span>
                   </button>
-                )
-              })}
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
 
-          <div className="space-y-2.5">
-            <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
-              Popular Searches
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
-              {POPULAR_SEARCHES.map((topic) => (
-                <button
-                  key={topic}
-                  type="button"
-                  onClick={() => handleSelectTopic(topic)}
-                  className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
-                >
-                  <div className="flex items-center gap-2 truncate">
-                    <IconSearch className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand dark:group-hover:text-brand" />
-                    <span className="truncate">{topic}</span>
-                  </div>
-                  <IconArrowRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100 text-muted-foreground" />
-                </button>
-              ))}
+          {trendingTitles.length > 0 ? (
+            <div className="space-y-2.5">
+              <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
+                Trending Now
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5">
+                {trendingTitles.map((title) => (
+                  <button
+                    key={title}
+                    type="button"
+                    onClick={() => handleSelectTopic(title)}
+                    className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
+                  >
+                    <div className="flex items-center gap-2 truncate">
+                      <IconSearch className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand" />
+                      <span className="truncate">{title}</span>
+                    </div>
+                    <IconArrowRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100 text-muted-foreground" />
+                  </button>
+                ))}
+              </div>
             </div>
-          </div>
+          ) : null}
         </div>
 
         <div className="flex items-center justify-between border-t border-border/50 bg-muted/20 px-5 py-2.5 text-xs text-muted-foreground">

@@ -4,12 +4,19 @@ import { useEffect, useState } from "react"
 import dynamic from "next/dynamic"
 import { IconSearch } from "@tabler/icons-react"
 
+import type { NavItem } from "@/types/api"
+
 const SearchDialogContent = dynamic(
   () => import("./search-dialog-content").then((m) => m.SearchDialogContent),
   { ssr: false }
 )
 
-export function SearchDialog() {
+interface SearchDialogProps {
+  categories?: NavItem[]
+  trendingTitles?: string[]
+}
+
+export function SearchDialog({ categories = [], trendingTitles = [] }: SearchDialogProps) {
   const [open, setOpen] = useState(false)
 
   useEffect(() => {
@@ -38,7 +45,14 @@ export function SearchDialog() {
         </kbd>
       </button>
 
-      {open && <SearchDialogContent open={open} onOpenChange={setOpen} />}
+      {open && (
+        <SearchDialogContent
+          open={open}
+          onOpenChange={setOpen}
+          categories={categories}
+          trendingTitles={trendingTitles}
+        />
+      )}
     </>
   )
 }

@@ -71,14 +71,6 @@ const resolvePath = cache(
     return { type: "redirect", target: `${pathname}/`, isPermanent: true }
   }
 
-  if (path.length === 1 && path[0] === "excel-functions-and-formulas") {
-    return {
-      type: "redirect",
-      target: "/excel-functions-formulas/",
-      isPermanent: true,
-    }
-  }
-
   // 1. Check if 2 segments match a category topic / series hub: /<category>/<topic>/
   if (path.length === 2) {
     const [catSlug, topicSlug] = path

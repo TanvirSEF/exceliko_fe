@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import type { TablerIcon } from "@tabler/icons-react"
 import {
   IconArrowRight,
   IconBrandGoogle,
@@ -9,8 +8,6 @@ import {
 
 import { Breadcrumb } from "@/components/site/breadcrumb"
 import { getCurriculum } from "@/lib/api/curriculum"
-import { GOOGLE_CURATED_TOPICS } from "@/lib/category-topics"
-import { curatedTopics } from "@/lib/curriculum-curation"
 import type { CurriculumModule } from "@/types/api"
 
 export const revalidate = 86400
@@ -20,12 +17,6 @@ export const metadata: Metadata = {
   description:
     "Master Google Sheets with a structured learning track: basics, functions, formulas, intermediate skills, charts and Apps Script — in order, lesson by lesson.",
   alternates: { canonical: "/google-sheets/" },
-}
-
-function moduleIcon(slug: string, className: string) {
-  const Icon: TablerIcon =
-    GOOGLE_CURATED_TOPICS.find((topic) => topic.slug === slug)?.icon ?? IconTable
-  return <Icon className={className} />
 }
 
 export default async function GoogleSheetsHubPage() {
@@ -58,7 +49,7 @@ export default async function GoogleSheetsHubPage() {
               href={`/google-sheets/${firstLesson}`}
               className="inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-brand px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand"
             >
-              {moduleIcon(modules[0].slug, "h-4.5 w-4.5")}
+              <IconTable className="h-4.5 w-4.5" />
               Start Learning
               <IconArrowRight className="h-4 w-4" />
             </Link>
@@ -68,12 +59,12 @@ export default async function GoogleSheetsHubPage() {
 
       <div className="mt-12 space-y-14">
         {modules.map((module, moduleIndex) => {
-          const topics = curatedTopics(module.slug, module.topics)
+          const topics = module.topics
           return (
             <section key={module.slug} id={module.slug} aria-labelledby={`module-${module.slug}`}>
               <div className="flex items-start gap-4">
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand">
-                  {moduleIcon(module.slug, "h-6 w-6")}
+                  <IconTable className="h-6 w-6" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">

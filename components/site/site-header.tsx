@@ -5,17 +5,18 @@ import { MainNav } from "@/components/site/main-nav"
 import { MobileNav } from "@/components/site/mobile-nav"
 import { SearchDialog } from "@/components/site/search-dialog"
 import { getCategories } from "@/lib/api/categories"
+import { getPosts } from "@/lib/api/posts"
 import { buildNavGroups } from "@/lib/nav-groups"
 import type { NavGroup } from "@/types/api"
 
 export async function SiteHeader() {
-  let navGroups: NavGroup[] = []
-
-  try {
-    navGroups = buildNavGroups(await getCategories(600))
-  } catch {
-    navGroups = []
-  }
+  const [categories, trending] = await Promise.all([
+    getCategories(600).catch(() => []),
+    getPosts({ trending: true, page_size: 6 }, 600).catch(() => null),
+  ])
+  const navGroups: NavGroup[] = buildNavGroups(categories)
+  const searchCategories = navGroups.flatMap((group) => group.items).slice(0, 6)
+  const trendingTitles = (trending?.items ?? []).map((post) => post.title)
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/85 backdrop-blur-md supports-backdrop-filter:bg-background/70 shadow-2xs transition-all">
@@ -47,7 +48,7 @@ export async function SiteHeader() {
         <MainNav groups={navGroups} />
 
         <div className="flex items-center gap-2 sm:gap-3">
-          <SearchDialog />
+          <SearchDialog categories={searchCategories} trendingTitles={trendingTitles} />
 
           <MobileNav groups={navGroups} />
         </div>

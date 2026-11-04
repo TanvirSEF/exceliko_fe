@@ -10,6 +10,7 @@ import { FaqSection } from "@/components/site/faq-section"
 import { CalculatorsSection } from "@/components/site/calculators-section"
 import { NewsletterBand } from "@/components/site/newsletter/newsletter-band"
 import { getCategories } from "@/lib/api/categories"
+import { buildNavGroups } from "@/lib/nav-groups"
 import { getCurriculum } from "@/lib/api/curriculum"
 import { getPosts } from "@/lib/api/posts"
 import type { Category, CurriculumModule, Page, PostListItem } from "@/types/api"
@@ -51,6 +52,7 @@ export default async function HomePage() {
   ])
 
   const featuredCategories = categories.filter((c) => c.is_featured)
+  const navGroups = buildNavGroups(categories)
 
   return (
     <>
@@ -74,10 +76,7 @@ export default async function HomePage() {
         {/* 6. Comprehensive Topic Directory (Category Tabs + Live Filtered Posts) */}
         <div className="border-t border-border/60">
           <QueryProvider>
-            <TopicsExplorer
-              categories={categories}
-              initialCategorySlug={categories[0]?.slug}
-            />
+            <TopicsExplorer groups={navGroups} />
           </QueryProvider>
         </div>
 

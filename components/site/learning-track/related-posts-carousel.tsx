@@ -7,19 +7,21 @@ import { PostCard } from "@/components/site/post-card"
 import { cn } from "@/lib/utils"
 import type { PostListItem } from "@/types/api"
 
-interface GoogleSheetsCarouselProps {
+interface RelatedPostsCarouselProps {
   posts: PostListItem[]
-  title?: string
+  title: string
+  label?: string
   subtitle?: string
   className?: string
 }
 
-export function GoogleSheetsCarousel({
+export function RelatedPostsCarousel({
   posts,
-  title = "Related Google Sheets Basics Articles",
-  subtitle = "Master the fundamentals with these step-by-step spreadsheet tutorials",
+  title,
+  label,
+  subtitle,
   className,
-}: GoogleSheetsCarouselProps) {
+}: RelatedPostsCarouselProps) {
   const scrollRef = useRef<HTMLDivElement>(null)
   const [canScrollLeft, setCanScrollLeft] = useState(false)
   const [canScrollRight, setCanScrollRight] = useState(true)
@@ -59,10 +61,12 @@ export function GoogleSheetsCarousel({
     >
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-2.5 py-0.5 text-xs font-semibold text-brand">
-            <IconBulb className="h-3.5 w-3.5" />
-            <span>Google Sheets Basics</span>
-          </div>
+          {label ? (
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-2.5 py-0.5 text-xs font-semibold text-brand">
+              <IconBulb className="h-3.5 w-3.5" />
+              <span>{label}</span>
+            </div>
+          ) : null}
           <h2 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
             {title}
           </h2>

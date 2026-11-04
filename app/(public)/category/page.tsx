@@ -6,25 +6,24 @@ import { Breadcrumb } from "@/components/site/breadcrumb"
 import { CategoriesNavPills } from "@/components/site/categories-nav-pills"
 import { CategorySection } from "@/components/site/category-section"
 import { getCategories } from "@/lib/api/categories"
-import { partitionCategories } from "@/lib/category-topics"
+import { buildCategoryGroups } from "@/lib/nav-groups"
 
 export const revalidate = 86400
 
 export const metadata: Metadata = {
   title: "Spreadsheet Categories & Learning Tracks",
   description:
-    "Explore in-depth tutorials, formulas, and automation workflows separated by platform — choose between Microsoft Excel and Google Sheets.",
+    "Explore in-depth tutorials, formulas, and automation workflows organized by category.",
   alternates: { canonical: "/category/" },
 }
 
 export default async function CategoriesPage() {
   const categories = await getCategories().catch(() => [])
-  const groups = partitionCategories(categories)
+  const groups = buildCategoryGroups(categories)
 
   const navGroups = groups.map((group) => ({
     id: group.id,
-    title: group.title,
-    platform: group.platform,
+    title: group.name,
     count: group.items.length,
   }))
 
@@ -42,7 +41,7 @@ export default async function CategoriesPage() {
             Spreadsheet Topics & Categories
           </h1>
           <p className="max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Browse our complete library of spreadsheet articles separated by platform. Master formula syntax, automation scripts, and executive dashboards in Microsoft Excel or Google Sheets.
+            Browse our complete library of spreadsheet articles by category. Master formula syntax, automation scripts, and executive dashboards.
           </p>
         </div>
 
@@ -50,11 +49,15 @@ export default async function CategoriesPage() {
         <CategoriesNavPills groups={navGroups} />
       </div>
 
-      {/* Platform Sections */}
+      {/* Category Sections */}
       <div className="space-y-12">
-        {groups.map((group) => (
-          <CategorySection key={group.id} group={group} />
-        ))}
+        {groups.length > 0 ? (
+          groups.map((group) => <CategorySection key={group.id} group={group} />)
+        ) : (
+          <p className="rounded-2xl border border-dashed border-border py-16 text-center text-sm text-muted-foreground">
+            Categories are on the way.
+          </p>
+        )}
       </div>
 
       {/* Bottom Discovery Band */}

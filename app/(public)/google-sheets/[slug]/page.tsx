@@ -9,7 +9,7 @@ import { ArticleTags } from "@/components/site/article-tags"
 import { CommentsSection } from "@/components/site/comments-section"
 import { CurriculumSidebar } from "@/components/site/learning-track/curriculum-sidebar"
 import { CurriculumDrawer } from "@/components/site/learning-track/curriculum-drawer"
-import { GoogleSheetsCarousel } from "@/components/site/learning-track/google-sheets-carousel"
+import { RelatedPostsCarousel } from "@/components/site/learning-track/related-posts-carousel"
 import { ArticleCtaBand } from "@/components/site/newsletter/article-cta-band"
 import { ArticleTocSidebar } from "@/components/site/article-toc-sidebar"
 import { ApiClientError } from "@/lib/api/error"
@@ -102,14 +102,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
     )
   }
 
-  const [comments, modules, basicsPage] = await Promise.all([
+  const [comments, modules, relatedPage] = await Promise.all([
     getPostComments(post.id).catch(() => []),
     getCurriculum(300).catch(() => [] as CurriculumModule[]),
-    getPosts({ category: "google-sheets-basics", page_size: 15 }, 300).catch(
-      () => null
-    ),
+    post.category_slug
+      ? getPosts({ category: post.category_slug, page_size: 15 }, 300).catch(
+          () => null
+        )
+      : Promise.resolve(null),
   ])
-  const relatedBasics = (basicsPage?.items ?? []).filter(
+  const relatedPosts = (relatedPage?.items ?? []).filter(
     (item) => item.id !== post.id
   )
   const normalizedBlocks = normalizePostBlocks(post.content_json?.blocks ?? [])
@@ -149,7 +151,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
           <BlockRenderer blocks={normalizedBlocks} />
           <ArticleTags tags={post.tags} />
 
-          <GoogleSheetsCarousel posts={relatedBasics} />
+          <RelatedPostsCarousel
+            posts={relatedPosts}
+            label={post.category_name ?? undefined}
+            title={`More in ${post.category_name ?? "this category"}`}
+          />
 
           <ArticleCtaBand
             source="lesson-footer"

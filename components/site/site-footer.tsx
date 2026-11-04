@@ -2,18 +2,14 @@ import Image from "next/image"
 import Link from "next/link"
 import { IconArrowUpRight } from "@tabler/icons-react"
 
+import { getCategories } from "@/lib/api/categories"
+import { buildNavGroups } from "@/lib/nav-groups"
+
 const SERVICES_LINKS = [
   { label: "Services & Solutions", href: "/spreadsheet-solutions/" },
   { label: "Custom Spreadsheet Templates", href: "/custom-templates/" },
   { label: "Custom Spreadsheet Tools", href: "/custom-tools/" },
   { label: "Request a Custom Quote", href: "/contact" },
-]
-
-const EXPLORE_LINKS = [
-  { label: "Excel Formulas & Functions", href: "/excel-functions-formulas/" },
-  { label: "VBA & Macro Tutorials", href: "/excel-vba/" },
-  { label: "Pivot Tables & Dashboards", href: "/excel-pivot-table/" },
-  { label: "Google Sheets & Apps Script", href: "/google-sheets/" },
 ]
 
 const COMPANY_LINKS = [
@@ -23,7 +19,12 @@ const COMPANY_LINKS = [
   { label: "Terms of Service", href: "/terms-and-conditions/" },
 ]
 
-export function SiteFooter() {
+export async function SiteFooter() {
+  const categories = await getCategories(600).catch(() => [])
+  const exploreLinks = buildNavGroups(categories)
+    .flatMap((group) => group.items)
+    .slice(0, 5)
+
   return (
     <footer className="elementor-location-footer relative w-full overflow-hidden bg-gradient-to-br from-navy-deep via-navy to-navy-soft text-primary-foreground">
       {/* ── Background Geometric Shapes & Ambient Glows ── */}
@@ -102,23 +103,27 @@ export function SiteFooter() {
 
           {/* Column 2: Explore Tutorials (2.5 cols) */}
           <div className="space-y-4 lg:col-span-3">
-            <p className="text-[13px] font-bold uppercase tracking-wider text-primary-foreground">
-              Tutorials &amp; Articles
-            </p>
-            <ul className="space-y-2.5 text-[15px]">
-              {EXPLORE_LINKS.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    prefetch={false}
-                    className="group inline-flex items-center gap-1 text-primary-foreground/80 transition-colors hover:text-primary-foreground hover:translate-x-0.5 duration-200"
-                  >
-                    <span>{link.label}</span>
-                    <IconArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-200 group-hover:opacity-100 text-primary-foreground" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            {exploreLinks.length > 0 ? (
+              <>
+                <p className="text-[13px] font-bold uppercase tracking-wider text-primary-foreground">
+                  Tutorials &amp; Articles
+                </p>
+                <ul className="space-y-2.5 text-[15px]">
+                  {exploreLinks.map((link) => (
+                    <li key={link.slug}>
+                      <Link
+                        href={`/${link.slug}/`}
+                        prefetch={false}
+                        className="group inline-flex items-center gap-1 text-primary-foreground/80 transition-colors hover:text-primary-foreground hover:translate-x-0.5 duration-200"
+                      >
+                        <span>{link.name}</span>
+                        <IconArrowUpRight className="h-3 w-3 opacity-0 transition-all duration-200 group-hover:opacity-100 text-primary-foreground" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ) : null}
           </div>
 
           {/* Column 3: Custom Services (2.5 cols) */}

@@ -1,23 +1,14 @@
 import Link from "next/link"
-import type { TablerIcon } from "@tabler/icons-react"
 import {
   IconArrowRight,
   IconBrandGoogle,
   IconTable,
 } from "@tabler/icons-react"
 
-import { GOOGLE_CURATED_TOPICS } from "@/lib/category-topics"
-import { curatedTopics } from "@/lib/curriculum-curation"
 import type { CurriculumModule } from "@/types/api"
 
 interface LearningTrackSectionProps {
   modules: CurriculumModule[]
-}
-
-function moduleIcon(slug: string, className: string) {
-  const Icon: TablerIcon =
-    GOOGLE_CURATED_TOPICS.find((topic) => topic.slug === slug)?.icon ?? IconTable
-  return <Icon className={className} />
 }
 
 export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
@@ -25,10 +16,10 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
 
   const totalLessons = modules.reduce((sum, module) => sum + module.lesson_count, 0)
   const totalTopics = modules.reduce(
-    (sum, module) => sum + curatedTopics(module.slug, module.topics).length,
+    (sum, module) => sum + module.topics.length,
     0
   )
-  const firstLesson = curatedTopics(modules[0].slug, modules[0].topics)[0]?.lessons[0]
+  const firstLesson = modules[0].topics[0]?.lessons[0]
 
   const stats = [
     { value: modules.length, label: "Modules" },
@@ -91,7 +82,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
 
       <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {modules.map((module, index) => {
-          const topics = curatedTopics(module.slug, module.topics)
+          const topics = module.topics
           return (
             <Link
               key={module.slug}
@@ -107,7 +98,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
               </span>
 
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand transition-colors group-hover:bg-brand group-hover:text-white dark:text-brand dark:group-hover:text-white">
-                {moduleIcon(module.slug, "h-6 w-6")}
+                <IconTable className="h-6 w-6" />
               </div>
 
               <div className="mt-4 space-y-1">
