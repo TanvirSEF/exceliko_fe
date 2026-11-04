@@ -32,14 +32,6 @@ export const metadata: Metadata = {
   },
   description:
     "Practical, example-driven Excel articles — formulas, shortcuts, Power Query, VBA and more.",
-  icons: {
-    icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.png", type: "image/png", sizes: "512x512" },
-      { url: "/icon-192.png", type: "image/png", sizes: "192x192" },
-    ],
-    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
-  },
   openGraph: {
     siteName: "Exceliko",
     type: "website",
