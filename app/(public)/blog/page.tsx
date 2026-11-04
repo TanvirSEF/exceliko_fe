@@ -5,6 +5,7 @@ import { BlogFilters } from "@/components/site/blog-filters"
 import { PageHeader } from "@/components/site/page-header"
 import { PostGrid } from "@/components/site/post-grid"
 import { getCategories } from "@/lib/api/categories"
+import { withPublishedPosts } from "@/lib/nav-groups"
 import { getPosts } from "@/lib/api/posts"
 import { clamp, firstParam } from "@/lib/utils"
 
@@ -50,7 +51,11 @@ export default async function BlogPage({
         meta={`${posts.total} ${posts.total === 1 ? "article" : "articles"}`}
       />
 
-      <BlogFilters categories={categories} category={category} tag={tag} />
+      <BlogFilters
+        categories={withPublishedPosts(categories)}
+        category={category}
+        tag={tag}
+      />
 
       <PostGrid
         posts={posts.items}

@@ -278,6 +278,7 @@ export interface Category {
   is_featured: boolean
   seo_title: string | null
   seo_description: string | null
+  post_count: number
   children: Category[]
 }
 export interface CategoryWithPosts {

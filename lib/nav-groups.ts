@@ -13,7 +13,17 @@ function toNavItem({ name, slug, description, icon_url }: Category): NavItem {
   return { name, slug, description, icon_url }
 }
 
-export function buildCategoryGroups(tree: Category[]): CategoryGroup[] {
+export function withPublishedPosts(tree: Category[]): Category[] {
+  return tree
+    .filter((category) => (category.post_count ?? 0) > 0)
+    .map((category) => ({
+      ...category,
+      children: category.children.filter((child) => (child.post_count ?? 0) > 0),
+    }))
+}
+
+export function buildCategoryGroups(allCategories: Category[]): CategoryGroup[] {
+  const tree = withPublishedPosts(allCategories)
   const groups: CategoryGroup[] = tree
     .filter((category) => category.children.length > 0)
     .map((category) => ({

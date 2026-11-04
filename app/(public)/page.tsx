@@ -10,7 +10,7 @@ import { FaqSection } from "@/components/site/faq-section"
 import { CalculatorsSection } from "@/components/site/calculators-section"
 import { NewsletterBand } from "@/components/site/newsletter/newsletter-band"
 import { getCategoryTree } from "@/lib/api/categories"
-import { buildNavGroups } from "@/lib/nav-groups"
+import { buildNavGroups, withPublishedPosts } from "@/lib/nav-groups"
 import { getCurriculum } from "@/lib/api/curriculum"
 import { getPosts } from "@/lib/api/posts"
 import type { CurriculumModule, Page, PostListItem } from "@/types/api"
@@ -51,7 +51,7 @@ export default async function HomePage() {
     getCurriculum(300).catch(() => [] as CurriculumModule[]),
   ])
 
-  const featuredCategories = categories
+  const featuredCategories = withPublishedPosts(categories)
     .flatMap((category) => [category, ...category.children])
     .filter((category) => category.is_featured)
   const navGroups = buildNavGroups(categories)
