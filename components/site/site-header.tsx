@@ -5,22 +5,16 @@ import { MainNav } from "@/components/site/main-nav"
 import { MobileNav } from "@/components/site/mobile-nav"
 import { SearchDialog } from "@/components/site/search-dialog"
 import { getCategories } from "@/lib/api/categories"
-import type { NavCategory } from "@/types/api"
+import { buildNavGroups } from "@/lib/nav-groups"
+import type { NavGroup } from "@/types/api"
 
 export async function SiteHeader() {
-  let navCategories: NavCategory[] = []
+  let navGroups: NavGroup[] = []
 
   try {
-    const categories = await getCategories(600)
-    navCategories = [...categories]
-      .sort(
-        (a, b) =>
-          Number(b.is_featured) - Number(a.is_featured) ||
-          a.order_index - b.order_index
-      )
-      .map((c) => ({ name: c.name, slug: c.slug, description: c.description }))
+    navGroups = buildNavGroups(await getCategories(600))
   } catch {
-    navCategories = []
+    navGroups = []
   }
 
   return (
@@ -50,12 +44,12 @@ export async function SiteHeader() {
           </Link>
         </div>
 
-        <MainNav categories={navCategories} />
+        <MainNav groups={navGroups} />
 
         <div className="flex items-center gap-2 sm:gap-3">
           <SearchDialog />
 
-          <MobileNav categories={navCategories} />
+          <MobileNav groups={navGroups} />
         </div>
       </div>
     </header>

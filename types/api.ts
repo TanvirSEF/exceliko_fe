@@ -285,10 +285,17 @@ export interface CategoryWithPosts {
   posts: Page<PostListItem>
 }
 
-export interface NavCategory {
+export interface NavItem {
   name: string
   slug: string
   description: string | null
+}
+
+export interface NavGroup {
+  name: string
+  slug: string | null
+  description: string | null
+  items: NavItem[]
 }
 
 export interface Tag {

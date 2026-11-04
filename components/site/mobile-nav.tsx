@@ -18,8 +18,7 @@ import {
   IconMail,
   IconInfoCircle,
   IconBook2,
-  IconBrandOffice,
-  IconBrandGoogle,
+  IconFolders,
 } from "@tabler/icons-react"
 
 import {
@@ -31,13 +30,15 @@ import {
 } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { cn } from "@/lib/utils"
-import type { NavCategory } from "@/types/api"
+import type { NavGroup } from "@/types/api"
+
+const LEARNING_TRACK_GROUP_SLUG = "google-sheets"
 
 interface MobileNavProps {
-  categories?: NavCategory[]
+  groups?: NavGroup[]
 }
 
-export function MobileNav({ categories = [] }: MobileNavProps) {
+export function MobileNav({ groups = [] }: MobileNavProps) {
   const [open, setOpen] = useState(false)
   const [blogsExpanded, setBlogsExpanded] = useState(true)
   const [pricingExpanded, setPricingExpanded] = useState(false)
@@ -115,56 +116,37 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
 
               {blogsExpanded && (
                 <div className="space-y-3 px-2 pb-3 pt-2 text-sm border-t border-border/40">
-                  {/* Excel Group */}
-                  <div className="space-y-1">
-                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
-                      <IconBrandOffice className="h-3.5 w-3.5" />
-                      <span>Microsoft Excel</span>
-                    </p>
-                    {categories.filter(c => c.slug.includes("excel") || !c.slug.includes("google")).slice(0, 5).map((item) => (
-                      <Link
-                        key={item.slug}
-                        href={`/${item.slug}/`}
-                        onClick={handleLinkClick}
-                        className="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[15px] text-muted-foreground hover:bg-background hover:text-foreground"
-                      >
-                        <span className="truncate">{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Google Sheets Group */}
-                  <div className="space-y-1 pt-1.5 border-t border-border/30">
-                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
-                      <IconBrandGoogle className="h-3.5 w-3.5" />
-                      <span>Google Sheets</span>
-                    </p>
-                    <Link
-                      href="/google-sheets"
-                      onClick={handleLinkClick}
-                      className="mx-1.5 flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 px-2.5 py-2 text-xs font-bold text-brand"
+                  {groups.map((group, index) => (
+                    <div
+                      key={group.slug ?? group.name}
+                      className={cn("space-y-1", index > 0 && "pt-1.5 border-t border-border/30")}
                     >
-                      <span>Learning Track — course</span>
-                      <IconArrowRight className="h-3.5 w-3.5 shrink-0" />
-                    </Link>
-                    {[
-                      { slug: "google-sheets-basics", name: "Google Sheets Basic" },
-                      { slug: "google-sheets-functions", name: "Google Sheets Functions" },
-                      { slug: "google-sheets-formulas", name: "Google Sheets Formulas" },
-                      { slug: "google-sheets-intermediate-tutorials", name: "Google Sheets Intermediate Tutorial" },
-                      { slug: "charts-in-google-sheets", name: "Google Sheets Charts" },
-                      { slug: "google-sheets-advanced-tutorials", name: "Google Sheets Advanced Tutorial" },
-                    ].map((item) => (
-                      <Link
-                        key={item.slug}
-                        href={`/${item.slug}/`}
-                        onClick={handleLinkClick}
-                        className="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[15px] text-muted-foreground hover:bg-background hover:text-foreground"
-                      >
-                        <span className="truncate">{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
+                      <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
+                        <IconFolders className="h-3.5 w-3.5" />
+                        <span>{group.name}</span>
+                      </p>
+                      {group.slug === LEARNING_TRACK_GROUP_SLUG && (
+                        <Link
+                          href="/google-sheets"
+                          onClick={handleLinkClick}
+                          className="mx-1.5 flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 px-2.5 py-2 text-xs font-bold text-brand"
+                        >
+                          <span>Learning Track — course</span>
+                          <IconArrowRight className="h-3.5 w-3.5 shrink-0" />
+                        </Link>
+                      )}
+                      {group.items.map((item) => (
+                        <Link
+                          key={item.slug}
+                          href={`/${item.slug}/`}
+                          onClick={handleLinkClick}
+                          className="flex items-center gap-2.5 rounded-lg px-2.5 py-1.5 text-[15px] text-muted-foreground hover:bg-background hover:text-foreground"
+                        >
+                          <span className="truncate">{item.name}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  ))}
 
                   <div className="pt-1.5 border-t border-border/40">
                     <Link
