@@ -86,11 +86,11 @@ export function SiteFooter() {
               className="inline-flex items-center transition-transform hover:opacity-90 active:scale-95"
             >
               <Image
-                src="/logo-footer-3x.webp"
-                alt="Excel Insider"
-                width={200}
-                height={52}
-                className="h-11 sm:h-12 w-auto object-contain drop-shadow-xs"
+                src="/logo.png"
+                alt="Exceliko"
+                width={2172}
+                height={724}
+                className="h-12 sm:h-14 w-auto rounded-xl bg-white px-3 py-1.5 object-contain"
               />
             </Link>
 
@@ -149,7 +149,7 @@ export function SiteFooter() {
               prefetch={false}
               className="text-[13px] font-bold uppercase tracking-wider text-primary-foreground transition-opacity hover:opacity-85 inline-block"
             >
-              About Excel Insider
+              About Exceliko
             </Link>
             <ul className="space-y-2.5 text-[15px]">
               {COMPANY_LINKS.map((link) => (
@@ -170,7 +170,7 @@ export function SiteFooter() {
         {/* ── Bottom Bar: Copyright ── */}
         <div className="mt-14 flex flex-col items-center justify-center border-t border-primary-foreground/20 pt-8 text-[13px] sm:text-sm text-primary-foreground/75 text-center">
           <p>
-            © {new Date().getFullYear()} <strong className="font-semibold text-primary-foreground">Excel Insider</strong>. All rights reserved.
+            © {new Date().getFullYear()} <strong className="font-semibold text-primary-foreground">Exceliko</strong>. All rights reserved.
           </p>
         </div>
       </div>

@@ -30,7 +30,7 @@ export async function SiteHeader() {
           <Link
             href="/"
             className="flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
-            aria-label="Excel Insider Home"
+            aria-label="Exceliko Home"
           >
             <Image
               src="/logo.png"
@@ -38,7 +38,7 @@ export async function SiteHeader() {
               width={2172}
               height={724}
               priority
-              className="h-10 sm:h-11 md:h-12 w-auto object-contain dark:brightness-110"
+              className="h-12 sm:h-13 md:h-14 w-auto object-contain dark:brightness-110"
             />
           </Link>
         </div>
