@@ -66,10 +66,10 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
             <SheetTitle asChild>
               <Link href="/" onClick={handleLinkClick} className="inline-block">
                 <Image
-                  src="/logo-3x.webp"
-                  alt="Excel Insider"
-                  width={155}
-                  height={40}
+                  src="/logo.png"
+                  alt="Exceliko"
+                  width={2172}
+                  height={724}
                   className="h-9 w-auto object-contain dark:brightness-110"
                 />
               </Link>
