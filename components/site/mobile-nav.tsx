@@ -124,7 +124,9 @@ export function MobileNav({ groups = [] }: MobileNavProps) {
                     >
                       <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
                         {group.icon_url ? (
-                          <Image src={group.icon_url} alt="" width={20} height={20} className="h-5 w-5 rounded-md" />
+                          <span className="flex h-6 w-6 items-center justify-center rounded-md bg-white ring-1 ring-border/70">
+                            <Image src={group.icon_url} alt="" width={16} height={16} className="h-4 w-4 object-contain" />
+                          </span>
                         ) : (
                           <IconFolders className="h-3.5 w-3.5" />
                         )}

@@ -37,7 +37,9 @@ function GroupHeading({ group, onNavigate }: { group: NavGroup; onNavigate: () =
   const content = (
     <>
       {group.icon_url ? (
-        <Image src={group.icon_url} alt="" width={36} height={36} className="h-9 w-9 shrink-0 rounded-xl" />
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-xs ring-1 ring-border/70">
+          <Image src={group.icon_url} alt="" width={22} height={22} className="h-[22px] w-[22px] object-contain" />
+        </div>
       ) : (
         <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-brand/20 to-brand/5 text-brand ring-1 ring-brand/20">
           <IconLayoutGrid className="h-4.5 w-4.5" />
