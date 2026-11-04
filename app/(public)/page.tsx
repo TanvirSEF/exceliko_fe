@@ -60,42 +60,33 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* 1. Authority Hero Section & Live Excel Window Mockup */}
       <HomeHero categories={featuredCategories} />
 
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* 3. Professional Excel & Sheets Services (3 Bespoke 3D Cards) */}
         <ServicesSection />
 
-        {/* 4. Google Sheets Learning Track (Course Journey Showcase) */}
         <div className="border-t border-border/60">
           <LearningTrackSection modules={trackModules} />
         </div>
 
-        {/* 5. Trending Tutorials (Ranked Top 10 Listing) */}
         <div className="border-t border-border/60">
           <TrendingSection posts={trending.items} className="py-12 sm:py-16" />
         </div>
 
-        {/* 6. Comprehensive Topic Directory (Category Tabs + Live Filtered Posts) */}
         <div className="border-t border-border/60">
           <QueryProvider>
             <TopicsExplorer groups={navGroups} />
           </QueryProvider>
         </div>
 
-        {/* 6. Interactive Spreadsheet Calculators Showcase (45 Free Tools) */}
         <div className="border-t border-border/60">
           <CalculatorsSection />
         </div>
 
-        {/* 9. Frequently Asked Questions (Accordion) */}
         <div className="border-t border-border/60">
           <FaqSection />
         </div>
 
-
-        {/* 11. Newsletter Lead Magnet & Subscription */}
         <div className="pb-16 pt-4">
           <NewsletterBand />
         </div>

@@ -1,15 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-import {
-  IconArrowRight,
-  IconCheck,
-  IconCode,
-  IconFileSpreadsheet,
-  IconHelpCircle,
-} from "@tabler/icons-react"
+import { IconArrowRight, IconCheck } from "@tabler/icons-react"
 
-import { Button } from "@/components/ui/button"
 import { SectionHeading } from "@/components/site/section-heading"
+import { Button } from "@/components/ui/button"
 
 const SERVICES = [
   {
@@ -17,8 +11,9 @@ const SERVICES = [
     title: "Need Help with Spreadsheet Problems?",
     subtitle:
       "Facing tricky formula bugs, sluggish workbooks, or complex logic? Get clear expert diagnostics and rapid turnaround solutions.",
-    image: "/images/services/problem-solving.jpg",
-    icon: IconHelpCircle,
+    image: "/images/services/consulting-diagnostics.webp",
+    imageAlt:
+      "Glowing spreadsheet under a magnifying glass showing a checklist, surrounded by tools and charts",
     badge: "Troubleshooting & Consulting",
     features: [
       "Fix #VALUE!, #N/A & circular errors",
@@ -33,8 +28,9 @@ const SERVICES = [
     title: "Custom Templates & Dashboards",
     subtitle:
       "Transform raw data into executive-ready financial models, KPI trackers, and dynamic visual dashboards tailored to your brand.",
-    image: "/images/services/custom-templates.jpg",
-    icon: IconFileSpreadsheet,
+    image: "/images/services/templates-dashboard.webp",
+    imageAlt:
+      "Laptop on a desk showing a spreadsheet dashboard with charts and a data table",
     badge: "Custom Modeling",
     features: [
       "Executive KPI & revenue dashboards",
@@ -49,8 +45,9 @@ const SERVICES = [
     title: "VBA Macros & Custom Tools",
     subtitle:
       "Eliminate repetitive manual busywork. We engineer reliable VBA macros, Google Apps Scripts, and automated pipelines.",
-    image: "/images/services/automation-tools.jpg",
-    icon: IconCode,
+    image: "/images/services/automation-workflow.webp",
+    imageAlt:
+      "Spreadsheet connected through a gear to a code window to represent automated workflows",
     badge: "Automation & Scripting",
     features: [
       "One-click VBA macro automations",
@@ -73,79 +70,61 @@ export function ServicesSection() {
       />
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {SERVICES.map((service) => {
-          const Icon = service.icon
-          return (
-            <div
-              key={service.id}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-primary/50 bg-card shadow-2xs transition-all duration-300 hover:-translate-y-1.5 hover:border-primary/80 hover:shadow-xl"
-            >
-              <div>
-                {/* Visual Header */}
-                <div className="relative aspect-16/10 w-full overflow-hidden border-b border-border/50 bg-muted">
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                  
-                  {/* Badge */}
-                  <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-background/90 px-3 py-1 text-xs sm:text-[13px] font-semibold text-foreground shadow-xs backdrop-blur-xs">
-                    <Icon className="h-4 w-4 text-primary" />
-                    <span>{service.badge}</span>
-                  </div>
-                </div>
+        {SERVICES.map((service) => (
+          <article
+            key={service.id}
+            className="group flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/50 hover:shadow-xl"
+          >
+            <div className="relative aspect-[16/10] w-full overflow-hidden bg-navy">
+              <Image
+                src={service.image}
+                alt={service.imageAlt}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+              />
+              <span className="absolute left-3 top-3 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm">
+                {service.badge}
+              </span>
+            </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-4">
-                  <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary">
-                    <Link href={service.ctaHref}>
-                      {service.title}
-                    </Link>
-                  </h3>
+            <div className="flex flex-1 flex-col p-6">
+              <h3 className="text-xl font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-brand">
+                <Link href={service.ctaHref}>{service.title}</Link>
+              </h3>
 
-                  <p className="text-[15px] leading-relaxed text-muted-foreground">
-                    {service.subtitle}
-                  </p>
+              <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+                {service.subtitle}
+              </p>
 
-                  {/* Bullet points */}
-                  <ul className="space-y-2.5 pt-2 border-t border-border/60">
-                    {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2.5 text-sm text-foreground/90 font-medium"
-                      >
-                        <div className="mt-0.5 flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
-                          <IconCheck className="h-3 w-3 stroke-[3]" />
-                        </div>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+              <ul className="mt-5 space-y-2.5 border-t border-border/60 pt-5">
+                {service.features.map((feature) => (
+                  <li
+                    key={feature}
+                    className="flex items-start gap-2.5 text-sm font-medium text-foreground/90"
+                  >
+                    <span className="mt-0.5 flex size-[18px] shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
+                      <IconCheck className="size-3 stroke-[3]" />
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
 
-              {/* Action Button */}
-              <div className="p-6 pt-0">
+              <div className="mt-auto pt-6">
                 <Button
                   asChild
-                  className="w-full rounded-xl bg-primary text-primary-foreground font-semibold text-sm sm:text-base shadow-xs transition-all duration-200 hover:bg-primary/90"
+                  className="h-11 w-full rounded-xl bg-primary text-sm font-semibold text-primary-foreground hover:bg-primary/90 sm:text-base"
                 >
-                  <Link
-                    href={service.ctaHref}
-                    className="flex items-center justify-center gap-2"
-                  >
-                    <span>{service.ctaLabel}</span>
-                    <IconArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-1" />
+                  <Link href={service.ctaHref}>
+                    {service.ctaLabel}
+                    <IconArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </div>
             </div>
-          )
-        })}
+          </article>
+        ))}
       </div>
     </section>
   )
