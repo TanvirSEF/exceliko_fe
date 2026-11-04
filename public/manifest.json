@@ -1,6 +1,6 @@
 {
-  "name": "Excel Insider",
-  "short_name": "ExcelInsider",
+  "name": "Exceliko",
+  "short_name": "Exceliko",
   "description": "Practical, example-driven Excel articles — formulas, shortcuts, Power Query, VBA and more.",
   "start_url": "/",
   "display": "standalone",

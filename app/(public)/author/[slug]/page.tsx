@@ -132,7 +132,7 @@ export async function generateMetadata({
   const canonicalSlug = author.slug || author.id
 
   return {
-    title: `${author.name} — Articles & Tutorials | Excel Insider`,
+    title: `${author.name} — Articles & Tutorials`,
     description:
       author.bio ??
       `${author.post_count} spreadsheet articles and tutorials written by ${author.name}.`,
@@ -321,7 +321,7 @@ export default async function AuthorPage({ params, searchParams }: AuthorPagePro
               <strong className="font-semibold text-foreground">
                 {author.name}
               </strong>{" "}
-              are developed under the guidance of ExcelInsider’s core training program and are technically reviewed by{" "}
+              are developed under the guidance of Exceliko’s core training program and are technically reviewed by{" "}
               <Link
                 href="/about/nehad-ulfat"
                 className="font-semibold text-primary underline underline-offset-4 decoration-primary/40 transition-colors hover:decoration-primary"

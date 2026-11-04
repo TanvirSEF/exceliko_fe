@@ -23,7 +23,7 @@ export function buildArticleJsonLd(post: PostDetail, path?: string) {
     },
     publisher: {
       "@type": "Organization",
-      name: "Excel Insider",
+      name: "Exceliko",
       url: `${config.siteUrl}/`,
     },
     mainEntityOfPage: mainEntityUrl,

@@ -12,9 +12,9 @@ interface ContactPageProps {
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Contact Us | Excel Insider",
+  title: "Contact Us",
   description:
-    "Questions, custom template requests, or spreadsheet troubleshooting — reach the Excel Insider team through the contact form.",
+    "Questions, custom template requests, or spreadsheet troubleshooting — reach the Exceliko team through the contact form.",
   alternates: { canonical: "/contact/" },
 }
 

@@ -38,7 +38,14 @@ export async function SiteHeader() {
               width={2172}
               height={724}
               priority
-              className="h-12 sm:h-13 md:h-14 w-auto object-contain dark:brightness-110"
+              className="h-12 sm:h-13 md:h-14 w-auto object-contain dark:hidden"
+            />
+            <Image
+              src="/logo-light.png"
+              alt="Exceliko"
+              width={1086}
+              height={362}
+              className="hidden h-12 sm:h-13 md:h-14 w-auto object-contain dark:block"
             />
           </Link>
         </div>

@@ -45,7 +45,7 @@ export async function generateMetadata({
 
   return {
     title: `#${label}`,
-    description: `Excel Insider articles tagged with ${label}.`,
+    description: `Exceliko articles tagged with ${label}.`,
     alternates: { canonical: `/tags/${canonicalSlug}/` },
   }
 }

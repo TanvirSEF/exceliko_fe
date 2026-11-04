@@ -6,12 +6,12 @@ import { ACCOUNTING_HUB } from "@/lib/calculators"
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  title: "Accounting Calculators Hub | Excel Insider",
+  title: "Accounting Calculators Hub",
   description:
     "Free online accounting calculators — retail & wholesale margins, payroll with overtime, gross-up pay, Amazon seller fees, retained earnings, debt payoff and more.",
   alternates: { canonical: "/calculator/accounting/" },
   openGraph: {
-    title: "Accounting Calculators Hub | Excel Insider",
+    title: "Accounting Calculators Hub | Exceliko",
     description:
       "Profit margins, payroll, commissions, business health and debt tools — universal formulas, instant results, 100% free.",
     url: "/calculator/accounting/",

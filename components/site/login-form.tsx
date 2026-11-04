@@ -78,7 +78,7 @@ export function LoginForm() {
   return (
     <AuthCard
       title="Welcome back"
-      description="Sign in to your Excel Insider dashboard"
+      description="Sign in to your Exceliko dashboard"
     >
       <form
         onSubmit={handleSubmit(onSubmit)}

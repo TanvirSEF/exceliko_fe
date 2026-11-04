@@ -37,7 +37,7 @@ export function NewsletterBand({
           {/* Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold text-primary-foreground shadow-xs">
             <IconMail className="h-4 w-4" />
-            <span>Weekly Excel Insider Newsletter</span>
+            <span>Weekly Exceliko Newsletter</span>
           </div>
 
           {/* Heading */}

@@ -17,14 +17,14 @@ import { Button } from "@/components/ui/button"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "About Us | Excel Insider",
+  title: "About Us",
   description:
-    "Founded in 2024, Excel Insider makes advanced Excel and Google Sheets knowledge accessible and actionable — tutorials, YouTube videos, templates, courses, and dedicated email support.",
+    "Founded in 2024, Exceliko makes advanced Excel and Google Sheets knowledge accessible and actionable — tutorials, YouTube videos, templates, courses, and dedicated email support.",
   alternates: { canonical: "/about/" },
   openGraph: {
-    title: "About Us | Excel Insider",
+    title: "About Us | Exceliko",
     description:
-      "Meet the team behind Excel Insider — practical, in-depth tutorials and templates for intermediate to advanced Excel users.",
+      "Meet the team behind Exceliko — practical, in-depth tutorials and templates for intermediate to advanced Excel users.",
     url: "/about/",
     images: ["/og-default.png"],
   },
@@ -72,7 +72,7 @@ const TEAM_MEMBERS = [
     role: "Founder",
     href: "/about/nehad-ulfat",
     gradient: "from-chart-2 to-primary",
-    bio: "Nehad, the founder of Excel Insider, brings over 15 years of practical experience with Microsoft Excel and Google Sheets. Throughout his career, he has worked extensively with advanced spreadsheet formulas, data analysis, and building automated templates. He oversees every aspect of Excel Insider, helping users worldwide find reliable and practical spreadsheet solutions.",
+    bio: "Nehad, the founder of Exceliko, brings over 15 years of practical experience with Microsoft Excel and Google Sheets. Throughout his career, he has worked extensively with advanced spreadsheet formulas, data analysis, and building automated templates. He oversees every aspect of Exceliko, helping users worldwide find reliable and practical spreadsheet solutions.",
   },
   {
     initials: "EK",
@@ -98,7 +98,7 @@ function SiteSnapshotCard() {
           <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-white p-2 shadow-sm ring-1 ring-black/5">
             <Image
               src="/icon-192.png"
-              alt="Excel Insider Logo"
+              alt="Exceliko Logo"
               width={40}
               height={40}
               className="h-full w-full object-contain"
@@ -106,7 +106,7 @@ function SiteSnapshotCard() {
             />
           </div>
           <div className="min-w-0 space-y-1">
-            <p className="font-bold text-primary-foreground">Excel Insider</p>
+            <p className="font-bold text-primary-foreground">Exceliko</p>
             <p className="text-xs text-primary-foreground/70">
               Tutorials · Templates · Courses · Support
             </p>
@@ -172,7 +172,7 @@ export default function AboutPage() {
             </h1>
 
             <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
-              Founded in 2024, Excel Insider was created with a mission to
+              Founded in 2024, Exceliko was created with a mission to
               make advanced Excel knowledge accessible and actionable for
               users who want to level up their skills.
             </p>
@@ -216,7 +216,7 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               <p>
-                Founded in 2024, Excel Insider was created with a mission to
+                Founded in 2024, Exceliko was created with a mission to
                 make advanced Excel knowledge accessible and actionable for
                 users who want to level up their skills.
               </p>
@@ -367,11 +367,11 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* 5. Why Trust Excel Insider */}
+        {/* 5. Why Trust Exceliko */}
         <section className="border-t border-border/60 py-14 sm:py-18">
           <SectionHeading
             badge="Why Trust Us"
-            title="Why Trust Excel Insider?"
+            title="Why Trust Exceliko?"
           />
 
           <div className="grid gap-10 lg:grid-cols-5 lg:gap-12">

@@ -78,7 +78,7 @@ export function TrendingSection({ posts, className }: TrendingSectionProps) {
                 ) : (
                   <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-primary/5 to-muted">
                     <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary/70">
-                      Excel Insider
+                      Exceliko
                     </span>
                   </div>
                 )}

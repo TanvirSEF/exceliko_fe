@@ -4,7 +4,7 @@ import { Suspense } from "react"
 import { LiveArticlePreview } from "@/components/site/live-article-preview"
 
 export const metadata: Metadata = {
-  title: "Live Preview | Excel Insider",
+  title: "Live Preview",
   robots: {
     index: false,
     follow: false,

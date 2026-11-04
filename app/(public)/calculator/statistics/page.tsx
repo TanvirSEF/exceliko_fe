@@ -6,12 +6,12 @@ import { STATS_HUB } from "@/lib/calculators"
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  title: "Statistics Calculators for Students & Professionals | Excel Insider",
+  title: "Statistics Calculators for Students & Professionals",
   description:
     "Free online statistics calculators — weighted averages, geometric & harmonic means, variance, ANOVA, Z-scores, P-values, VWAP and more. Instant, accurate, step-by-step results.",
   alternates: { canonical: "/calculator/statistics/" },
   openGraph: {
-    title: "Statistics Calculators for Students & Professionals | Excel Insider",
+    title: "Statistics Calculators for Students & Professionals | Exceliko",
     description:
       "Solve complex statistical formulas instantly — averages, variance, ANOVA, probability and business statistics tools with step-by-step explanations.",
     url: "/calculator/statistics/",

@@ -104,7 +104,7 @@ export function SearchView({ query, page }: SearchViewProps) {
 
       {!showResults ? (
         <EmptyState
-          title="Search Excel Insider"
+          title="Search Exceliko"
           description="Find articles by formula, feature or keyword — results appear as you type."
         />
       ) : loading && !results ? (

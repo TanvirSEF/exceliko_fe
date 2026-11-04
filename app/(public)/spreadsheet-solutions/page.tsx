@@ -40,12 +40,12 @@ const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
 ]
 
 export const metadata: Metadata = {
-  title: "Spreadsheet Solutions & Free Templates | Excel Insider",
+  title: "Spreadsheet Solutions & Free Templates",
   description:
-    "Every tutorial and template on Excel Insider is free. Expert spreadsheet help from $19 — quick fixes, custom features and full automation, delivered in days.",
+    "Every tutorial and template on Exceliko is free. Expert spreadsheet help from $19 — quick fixes, custom features and full automation, delivered in days.",
   alternates: { canonical: "/spreadsheet-solutions/" },
   openGraph: {
-    title: "Spreadsheet Solutions & Free Templates | Excel Insider",
+    title: "Spreadsheet Solutions & Free Templates | Exceliko",
     description:
       "Free templates plus three expert-help plans — Basic $19, Premium $49, Advanced $99+ — always quoted upfront.",
     url: "/spreadsheet-solutions/",

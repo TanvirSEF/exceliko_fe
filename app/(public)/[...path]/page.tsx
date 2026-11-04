@@ -212,7 +212,7 @@ export async function generateMetadata({
       description:
         resolved.category.seo_description ??
         resolved.category.description ??
-        `Excel Insider articles in ${resolved.category.name}.`,
+        `Exceliko articles in ${resolved.category.name}.`,
       alternates: {
         canonical: `/${resolved.category.slug}/`,
       },
@@ -226,7 +226,7 @@ export async function generateMetadata({
   if (resolved?.type === "series") {
     const catSlug = resolved.series.category?.slug ?? "category"
     return {
-      title: resolved.series.seo_title ?? `${resolved.series.name} | Excel Insider`,
+      title: resolved.series.seo_title ?? resolved.series.name,
       description:
         resolved.series.seo_description ??
         resolved.series.description ??

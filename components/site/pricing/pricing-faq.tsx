@@ -2,7 +2,7 @@ import { IconChevronDown } from "@tabler/icons-react"
 
 const FAQS = [
   {
-    question: "Is everything on Excel Insider really free?",
+    question: "Is everything on Exceliko really free?",
     answer:
       "Yes. All 1,600+ tutorials and the newsletter templates are completely free to read, copy and use for personal or commercial projects — with no paywall and no account required.",
   },

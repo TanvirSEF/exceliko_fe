@@ -59,7 +59,7 @@ export function PrivacyContent() {
     <>
       <div>
         <p>
-          This Privacy Notice for Excel Insider (“<strong>we</strong>,” “<strong>us</strong>,” or “
+          This Privacy Notice for Exceliko (“<strong>we</strong>,” “<strong>us</strong>,” or “
           <strong>our</strong>”), describes how and why we might access, collect, store, use,
           and/or share (“<strong>process</strong>”) your personal information when you use our
           services (“<strong>Services</strong>”), including when you:
@@ -72,11 +72,11 @@ export function PrivacyContent() {
           </li>
           <li>
             Use Blog &amp; Video tutorials on Microsoft Excel &amp; Google Sheets, Spreadsheet
-            Service, Templates &amp; Tools. At Excel Insider, we provide a complete range of
+            Service, Templates &amp; Tools. At Exceliko, we provide a complete range of
             professional Excel and Google Sheets templates, custom spreadsheet solutions, and data
             automation services. Alongside our products, we publish insightful blog articles and
             step-by-step video tutorials to help users master spreadsheets with ease. Whether you
-            need a ready-made template, a custom dashboard, or expert guidance, Excel Insider is
+            need a ready-made template, a custom dashboard, or expert guidance, Exceliko is
             here to make your work smarter and more efficient.
           </li>
           <li>Engage with us in other related ways, including any sales, marketing, or events</li>

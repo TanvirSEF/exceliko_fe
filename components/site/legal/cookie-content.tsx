@@ -43,7 +43,7 @@ export function CookieContent() {
     <>
       <div>
         <p>
-          This Cookie Policy explains how Excel Insider (“<strong>Company</strong>,” “
+          This Cookie Policy explains how Exceliko (“<strong>Company</strong>,” “
           <strong>we</strong>,” “<strong>us</strong>,” and “<strong>our</strong>”) uses cookies
           and similar technologies to recognize you when you visit our website at{" "}
           <Link href="/">this website</Link> (“
@@ -63,7 +63,7 @@ export function CookieContent() {
           websites work, or to work more efficiently, as well as to provide reporting information.
         </p>
         <p>
-          Cookies set by the website owner (in this case, Excel Insider) are called “first-party
+          Cookies set by the website owner (in this case, Exceliko) are called “first-party
           cookies.” Cookies set by parties other than the website owner are called “third-party
           cookies.” Third-party cookies enable third-party features or functionality to be
           provided on or through the website (e.g., advertising, interactive content, and

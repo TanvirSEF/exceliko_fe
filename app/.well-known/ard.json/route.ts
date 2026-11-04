@@ -9,7 +9,7 @@ const ardManifest = {
   entries: [
     {
       identifier: `urn:air:${new URL(config.siteUrl).hostname}:knowledge:excel-guides`,
-      displayName: "Excel Insider Knowledge Base & Formulas Hub",
+      displayName: "Exceliko Knowledge Base & Formulas Hub",
       type: "text/markdown",
       url: new URL("/llms.txt", config.siteUrl).href,
       capabilities: [

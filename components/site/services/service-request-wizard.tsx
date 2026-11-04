@@ -189,7 +189,7 @@ export function ServiceRequestWizard({
   const validateStep3 = () => {
     const errs: Record<string, string> = {}
     if (!agreedToTerms) {
-      errs.terms = "You must agree to the Terms & Conditions of Service for Excel Insider."
+      errs.terms = "You must agree to the Terms & Conditions of Service for Exceliko."
     }
     setErrors(errs)
     return Object.keys(errs).length === 0
@@ -902,7 +902,7 @@ export function ServiceRequestWizard({
                     <Link href="/terms-and-conditions/" target="_blank" className="font-semibold text-brand hover:underline">
                       Terms & Conditions
                     </Link>{" "}
-                    of Service for Excel Insider <span className="text-red-500">*</span>
+                    of Service for Exceliko <span className="text-red-500">*</span>
                   </span>
                 </label>
                 {errors.terms && <p className="mt-1 text-xs text-red-500">{errors.terms}</p>}

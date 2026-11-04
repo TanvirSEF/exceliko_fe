@@ -4,12 +4,12 @@ import { Breadcrumb } from "@/components/site/breadcrumb"
 import { ServiceRequestWizard } from "@/components/site/services/service-request-wizard"
 
 export const metadata: Metadata = {
-  title: "Order Plan & Request Help | Excel Insider",
+  title: "Order Plan & Request Help",
   description:
     "Get started with 3 easy steps. Submit your spreadsheet bug, formula needs, or workbook optimization details directly to our engineering team.",
   alternates: { canonical: "/spreadsheet-solutions/request-help/" },
   openGraph: {
-    title: "Order Plan & Request Help | Excel Insider",
+    title: "Order Plan & Request Help | Exceliko",
     description:
       "Get started with 3 easy steps. Submit your spreadsheet task details, contact information, and target budget for rapid expert turnaround.",
     url: "/spreadsheet-solutions/request-help/",

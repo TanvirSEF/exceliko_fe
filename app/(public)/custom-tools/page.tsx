@@ -56,12 +56,12 @@ const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
 ]
 
 export const metadata: Metadata = {
-  title: "Custom Spreadsheet Tools & Add-ons | Excel Insider",
+  title: "Custom Spreadsheet Tools & Add-ons",
   description:
     "Custom Excel and Google Sheets tools from $500, and full Google Workspace add-ons or Chrome extensions from $1200 — automation, dashboards, API integrations, delivered with revisions and docs.",
   alternates: { canonical: "/custom-tools/" },
   openGraph: {
-    title: "Custom Spreadsheet Tools & Add-ons | Excel Insider",
+    title: "Custom Spreadsheet Tools & Add-ons | Exceliko",
     description:
       "Expertly designed custom spreadsheet tools — delivered on time and on budget. Professional tools from $500, Workspace add-ons from $1200.",
     url: "/custom-tools/",

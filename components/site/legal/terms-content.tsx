@@ -22,7 +22,7 @@ export function TermsContent() {
     <>
       <div>
         <p>
-          Welcome to Excel Insider (“we,” “our,” or “us”). These Terms of Service
+          Welcome to Exceliko (“we,” “our,” or “us”). These Terms of Service
           (“Terms”) govern your use of our website, products, and services, including
           spreadsheet templates, customization, consulting, tutorials, and advanced courses. By
           accessing or using our services, you agree to be bound by these Terms. If you do not
@@ -32,7 +32,7 @@ export function TermsContent() {
 
       <LegalSection id="business-overview" num="1" title="Business Overview">
         <p>
-          Excel Insider is a platform dedicated to providing high-quality spreadsheet-related
+          Exceliko is a platform dedicated to providing high-quality spreadsheet-related
           solutions. Our offerings include professionally designed spreadsheet templates, custom
           spreadsheet development services, consulting for spreadsheet-related projects,
           comprehensive tutorials, and advanced courses aimed at enhancing your spreadsheet
@@ -43,7 +43,7 @@ export function TermsContent() {
 
       <LegalSection id="description-of-services" num="2" title="Description of Services">
         <p>
-          Excel Insider offers a comprehensive range of spreadsheet-related solutions designed
+          Exceliko offers a comprehensive range of spreadsheet-related solutions designed
           to meet diverse user needs. Our services include, but are not limited to, the following:
         </p>
         <ul>
@@ -91,7 +91,7 @@ export function TermsContent() {
           </li>
         </ul>
         <p>
-          Please note that Excel Insider reserves the right to modify, update, or discontinue
+          Please note that Exceliko reserves the right to modify, update, or discontinue
           any of the above services at any time without prior notice, in order to maintain the
           highest quality and relevance for our users.
         </p>
@@ -166,8 +166,8 @@ export function TermsContent() {
         <ul>
           <li>
             All content, including but not limited to spreadsheet templates, tutorials, videos,
-            courses, logos, designs, and written materials available on Excel Insider, are the
-            exclusive intellectual property of Excel Insider’s owners and co-founders.
+            courses, logos, designs, and written materials available on Exceliko, are the
+            exclusive intellectual property of Exceliko’s owners and co-founders.
           </li>
           <li>
             These materials are protected by copyright, trademark, and other intellectual
@@ -187,7 +187,7 @@ export function TermsContent() {
       <LegalSection id="liability-and-warranties" num="6" title="Liability and Warranties">
         <ul>
           <li>
-            While we strive to provide high-quality and accurate services, Excel Insider makes
+            While we strive to provide high-quality and accurate services, Exceliko makes
             no warranties, express or implied, regarding the accuracy, completeness, or
             reliability of any content, templates, tutorials, or services.
           </li>
@@ -196,7 +196,7 @@ export function TermsContent() {
             express or implied.
           </li>
           <li>
-            Excel Insider will not be liable for any direct, indirect, incidental,
+            Exceliko will not be liable for any direct, indirect, incidental,
             consequential, or special damages arising from the use of our services or materials.
           </li>
         </ul>
@@ -222,7 +222,7 @@ export function TermsContent() {
       <LegalSection id="governing-law" num="9" title="Governing Law">
         <p>
           These Terms shall be governed by and construed in accordance with the laws of the
-          jurisdiction in which Excel Insider is registered. Any disputes arising under these
+          jurisdiction in which Exceliko is registered. Any disputes arising under these
           Terms shall be resolved exclusively in the exclusive jurisdiction of the courts of
           Bangladesh.
         </p>
@@ -237,7 +237,7 @@ export function TermsContent() {
           <Link href="/contact/">Contact us</Link>
         </p>
         <p>
-          Thank you for using Excel Insider and for your cooperation in abiding by these
+          Thank you for using Exceliko and for your cooperation in abiding by these
           Terms.
         </p>
       </LegalSection>

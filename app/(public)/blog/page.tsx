@@ -21,7 +21,7 @@ export async function generateMetadata({
   return {
     title: "Blog",
     description:
-      "All Excel Insider articles — formulas, shortcuts, Power Query, VBA and more.",
+      "All Exceliko articles — formulas, shortcuts, Power Query, VBA and more.",
     alternates: {
       canonical: page > 1 ? `/blog/?page=${page}` : "/blog/",
     },

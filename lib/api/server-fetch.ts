@@ -36,7 +36,7 @@ export async function serverFetch<T>(
     throw new ApiClientError(
       503,
       "NETWORK_ERROR",
-      "Could not reach the Excel Insider API. Please try again."
+      "Could not reach the Exceliko API. Please try again."
     )
   }
 

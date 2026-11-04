@@ -47,7 +47,7 @@ export function CourseCatalogView({ initialCourses }: CourseCatalogViewProps) {
             <span>Interactive Learning Experience</span>
           </div>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Excel Insider Video Courses
+            Exceliko Video Courses
           </h1>
           <p className="text-sm text-muted-foreground sm:text-base">
             Structured, step-by-step video curriculums, real-world spreadsheet exercises, and downloadable Excel templates designed for analysts, modelers, and finance professionals.

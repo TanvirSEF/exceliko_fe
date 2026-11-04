@@ -62,7 +62,7 @@ export interface TemplatePreview {
 
 export const FREE_PLAN: FreePlan = {
   name: "Free Forever",
-  tagline: "Everything on Excel Insider, free to read and use",
+  tagline: "Everything on Exceliko, free to read and use",
   priceLabel: "$0",
   unit: "forever",
   features: [

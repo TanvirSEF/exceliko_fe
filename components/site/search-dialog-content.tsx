@@ -72,7 +72,7 @@ export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentP
         className="overflow-hidden p-0 sm:max-w-2xl rounded-2xl border-border/70 bg-background/95 backdrop-blur-xl shadow-2xl"
       >
         <DialogHeader className="sr-only">
-          <DialogTitle>Search Excel Insider</DialogTitle>
+          <DialogTitle>Search Exceliko</DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="relative flex items-center border-b border-border/60 px-4">
@@ -169,7 +169,7 @@ export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentP
               <span>to close</span>
             </span>
           </div>
-          <span className="font-medium text-brand">Excel Insider Search</span>
+          <span className="font-medium text-brand">Exceliko Search</span>
         </div>
       </DialogContent>
     </Dialog>

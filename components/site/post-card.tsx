@@ -67,7 +67,7 @@ export function PostCard({ post, className, priority = false }: PostCardProps) {
                 className="absolute inset-0 opacity-20 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:16px_16px]"
               />
               <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary/70">
-                Excel Insider
+                Exceliko
               </span>
             </div>
           )}

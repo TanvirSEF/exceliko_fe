@@ -10,12 +10,12 @@ export const revalidate = 86400
 const HUBS = [STATS_HUB, FINANCE_HUB, ACCOUNTING_HUB]
 
 export const metadata: Metadata = {
-  title: "Free Online Calculators | Excel Insider",
+  title: "Free Online Calculators",
   description:
     "45 free calculators for statistics, finance and accounting — ANOVA, IRR, dividend DRIP, payroll, debt payoff and more. Instant, private, no signup.",
   alternates: { canonical: "/calculator/" },
   openGraph: {
-    title: "Free Online Calculators | Excel Insider",
+    title: "Free Online Calculators | Exceliko",
     description:
       "Statistics, finance and accounting calculators — instant results, formulas explained, 100% free.",
     url: "/calculator/",
@@ -28,7 +28,7 @@ export default function CalculatorsPage() {
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
       <SectionHeading
         badge="45 Free Tools"
-        title="Every Excel Insider calculator"
+        title="Every Exceliko calculator"
         subtitle="Three libraries of instant, browser-based calculators — every formula explained, every result step by step. Nothing is stored, nothing is charged."
       />
 

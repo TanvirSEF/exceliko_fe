@@ -125,7 +125,7 @@ function GooglePreview({
           <IconSearch className="h-3.5 w-3.5 text-neutral-500" />
         </span>
         <div className="min-w-0">
-          <p className="truncate text-xs font-medium text-neutral-800">Excel Insider</p>
+          <p className="truncate text-xs font-medium text-neutral-800">Exceliko</p>
           <p className="truncate text-[11px] text-neutral-500">
             example.com › blog › {slug || "your-post-slug"}
           </p>

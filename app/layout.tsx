@@ -27,8 +27,8 @@ const fontMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(config.siteUrl),
   title: {
-    default: "Excel Insider | Spreadsheet Services, Templates & Courses",
-    template: "%s | Excel Insider",
+    default: "Exceliko | Spreadsheet Services, Templates & Courses",
+    template: "%s | Exceliko",
   },
   description:
     "Practical, example-driven Excel articles — formulas, shortcuts, Power Query, VBA and more.",
@@ -41,10 +41,10 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   openGraph: {
-    siteName: "Excel Insider",
+    siteName: "Exceliko",
     type: "website",
     url: config.siteUrl,
-    images: [{ url: "/icon.png", width: 512, height: 512, alt: "Excel Insider" }],
+    images: [{ url: "/icon.png", width: 512, height: 512, alt: "Exceliko" }],
   },
   twitter: {
     card: "summary_large_image",

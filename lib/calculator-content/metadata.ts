@@ -6,11 +6,11 @@ export function calculatorMetadata(
   path: string
 ): Metadata {
   return {
-    title: `${name} | Excel Insider`,
+    title: name,
     description,
     alternates: { canonical: path },
     openGraph: {
-      title: `${name} | Excel Insider`,
+      title: `${name} | Exceliko`,
       description,
       url: path,
       images: ["/og-default.png"],

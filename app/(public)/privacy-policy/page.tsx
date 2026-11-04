@@ -4,9 +4,9 @@ import { LegalPage } from "@/components/site/legal/legal-page"
 import { PrivacyContent, privacyToc } from "@/components/site/legal/privacy-content"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Excel Insider",
+  title: "Privacy Policy",
   description:
-    "How Excel Insider collects, uses, and protects your personal data, including cookie practices, third-party advertising partners, and your privacy rights.",
+    "How Exceliko collects, uses, and protects your personal data, including cookie practices, third-party advertising partners, and your privacy rights.",
   alternates: { canonical: "/privacy-policy/" },
 }
 

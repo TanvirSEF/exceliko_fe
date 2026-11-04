@@ -26,7 +26,7 @@ const FAQS = [
       "No coding knowledge is necessary. All our standard business templates and financial models use native spreadsheet formulas and intuitive data input sheets with clean instructions. For specialized automation tools that use VBA macros, full setup documentation is provided.",
   },
   {
-    question: "How frequently is new content published on Excel Insider?",
+    question: "How frequently is new content published on Exceliko?",
     answer:
       "We publish multiple comprehensive articles, formula deep-dives, and downloadable business templates every week, constantly updating our library to reflect the newest Excel 365 and Google Sheets capabilities.",
   },

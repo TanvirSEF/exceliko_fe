@@ -4,9 +4,9 @@ import { CookieContent, cookieToc } from "@/components/site/legal/cookie-content
 import { LegalPage } from "@/components/site/legal/legal-page"
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | Excel Insider",
+  title: "Cookie Policy",
   description:
-    "What cookies Excel Insider uses, why we use them, and how you can control cookies in your browser.",
+    "What cookies Exceliko uses, why we use them, and how you can control cookies in your browser.",
   alternates: { canonical: "/cookie-policy/" },
 }
 

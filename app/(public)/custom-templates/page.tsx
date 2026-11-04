@@ -44,12 +44,12 @@ const HOW_IT_WORKS_STEPS: HowItWorksStep[] = [
 ]
 
 export const metadata: Metadata = {
-  title: "Custom Spreadsheet Templates | Excel Insider",
+  title: "Custom Spreadsheet Templates",
   description:
     "Custom Excel and Google Sheets templates from $25 — from a single clean worksheet to multi-sheet automated dashboards with Power Query and VBA. Delivered in days, revisions included.",
   alternates: { canonical: "/custom-templates/" },
   openGraph: {
-    title: "Custom Spreadsheet Templates | Excel Insider",
+    title: "Custom Spreadsheet Templates | Exceliko",
     description:
       "Excel or Google Sheets templates crafted to meet every requirement — on time and within budget. Plans from $25.",
     url: "/custom-templates/",

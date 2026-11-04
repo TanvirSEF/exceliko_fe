@@ -4,12 +4,12 @@ import { Breadcrumb } from "@/components/site/breadcrumb"
 import { ServiceRequestWizard } from "@/components/site/services/service-request-wizard"
 
 export const metadata: Metadata = {
-  title: "Request Custom Spreadsheet Template | Excel Insider",
+  title: "Request Custom Spreadsheet Template",
   description:
     "Get started with 3 easy steps. Tell us about your workbook workflow, desired tabs, calculations and custom design, and our engineers will build your template.",
   alternates: { canonical: "/custom-templates/request-template/" },
   openGraph: {
-    title: "Request Custom Spreadsheet Template | Excel Insider",
+    title: "Request Custom Spreadsheet Template | Exceliko",
     description:
       "Get started with 3 easy steps. Tell us about your workbook workflow, desired tabs, calculations and custom design, and our engineers will build your template.",
     url: "/custom-templates/request-template/",

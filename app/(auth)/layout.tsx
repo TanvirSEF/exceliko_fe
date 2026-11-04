@@ -37,10 +37,10 @@ export default function AuthLayout({
           className="pointer-events-none absolute inset-0 bg-gradient-to-bl from-white/8 via-transparent to-transparent"
         />
 
-        <Link href="/" className="relative block w-fit" aria-label="Excel Insider">
+        <Link href="/" className="relative block w-fit" aria-label="Exceliko">
           <Image
             src="/logo.png"
-            alt="Excel Insider"
+            alt="Exceliko"
             width={233}
             height={60}
             priority
@@ -83,7 +83,7 @@ export default function AuthLayout({
           <div className="mb-6 flex justify-center lg:hidden">
             <Image
               src="/logo.png"
-              alt="Excel Insider"
+              alt="Exceliko"
               width={233}
               height={60}
               className="h-11 w-auto"
@@ -95,7 +95,7 @@ export default function AuthLayout({
               href="/"
               className="font-medium text-primary transition-colors hover:text-primary/80"
             >
-              ← Back to Excel Insider
+              ← Back to Exceliko
             </Link>
           </p>
         </div>

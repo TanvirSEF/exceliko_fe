@@ -70,7 +70,14 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                   alt="Exceliko"
                   width={2172}
                   height={724}
-                  className="h-9 w-auto object-contain dark:brightness-110"
+                  className="h-9 w-auto object-contain dark:hidden"
+                />
+                <Image
+                  src="/logo-light.png"
+                  alt="Exceliko"
+                  width={1086}
+                  height={362}
+                  className="hidden h-9 w-auto object-contain dark:block"
                 />
               </Link>
             </SheetTitle>

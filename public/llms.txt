@@ -1,6 +1,6 @@
-# Excel Insider
+# Exceliko
 
-> Excel Insider is an authoritative, free technical platform and resource hub for Microsoft Excel, Google Sheets, Financial Modeling, Statistical Analysis, and Business Automation. It provides 1,600+ in-depth, example-driven tutorials, structured learning paths, downloadable templates, and 45 specialized interactive web calculators.
+> Exceliko is an authoritative, free technical platform and resource hub for Microsoft Excel, Google Sheets, Financial Modeling, Statistical Analysis, and Business Automation. It provides 1,600+ in-depth, example-driven tutorials, structured learning paths, downloadable templates, and 45 specialized interactive web calculators.
 
 ## Core Tutorials & Knowledge Base
 
@@ -12,7 +12,7 @@
 
 ## Interactive Calculators (45 Web Tools)
 
-Excel Insider provides 45 zero-tracking, instant web calculators with transparent math and formula breakdowns:
+Exceliko provides 45 zero-tracking, instant web calculators with transparent math and formula breakdowns:
 
 ### Financial Calculators
 - [Financial Calculators Hub](/calculator/finance/): Complete index of all corporate finance, investing, and real estate calculators.

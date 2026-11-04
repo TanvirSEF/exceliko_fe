@@ -81,7 +81,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 <span className="flex size-8 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
                   EI
                 </span>
-                <span className="text-base font-semibold">Excel Insider</span>
+                <span className="text-base font-semibold">Exceliko</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

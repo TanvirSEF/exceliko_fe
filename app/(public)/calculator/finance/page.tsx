@@ -6,12 +6,12 @@ import { FINANCE_HUB } from "@/lib/calculators"
 export const revalidate = 300
 
 export const metadata: Metadata = {
-  title: "Financial Calculator Hub: Business, Real Estate & Investing | Excel Insider",
+  title: "Financial Calculator Hub: Business, Real Estate & Investing",
   description:
     "Free online financial calculators — investment returns, dividends, rental property and solar ROI, marketing ROI, IRR, retirement planning and more. Instant, private, no signup.",
   alternates: { canonical: "/calculator/finance/" },
   openGraph: {
-    title: "Financial Calculator Hub: Business, Real Estate & Investing | Excel Insider",
+    title: "Financial Calculator Hub: Business, Real Estate & Investing | Exceliko",
     description:
       "Investment, real estate, business, and retirement calculators — logical formulas, instant results, 100% free.",
     url: "/calculator/finance/",

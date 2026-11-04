@@ -15,14 +15,14 @@ import { Breadcrumb } from "@/components/site/breadcrumb"
 import { config } from "@/lib/config"
 
 export const metadata: Metadata = {
-  title: "About Nehad Ulfat | Founder & Strategist at Excel Insider",
+  title: "About Nehad Ulfat | Founder & Strategist at Exceliko",
   description:
-    "Nehad Ulfat is a spreadsheet expert, consultant, and founder of Excel Insider with 15+ years of experience solving real-world spreadsheet problems through advanced formulas, automation, and consulting.",
+    "Nehad Ulfat is a spreadsheet expert, consultant, and founder of Exceliko with 15+ years of experience solving real-world spreadsheet problems through advanced formulas, automation, and consulting.",
   alternates: { canonical: "/about/nehad-ulfat/" },
   openGraph: {
-    title: "About Nehad Ulfat | Founder & Strategist at Excel Insider",
+    title: "About Nehad Ulfat | Founder & Strategist at Exceliko",
     description:
-      "Spreadsheet expert, consultant, and founder of Excel Insider. 15+ years of experience in Excel, Google Sheets, automated templates, and custom business solutions.",
+      "Spreadsheet expert, consultant, and founder of Exceliko. 15+ years of experience in Excel, Google Sheets, automated templates, and custom business solutions.",
     url: "/about/nehad-ulfat/",
     images: ["/og-default.png"],
   },
@@ -52,7 +52,7 @@ const STATS = [
     value: "~1M",
     label: "Year 1 Sessions",
     icon: IconRocket,
-    description: "Reached worldwide on Excel Insider",
+    description: "Reached worldwide on Exceliko",
   },
 ]
 */
@@ -76,13 +76,13 @@ export default function NehadUlfatProfilePage() {
     jobTitle: "Founder & Strategist",
     worksFor: {
       "@type": "Organization",
-      name: "Excel Insider",
+      name: "Exceliko",
       url: config.siteUrl,
     },
     url: `${config.siteUrl}/about/nehad-ulfat/`,
     sameAs: ["https://www.linkedin.com/in/nehad-ulfat-22042017b"],
     description:
-      "Nehad Ulfat is a spreadsheet expert, consultant, and the founder of Excel Insider specializing in advanced formulas, data analysis, and automated templates.",
+      "Nehad Ulfat is a spreadsheet expert, consultant, and the founder of Exceliko specializing in advanced formulas, data analysis, and automated templates.",
   })
 
   return (
@@ -128,7 +128,7 @@ export default function NehadUlfatProfilePage() {
                 Nehad Ulfat
               </h1>
               <p className="text-sm sm:text-base font-medium text-primary-foreground/75">
-                Founder &amp; Strategist at Excel Insider · Spreadsheet Expert &amp; Consultant
+                Founder &amp; Strategist at Exceliko · Spreadsheet Expert &amp; Consultant
               </p>
             </div>
           </div>
@@ -194,7 +194,7 @@ export default function NehadUlfatProfilePage() {
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
               <p>
                 Nehad Ulfat is a spreadsheet expert, consultant, and the founder of{" "}
-                <strong className="text-foreground">Excel Insider</strong>, a platform
+                <strong className="text-foreground">Exceliko</strong>, a platform
                 dedicated to solving real-world spreadsheet problems through practical
                 tutorials and professional spreadsheet services. With more than 15 years
                 of experience working with spreadsheets, he specializes in advanced
@@ -222,7 +222,7 @@ export default function NehadUlfatProfilePage() {
               </p>
 
               <p>
-                Now Nehad leads Excel Insider as its owner and content strategist, where
+                Now Nehad leads Exceliko as its owner and content strategist, where
                 he oversees every aspect of the platform—from content strategy to writer
                 training, quality control, and client service management. Under his
                 leadership, the website has already reached around{" "}
@@ -232,7 +232,7 @@ export default function NehadUlfatProfilePage() {
               </p>
 
               <p>
-                Through Excel Insider, Nehad focuses primarily on intermediate and
+                Through Exceliko, Nehad focuses primarily on intermediate and
                 advanced spreadsheet challenges rather than basic tutorials. His approach
                 is to identify real user problems that often lack clear solutions online
                 and develop well-researched articles that combine existing knowledge with
@@ -263,7 +263,7 @@ export default function NehadUlfatProfilePage() {
                 a career in the spreadsheet and technical content industry. Nehad is
                 passionate about simplifying complex spreadsheet problems and helping
                 people turn raw data into meaningful insights. His long-term vision for
-                Excel Insider is to build a dedicated platform where individuals and
+                Exceliko is to build a dedicated platform where individuals and
                 businesses around the world can easily find expert help for spreadsheet
                 solutions.
               </p>
@@ -282,7 +282,7 @@ export default function NehadUlfatProfilePage() {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
               Focusing on intermediate and advanced challenges that lack clear solutions
-              online, every article on Excel Insider combines hands-on examples, practice
+              online, every article on Exceliko combines hands-on examples, practice
               spreadsheets, and video demonstrations to turn complex spreadsheet problems
               into reliable, real-world solutions.
             </p>

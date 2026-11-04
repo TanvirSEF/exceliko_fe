@@ -11,7 +11,7 @@ import { partitionCategories } from "@/lib/category-topics"
 export const revalidate = 86400
 
 export const metadata: Metadata = {
-  title: "Spreadsheet Categories & Learning Tracks | Excel Insider",
+  title: "Spreadsheet Categories & Learning Tracks",
   description:
     "Explore in-depth tutorials, formulas, and automation workflows separated by platform — choose between Microsoft Excel and Google Sheets.",
   alternates: { canonical: "/category/" },

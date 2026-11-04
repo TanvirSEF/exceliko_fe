@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
         { name: "📊 Spreadsheet Type", value: data.spreadsheetType, inline: true },
       ],
       footer: {
-        text: `Excel Insider Orders • ${ticketId}`,
+        text: `Exceliko Orders • ${ticketId}`,
       },
       timestamp: now.toISOString(),
     }
@@ -117,7 +117,7 @@ export async function POST(request: NextRequest) {
           discordFormData.append(
             "payload_json",
             JSON.stringify({
-              username: "Excel Insider Concierge",
+              username: "Exceliko Concierge",
               avatar_url: `${config.siteUrl}/icon-512.png`,
               embeds: [discordEmbed],
             })
@@ -140,7 +140,7 @@ export async function POST(request: NextRequest) {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
-              username: "Excel Insider Concierge",
+              username: "Exceliko Concierge",
               avatar_url: `${config.siteUrl}/icon-512.png`,
               embeds: [discordEmbed],
             }),
