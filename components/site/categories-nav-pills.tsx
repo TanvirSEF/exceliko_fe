@@ -57,9 +57,9 @@ export function CategoriesNavPills({ groups }: CategoriesNavPillsProps) {
             className={cn(
               "inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs sm:text-sm font-semibold transition-all cursor-pointer shadow-2xs",
               isExcel &&
-                "border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-500/20 hover:border-emerald-500/50",
+                "border-brand/30 bg-brand/10 text-brand hover:bg-brand/20 hover:border-brand/50",
               isGoogle &&
-                "border-teal-500/30 bg-teal-500/10 text-teal-700 dark:text-teal-300 hover:bg-teal-500/20 hover:border-teal-500/50",
+                "border-brand/30 bg-brand/10 text-brand hover:bg-brand/20 hover:border-brand/50",
               !isExcel &&
                 !isGoogle &&
                 "border-border/80 bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
@@ -70,8 +70,8 @@ export function CategoriesNavPills({ groups }: CategoriesNavPillsProps) {
             <span
               className={cn(
                 "rounded-full px-2 py-0.5 text-xs font-semibold",
-                isExcel && "bg-emerald-500/20 text-emerald-800 dark:text-emerald-200",
-                isGoogle && "bg-teal-500/20 text-teal-800 dark:text-teal-200",
+                isExcel && "bg-brand/20 text-brand",
+                isGoogle && "bg-brand/20 text-brand",
                 !isExcel && !isGoogle && "bg-background text-muted-foreground"
               )}
             >

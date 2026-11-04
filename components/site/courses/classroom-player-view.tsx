@@ -120,7 +120,7 @@ export function ClassroomPlayerView({
           <div className="hidden items-center gap-2 sm:flex">
             <div className="h-2 w-28 overflow-hidden rounded-full bg-muted">
               <div
-                className="h-full bg-emerald-500 transition-all duration-300"
+                className="h-full bg-brand transition-all duration-300"
                 style={{ width: `${course.progress_percent}%` }}
               />
             </div>
@@ -172,7 +172,7 @@ export function ClassroomPlayerView({
                   />
                 ) : (
                   <div className="flex h-full w-full flex-col items-center justify-center gap-3 p-6 text-center text-white/80">
-                    <IconFileText className="size-12 text-emerald-400" />
+                    <IconFileText className="size-12 text-brand" />
                     <h3 className="text-lg font-bold text-white">{lesson.title}</h3>
                     <p className="max-w-md text-xs text-white/70">
                       This lecture is provided as a structured article walkthrough and practice exercise workbook below.
@@ -188,7 +188,7 @@ export function ClassroomPlayerView({
                     variant={lesson.is_completed ? "default" : "outline"}
                     size="sm"
                     className={`gap-2 ${
-                      lesson.is_completed ? "bg-emerald-600 hover:bg-emerald-700 text-white" : ""
+                      lesson.is_completed ? "bg-brand hover:bg-brand text-white" : ""
                     }`}
                     onClick={handleToggleComplete}
                     disabled={updateProgressMutation.isPending}
@@ -296,7 +296,7 @@ export function ClassroomPlayerView({
                             className="flex items-center justify-between p-4 text-sm hover:bg-muted/30 transition-colors"
                           >
                             <div className="flex items-center gap-3">
-                              <div className="flex size-9 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600">
+                              <div className="flex size-9 items-center justify-center rounded-lg bg-brand/10 text-brand">
                                 <IconFileSpreadsheet className="size-5" />
                               </div>
                               <div>
@@ -362,7 +362,7 @@ export function ClassroomPlayerView({
                         >
                           <div className="mt-0.5 shrink-0">
                             {les.is_completed ? (
-                              <IconCheck className="size-4 text-emerald-500 font-bold" />
+                              <IconCheck className="size-4 text-brand font-bold" />
                             ) : (
                               <div className="size-4 rounded-full border border-muted-foreground/40" />
                             )}
@@ -373,7 +373,7 @@ export function ClassroomPlayerView({
                             <div className="flex items-center gap-2 text-[10px] text-muted-foreground font-normal">
                               <span>{formatDuration(les.video_duration_seconds)}</span>
                               {les.is_preview && (
-                                <span className="text-emerald-600 font-medium">Free preview</span>
+                                <span className="text-brand font-medium">Free preview</span>
                               )}
                             </div>
                           </div>

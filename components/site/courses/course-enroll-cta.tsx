@@ -74,7 +74,7 @@ export function CourseEnrollCta({ course, firstLessonId }: CourseEnrollCtaProps)
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-emerald-500/10 via-primary/5 to-sky-500/10">
+            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand/10 via-navy/5 to-navy/10">
               <IconSchool className="size-12 text-primary/40" />
             </div>
           )}
@@ -92,7 +92,7 @@ export function CourseEnrollCta({ course, firstLessonId }: CourseEnrollCtaProps)
         <div className="mt-5 space-y-4">
           <div className="flex items-baseline justify-between">
             {course.is_free ? (
-              <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
+              <div className="text-2xl font-black text-brand">
                 FREE
               </div>
             ) : (
@@ -101,7 +101,7 @@ export function CourseEnrollCta({ course, firstLessonId }: CourseEnrollCtaProps)
               </div>
             )}
             {course.is_enrolled && (
-              <span className="rounded-md bg-emerald-500/10 px-2 py-0.5 text-xs font-semibold text-emerald-600">
+              <span className="rounded-md bg-brand/10 px-2 py-0.5 text-xs font-semibold text-brand">
                 Enrolled ({course.progress_percent}% completed)
               </span>
             )}

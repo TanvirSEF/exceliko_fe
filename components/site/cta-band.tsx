@@ -31,7 +31,7 @@ export function CtaBand({
   const targetHref = href || getCtaHref(service)
 
   return (
-    <section className="relative my-8 overflow-hidden rounded-3xl bg-gradient-to-br from-chart-2 via-primary to-chart-5 p-8 text-center text-primary-foreground shadow-xl sm:p-14">
+    <section className="relative my-8 overflow-hidden rounded-3xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-8 text-center text-primary-foreground shadow-xl sm:p-14">
       <div
         aria-hidden
         className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"

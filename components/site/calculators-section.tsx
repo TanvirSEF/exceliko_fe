@@ -40,10 +40,10 @@ const DOMAIN_CARDS: DomainCard[] = [
     hubHref: "/calculator/finance",
     icon: IconReportMoney,
     count: FINANCE_HUB.groups.reduce((acc, g) => acc + g.calculators.length, 0),
-    accentBg: "bg-emerald-500/10",
-    accentText: "text-emerald-600 dark:text-emerald-400",
-    accentBorder: "border-emerald-500/30 group-hover:border-emerald-500/60",
-    badgeClass: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20",
+    accentBg: "bg-brand/10",
+    accentText: "text-brand",
+    accentBorder: "border-brand/30 group-hover:border-brand/60",
+    badgeClass: "bg-brand/10 text-brand border-brand/20",
     tools: [
       {
         name: "Internal Rate of Return (IRR)",
@@ -104,10 +104,10 @@ const DOMAIN_CARDS: DomainCard[] = [
     hubHref: "/calculator/statistics",
     icon: IconChartHistogram,
     count: STATS_HUB.groups.reduce((acc, g) => acc + g.calculators.length, 0),
-    accentBg: "bg-violet-500/10",
-    accentText: "text-violet-600 dark:text-violet-400",
-    accentBorder: "border-violet-500/30 group-hover:border-violet-500/60",
-    badgeClass: "bg-violet-500/10 text-violet-600 dark:text-violet-400 border-violet-500/20",
+    accentBg: "bg-slate-500/10",
+    accentText: "text-slate-600 dark:text-slate-300",
+    accentBorder: "border-slate-500/30 group-hover:border-slate-500/60",
+    badgeClass: "bg-slate-500/10 text-slate-600 dark:text-slate-300 border-slate-500/20",
     tools: [
       {
         name: "Weighted Average Grade",

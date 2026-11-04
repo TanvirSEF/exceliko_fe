@@ -10,7 +10,7 @@ export function HeroSpreadsheetCard() {
   return (
     <div className="relative w-full max-w-lg lg:max-w-none">
       {/* Ambient background glow */}
-      <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-emerald-500/25 via-teal-500/20 to-emerald-600/25 opacity-70 blur-2xl transition duration-500 group-hover:opacity-100" />
+      <div className="absolute -inset-1.5 rounded-3xl bg-gradient-to-r from-brand/25 via-brand/20 to-brand/25 opacity-70 blur-2xl transition duration-500 group-hover:opacity-100" />
 
       {/* Main Glass Card */}
       <div className="relative overflow-hidden rounded-2xl border border-border/80 bg-card/90 backdrop-blur-xl shadow-2xl transition-all">
@@ -20,17 +20,17 @@ export function HeroSpreadsheetCard() {
             <div className="flex gap-1.5">
               <span className="h-3 w-3 rounded-full bg-red-400/80 inline-block" />
               <span className="h-3 w-3 rounded-full bg-amber-400/80 inline-block" />
-              <span className="h-3 w-3 rounded-full bg-emerald-400/80 inline-block" />
+              <span className="h-3 w-3 rounded-full bg-brand/80 inline-block" />
             </div>
             <span className="ml-2 hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-foreground">
-              <IconFileSpreadsheet className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+              <IconFileSpreadsheet className="h-4 w-4 text-brand" />
               <span>Financial_Model_v4.xlsx</span>
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2.5 py-0.5 text-xs font-medium text-emerald-700 dark:text-emerald-300">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="inline-flex items-center gap-1 rounded-full bg-brand/10 px-2.5 py-0.5 text-xs font-medium text-brand">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand animate-pulse" />
               AutoSave ON
             </span>
           </div>
@@ -39,12 +39,12 @@ export function HeroSpreadsheetCard() {
         {/* Formula Bar */}
         <div className="flex items-center gap-2 border-b border-border/60 bg-background/60 px-3.5 py-2 text-xs sm:text-sm font-mono">
           <div className="flex items-center gap-1 rounded bg-muted/70 px-2 py-1 font-semibold text-muted-foreground">
-            <IconMathFunction className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+            <IconMathFunction className="h-3.5 w-3.5 text-brand" />
             <span>D4</span>
           </div>
           <span className="text-muted-foreground font-bold">fx</span>
           <div className="flex-1 overflow-x-auto whitespace-nowrap text-foreground font-semibold text-xs sm:text-sm tracking-tight">
-            <span className="text-emerald-600 dark:text-emerald-400">=XLOOKUP</span>
+            <span className="text-brand">=XLOOKUP</span>
             <span className="text-muted-foreground">(</span>
             <span className="text-blue-600 dark:text-blue-400">&quot;Enterprise&quot;</span>
             <span className="text-muted-foreground">, </span>
@@ -75,7 +75,7 @@ export function HeroSpreadsheetCard() {
                 <td className="py-2 pl-2 text-muted-foreground font-sans">Starter</td>
                 <td className="py-2 pl-2 text-foreground">1,240</td>
                 <td className="py-2 pl-2 text-foreground">$14,880</td>
-                <td className="py-2 pl-2 text-right text-emerald-600 dark:text-emerald-400 font-semibold">+12.4%</td>
+                <td className="py-2 pl-2 text-right text-brand font-semibold">+12.4%</td>
               </tr>
               <tr className="hover:bg-muted/20">
                 <td className="py-2 text-center text-muted-foreground/50">3</td>
@@ -83,20 +83,20 @@ export function HeroSpreadsheetCard() {
                 <td className="py-2 pl-2 text-muted-foreground font-sans">Professional</td>
                 <td className="py-2 pl-2 text-foreground">3,890</td>
                 <td className="py-2 pl-2 text-foreground">$46,680</td>
-                <td className="py-2 pl-2 text-right text-emerald-600 dark:text-emerald-400 font-semibold">+18.2%</td>
+                <td className="py-2 pl-2 text-right text-brand font-semibold">+18.2%</td>
               </tr>
               {/* Highlighted Active Target Row */}
-              <tr className="bg-emerald-500/10 dark:bg-emerald-500/15 font-semibold transition-colors">
-                <td className="py-2 text-center text-emerald-600 dark:text-emerald-400">4</td>
+              <tr className="bg-brand/10 dark:bg-brand/15 font-semibold transition-colors">
+                <td className="py-2 text-center text-brand">4</td>
                 <td className="py-2 pl-2 text-foreground font-sans">Global Ops</td>
                 <td className="py-2 pl-2 text-blue-600 dark:text-blue-400 font-sans">Enterprise</td>
                 <td className="py-2 pl-2 text-foreground">8,450</td>
                 <td className="py-2 pl-2 relative">
-                  <span className="inline-block rounded border-2 border-emerald-500 bg-background/90 px-1.5 py-0.5 text-emerald-700 dark:text-emerald-300 shadow-sm">
+                  <span className="inline-block rounded border-2 border-brand bg-background/90 px-1.5 py-0.5 text-brand shadow-sm">
                     $128,450
                   </span>
                 </td>
-                <td className="py-2 pl-2 text-right text-emerald-600 dark:text-emerald-400 font-bold">
+                <td className="py-2 pl-2 text-right text-brand font-bold">
                   <span className="inline-flex items-center gap-0.5">
                     <IconTrendingUp className="h-3 w-3 inline" />
                     +34.6%
@@ -109,7 +109,7 @@ export function HeroSpreadsheetCard() {
                 <td className="py-2 pl-2 text-muted-foreground font-sans">Professional</td>
                 <td className="py-2 pl-2 text-foreground">2,150</td>
                 <td className="py-2 pl-2 text-foreground">$25,800</td>
-                <td className="py-2 pl-2 text-right text-emerald-600 dark:text-emerald-400 font-semibold">+8.7%</td>
+                <td className="py-2 pl-2 text-right text-brand font-semibold">+8.7%</td>
               </tr>
             </tbody>
           </table>
@@ -121,7 +121,7 @@ export function HeroSpreadsheetCard() {
             <span className="font-semibold text-foreground">Sheet1:</span>
             <span>Summary Matrix</span>
           </span>
-          <span className="font-mono text-emerald-600 dark:text-emerald-400 font-medium">
+          <span className="font-mono text-brand font-medium">
             Formula Verified ✓
           </span>
         </div>
@@ -129,7 +129,7 @@ export function HeroSpreadsheetCard() {
 
       {/* Floating Badge 1: 100% Tested Formulas */}
       <div className="absolute -bottom-3 -left-3 hidden sm:flex items-center gap-2 rounded-xl border border-border/80 bg-background/95 px-3 py-2 text-xs font-semibold shadow-xl backdrop-blur-md">
-        <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+        <div className="flex h-6 w-6 items-center justify-center rounded-lg bg-brand/15 text-brand">
           <IconCheck className="h-3.5 w-3.5" />
         </div>
         <div className="space-y-0.5">

@@ -72,7 +72,7 @@ export function CurriculumSidebar({
               <div className="flex items-center gap-2 min-w-0">
                 {moduleActive && (
                   <span
-                    className="h-2 w-2 shrink-0 rounded-full bg-emerald-300 shadow-xs"
+                    className="h-2 w-2 shrink-0 rounded-full bg-brand shadow-xs"
                     aria-hidden="true"
                   />
                 )}

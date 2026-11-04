@@ -15,10 +15,10 @@ interface HubPageProps {
 export function HubPage({ hub }: HubPageProps) {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-chart-2 via-primary to-chart-5">
+      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
         <div
           aria-hidden
-          className="absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-teal-300/12 blur-3xl"
+          className="absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-brand-light/12 blur-3xl"
         />
         <div
           aria-hidden
@@ -37,7 +37,7 @@ export function HubPage({ hub }: HubPageProps) {
 
           <h1 className="mx-auto mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-5xl">
             {hub.title}{" "}
-            <span className="text-teal-300">{hub.titleAccent}</span>
+            <span className="text-brand-light">{hub.titleAccent}</span>
           </h1>
 
           <div className="mx-auto mt-4 max-w-3xl space-y-3">

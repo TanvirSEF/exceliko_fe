@@ -15,7 +15,7 @@ export function NewsletterBand({
   source?: string
 }) {
   return (
-    <section className="relative my-8 overflow-hidden rounded-3xl bg-gradient-to-br from-chart-2 via-primary to-chart-5 p-8 text-primary-foreground shadow-xl sm:p-12 lg:p-14">
+    <section className="relative my-8 overflow-hidden rounded-3xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-8 text-primary-foreground shadow-xl sm:p-12 lg:p-14">
       {/* Decorative ambient glow orbs */}
       <div
         aria-hidden

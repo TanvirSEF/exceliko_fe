@@ -21,9 +21,9 @@ export function CategorySection({ group }: CategorySectionProps) {
         className={cn(
           "relative overflow-hidden rounded-2xl border p-6 sm:p-8 backdrop-blur-sm transition-all",
           isExcel &&
-            "border-emerald-500/25 bg-gradient-to-br from-emerald-500/8 via-emerald-500/3 to-transparent dark:from-emerald-950/20 dark:via-background dark:to-background",
+            "border-brand/25 bg-gradient-to-br from-brand/8 via-brand/3 to-transparent dark:from-brand/20 dark:via-background dark:to-background",
           isGoogle &&
-            "border-teal-500/25 bg-gradient-to-br from-teal-500/8 via-teal-500/3 to-transparent dark:from-teal-950/20 dark:via-background dark:to-background",
+            "border-brand/25 bg-gradient-to-br from-brand/8 via-brand/3 to-transparent dark:from-brand/20 dark:via-background dark:to-background",
           !isExcel &&
             !isGoogle &&
             "border-border/70 bg-gradient-to-br from-muted/50 via-background to-background"
@@ -35,9 +35,9 @@ export function CategorySection({ group }: CategorySectionProps) {
               className={cn(
                 "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border shadow-2xs",
                 isExcel &&
-                  "border-emerald-500/30 bg-emerald-500/15 text-emerald-600 dark:text-emerald-400",
+                  "border-brand/30 bg-brand/15 text-brand",
                 isGoogle &&
-                  "border-teal-500/30 bg-teal-500/15 text-teal-600 dark:text-teal-400",
+                  "border-brand/30 bg-brand/15 text-brand",
                 !isExcel &&
                   !isGoogle &&
                   "border-border/80 bg-muted text-muted-foreground"
@@ -51,8 +51,8 @@ export function CategorySection({ group }: CategorySectionProps) {
                 <span
                   className={cn(
                     "text-xs font-bold uppercase tracking-wider",
-                    isExcel && "text-emerald-600 dark:text-emerald-400",
-                    isGoogle && "text-teal-600 dark:text-teal-400",
+                    isExcel && "text-brand",
+                    isGoogle && "text-brand",
                     !isExcel && !isGoogle && "text-muted-foreground"
                   )}
                 >
@@ -86,9 +86,9 @@ export function CategorySection({ group }: CategorySectionProps) {
               className={cn(
                 "group relative flex flex-col justify-between rounded-xl border bg-card p-5 shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md",
                 isExcel &&
-                  "border-border/70 hover:border-emerald-500/60 hover:bg-emerald-500/[0.02]",
+                  "border-border/70 hover:border-brand/60 hover:bg-brand/[0.02]",
                 isGoogle &&
-                  "border-border/70 hover:border-teal-500/60 hover:bg-teal-500/[0.02]",
+                  "border-border/70 hover:border-brand/60 hover:bg-brand/[0.02]",
                 !isExcel &&
                   !isGoogle &&
                   "border-border/70 hover:border-primary/50 hover:bg-muted/30"
@@ -100,9 +100,9 @@ export function CategorySection({ group }: CategorySectionProps) {
                     className={cn(
                       "flex h-10 w-10 items-center justify-center rounded-lg border transition-colors",
                       isExcel &&
-                        "border-emerald-500/20 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white dark:group-hover:bg-emerald-500 dark:group-hover:text-black",
+                        "border-brand/20 bg-brand/10 text-brand group-hover:bg-brand group-hover:text-white dark:group-hover:bg-brand dark:group-hover:text-black",
                       isGoogle &&
-                        "border-teal-500/20 bg-teal-500/10 text-teal-600 dark:text-teal-400 group-hover:bg-teal-600 group-hover:text-white dark:group-hover:bg-teal-500 dark:group-hover:text-black",
+                        "border-brand/20 bg-brand/10 text-brand group-hover:bg-brand group-hover:text-white dark:group-hover:bg-brand dark:group-hover:text-black",
                       !isExcel &&
                         !isGoogle &&
                         "border-border bg-muted text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground"
@@ -124,8 +124,8 @@ export function CategorySection({ group }: CategorySectionProps) {
                   <h3
                     className={cn(
                       "text-base sm:text-[17px] font-semibold tracking-tight text-foreground transition-colors",
-                      isExcel && "group-hover:text-emerald-600 dark:group-hover:text-emerald-400",
-                      isGoogle && "group-hover:text-teal-600 dark:group-hover:text-teal-400",
+                      isExcel && "group-hover:text-brand dark:group-hover:text-brand",
+                      isGoogle && "group-hover:text-brand dark:group-hover:text-brand",
                       !isExcel && !isGoogle && "group-hover:text-primary"
                     )}
                   >
@@ -158,8 +158,8 @@ export function CategorySection({ group }: CategorySectionProps) {
               <div
                 className={cn(
                   "mt-4 flex items-center justify-between border-t border-border/40 pt-3 text-[13px] font-semibold transition-colors",
-                  isExcel && "text-emerald-600 dark:text-emerald-400",
-                  isGoogle && "text-teal-600 dark:text-teal-400",
+                  isExcel && "text-brand",
+                  isGoogle && "text-brand",
                   !isExcel && !isGoogle && "text-primary"
                 )}
               >

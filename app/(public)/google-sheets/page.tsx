@@ -37,10 +37,10 @@ export default async function GoogleSheetsHubPage() {
     <div className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-14">
       <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Google Sheets" }]} />
 
-      <section className="mt-6 overflow-hidden rounded-2xl border border-teal-500/25 bg-gradient-to-br from-teal-500/10 via-teal-500/5 to-transparent p-6 sm:p-10">
+      <section className="mt-6 overflow-hidden rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/10 via-brand/5 to-transparent p-6 sm:p-10">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
               <IconBrandGoogle className="h-3.5 w-3.5" />
               Structured Learning
             </span>
@@ -56,7 +56,7 @@ export default async function GoogleSheetsHubPage() {
           {firstLesson ? (
             <Link
               href={`/google-sheets/${firstLesson}`}
-              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-teal-600 px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-teal-700"
+              className="inline-flex h-11 shrink-0 items-center gap-2 rounded-xl bg-brand px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand"
             >
               {moduleIcon(modules[0].slug, "h-4.5 w-4.5")}
               Start Learning
@@ -72,7 +72,7 @@ export default async function GoogleSheetsHubPage() {
           return (
             <section key={module.slug} id={module.slug} aria-labelledby={`module-${module.slug}`}>
               <div className="flex items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-500/15 text-teal-700 dark:text-teal-300">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand/15 text-brand">
                   {moduleIcon(module.slug, "h-6 w-6")}
                 </div>
                 <div>
@@ -104,12 +104,12 @@ export default async function GoogleSheetsHubPage() {
                             ? `/google-sheets/${firstTopicLesson.slug}`
                             : "/google-sheets"
                         }
-                        className="group flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-teal-500/5"
+                        className="group flex items-center justify-between gap-4 px-5 py-4 transition-colors hover:bg-brand/5"
                       >
-                        <span className="text-base font-semibold text-foreground group-hover:text-teal-700 dark:group-hover:text-teal-300 sm:text-lg">
+                        <span className="text-base font-semibold text-foreground group-hover:text-brand dark:group-hover:text-brand sm:text-lg">
                           {topic.name}
                         </span>
-                        <IconArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-teal-600 dark:group-hover:text-teal-400" />
+                        <IconArrowRight className="h-5 w-5 shrink-0 text-muted-foreground transition-colors group-hover:text-brand dark:group-hover:text-brand" />
                       </Link>
                     </li>
                   )

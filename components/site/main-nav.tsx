@@ -242,7 +242,7 @@ export function MainNav({ categories = [] }: MainNavProps) {
                 onClick={() => setActiveMenu(null)}
                 className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <IconFileSpreadsheet className="h-4 w-4" />
                 </div>
                 <div className="space-y-0.5">
@@ -305,11 +305,11 @@ export function MainNav({ categories = [] }: MainNavProps) {
                 {/* Column 1: Microsoft Excel */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2.5 pb-2.5 border-b border-border/60">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand/10 text-brand">
                       <IconBrandOffice className="h-4.5 w-4.5" />
                     </div>
                     <div>
-                      <h3 className="text-[13px] font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                      <h3 className="text-[13px] font-bold uppercase tracking-wider text-brand">
                         Microsoft Excel
                       </h3>
                       <p className="text-xs text-muted-foreground">Formulas, VBA macros & deep-dives</p>
@@ -327,11 +327,11 @@ export function MainNav({ categories = [] }: MainNavProps) {
                           onClick={() => setActiveMenu(null)}
                           className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-muted/60 transition-colors group"
                         >
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-emerald-500/15 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mt-0.5">
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-brand/15 group-hover:text-brand dark:group-hover:text-brand transition-colors mt-0.5">
                             <Icon className="h-3.5 w-3.5" />
                           </div>
                           <div className="min-w-0 space-y-0.5">
-                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-brand dark:group-hover:text-brand transition-colors">
                               {item.name}
                             </p>
                             <p className="line-clamp-1 text-xs text-muted-foreground">
@@ -347,11 +347,11 @@ export function MainNav({ categories = [] }: MainNavProps) {
                 {/* Column 2: Google Sheets */}
                 <div className="space-y-2">
                   <div className="flex items-center gap-2.5 pb-2.5 border-b border-border/60">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-500/10 text-teal-600 dark:text-teal-400">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-brand/10 text-brand">
                       <IconBrandGoogle className="h-4.5 w-4.5" />
                     </div>
                     <div>
-                      <h3 className="text-[13px] font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">
+                      <h3 className="text-[13px] font-bold uppercase tracking-wider text-brand">
                         Google Sheets
                       </h3>
                       <p className="text-xs text-muted-foreground">Cloud functions & web workflows</p>
@@ -362,12 +362,12 @@ export function MainNav({ categories = [] }: MainNavProps) {
                     prefetch={false}
                     href="/google-sheets"
                     onClick={() => setActiveMenu(null)}
-                    className="flex items-center justify-between gap-2 rounded-lg border border-teal-500/30 bg-teal-500/10 p-2 transition-colors hover:bg-teal-500/20"
+                    className="flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 p-2 transition-colors hover:bg-brand/20"
                   >
-                    <span className="text-[13px] font-bold text-teal-700 dark:text-teal-300">
+                    <span className="text-[13px] font-bold text-brand">
                       Learning Track — step-by-step course
                     </span>
-                    <IconArrowRight className="h-3.5 w-3.5 shrink-0 text-teal-600 dark:text-teal-400" />
+                    <IconArrowRight className="h-3.5 w-3.5 shrink-0 text-brand" />
                   </Link>
 
                   <div className="space-y-0.5">
@@ -381,11 +381,11 @@ export function MainNav({ categories = [] }: MainNavProps) {
                           onClick={() => setActiveMenu(null)}
                           className="flex items-start gap-2.5 p-2 rounded-lg hover:bg-muted/60 transition-colors group"
                         >
-                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-teal-500/15 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors mt-0.5">
+                          <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-muted text-muted-foreground group-hover:bg-brand/15 group-hover:text-brand dark:group-hover:text-brand transition-colors mt-0.5">
                             <Icon className="h-3.5 w-3.5" />
                           </div>
                           <div className="min-w-0 space-y-0.5">
-                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                            <p className="truncate text-sm font-semibold text-foreground group-hover:text-brand dark:group-hover:text-brand transition-colors">
                               {item.name}
                             </p>
                             <p className="line-clamp-1 text-xs text-muted-foreground">
@@ -472,7 +472,7 @@ export function MainNav({ categories = [] }: MainNavProps) {
                 onClick={() => setActiveMenu(null)}
                 className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted/60 transition-colors"
               >
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-brand/10 text-brand">
                   <IconReportMoney className="h-4 w-4" />
                 </div>
                 <div className="space-y-0.5">

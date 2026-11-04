@@ -86,7 +86,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                 pathname === "/about" && "bg-muted font-semibold text-foreground"
               )}
             >
-              <IconInfoCircle className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-400" />
+              <IconInfoCircle className="h-4.5 w-4.5 text-brand" />
               <span>About Us</span>
             </Link>
 
@@ -98,7 +98,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                 className="flex w-full items-center justify-between px-3 py-2.5 text-[0.9375rem] font-semibold text-foreground transition-colors hover:bg-muted/40"
               >
                 <span className="flex items-center gap-2.5">
-                  <IconMathFunction className="h-4.5 w-4.5 text-emerald-600 dark:text-emerald-400" />
+                  <IconMathFunction className="h-4.5 w-4.5 text-brand" />
                   <span>Spreadsheet Blogs</span>
                 </span>
                 <IconChevronDown
@@ -110,7 +110,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                 <div className="space-y-3 px-2 pb-3 pt-2 text-sm border-t border-border/40">
                   {/* Excel Group */}
                   <div className="space-y-1">
-                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
                       <IconBrandOffice className="h-3.5 w-3.5" />
                       <span>Microsoft Excel</span>
                     </p>
@@ -128,14 +128,14 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
 
                   {/* Google Sheets Group */}
                   <div className="space-y-1 pt-1.5 border-t border-border/30">
-                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 flex items-center gap-1.5">
+                    <p className="px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-brand flex items-center gap-1.5">
                       <IconBrandGoogle className="h-3.5 w-3.5" />
                       <span>Google Sheets</span>
                     </p>
                     <Link
                       href="/google-sheets"
                       onClick={handleLinkClick}
-                      className="mx-1.5 flex items-center justify-between gap-2 rounded-lg border border-teal-500/30 bg-teal-500/10 px-2.5 py-2 text-xs font-bold text-teal-700 dark:text-teal-300"
+                      className="mx-1.5 flex items-center justify-between gap-2 rounded-lg border border-brand/30 bg-brand/10 px-2.5 py-2 text-xs font-bold text-brand"
                     >
                       <span>Learning Track — course</span>
                       <IconArrowRight className="h-3.5 w-3.5 shrink-0" />
@@ -163,7 +163,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                     <Link
                       href="/category"
                       onClick={handleLinkClick}
-                      className="flex items-center justify-between rounded-lg px-2.5 py-2 text-sm font-semibold text-emerald-600 dark:text-emerald-400 hover:bg-background"
+                      className="flex items-center justify-between rounded-lg px-2.5 py-2 text-sm font-semibold text-brand hover:bg-background"
                     >
                       <span className="flex items-center gap-2">
                         <IconBook2 className="h-3.5 w-3.5 shrink-0" />
@@ -206,7 +206,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                     onClick={handleLinkClick}
                     className="flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-muted-foreground hover:bg-background hover:text-foreground"
                   >
-                    <IconFileSpreadsheet className="h-3.5 w-3.5 text-emerald-500" />
+                    <IconFileSpreadsheet className="h-3.5 w-3.5 text-brand" />
                     <span>Custom Templates</span>
                   </Link>
                   <Link
@@ -229,7 +229,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                 className="flex w-full items-center justify-between px-3 py-2.5 text-[0.9375rem] font-semibold text-foreground transition-colors hover:bg-muted/40"
               >
                 <span className="flex items-center gap-2.5">
-                  <IconChartHistogram className="h-4.5 w-4.5 text-indigo-600 dark:text-indigo-400" />
+                  <IconChartHistogram className="h-4.5 w-4.5 text-blue-600 dark:text-blue-400" />
                   <span>Calculators</span>
                 </span>
                 <IconChevronDown
@@ -252,7 +252,7 @@ export function MobileNav({ categories = [] }: MobileNavProps) {
                     onClick={handleLinkClick}
                     className="flex items-center gap-2.5 rounded-lg px-2.5 py-2 text-muted-foreground hover:bg-background hover:text-foreground"
                   >
-                    <IconReportMoney className="h-3.5 w-3.5 text-emerald-500" />
+                    <IconReportMoney className="h-3.5 w-3.5 text-brand" />
                     <span>Finance</span>
                   </Link>
                   <Link

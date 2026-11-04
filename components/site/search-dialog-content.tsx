@@ -21,8 +21,8 @@ import {
 } from "@/components/ui/dialog"
 
 const QUICK_CATEGORIES = [
-  { label: "Excel Formulas", href: "/excel-functions-formulas/", icon: IconMathFunction, color: "text-emerald-500 bg-emerald-500/10" },
-  { label: "Google Sheets", href: "/google-sheets-basics/", icon: IconTable, color: "text-green-500 bg-green-500/10" },
+  { label: "Excel Formulas", href: "/excel-functions-formulas/", icon: IconMathFunction, color: "text-brand bg-brand/10" },
+  { label: "Google Sheets", href: "/google-sheets-basics/", icon: IconTable, color: "text-brand bg-brand/10" },
   { label: "VBA & Macros", href: "/excel-vba/", icon: IconCode, color: "text-amber-500 bg-amber-500/10" },
   { label: "Charts & Visuals", href: "/excel-charts/", icon: IconChartBar, color: "text-purple-500 bg-purple-500/10" },
 ]
@@ -144,7 +144,7 @@ export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentP
                   className="group flex items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted/70 hover:text-foreground"
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <IconSearch className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-emerald-600 dark:group-hover:text-emerald-400" />
+                    <IconSearch className="h-3.5 w-3.5 text-muted-foreground/60 group-hover:text-brand dark:group-hover:text-brand" />
                     <span className="truncate">{topic}</span>
                   </div>
                   <IconArrowRight className="h-3.5 w-3.5 opacity-0 transition-opacity group-hover:opacity-100 text-muted-foreground" />
@@ -169,7 +169,7 @@ export function SearchDialogContent({ open, onOpenChange }: SearchDialogContentP
               <span>to close</span>
             </span>
           </div>
-          <span className="font-medium text-emerald-600 dark:text-emerald-400">Excel Insider Search</span>
+          <span className="font-medium text-brand">Excel Insider Search</span>
         </div>
       </DialogContent>
     </Dialog>

@@ -39,10 +39,10 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
 
   return (
     <section className="py-12 sm:py-16" aria-labelledby="learning-track-heading">
-      <div className="overflow-hidden rounded-2xl border border-teal-500/25 bg-gradient-to-br from-teal-500/10 via-teal-500/5 to-transparent p-6 sm:p-10">
+      <div className="overflow-hidden rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/10 via-brand/5 to-transparent p-6 sm:p-10">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-3 py-1 text-xs font-semibold text-teal-700 dark:text-teal-300">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
               <IconBrandGoogle className="h-3.5 w-3.5" />
               Google Sheets Learning Track
             </span>
@@ -72,7 +72,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
               <Link
                 href={`/google-sheets/${firstLesson.slug}`}
                 prefetch={false}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-teal-700"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand"
               >
                 Start Learning
                 <IconArrowRight className="h-4 w-4" />
@@ -81,7 +81,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
             <Link
               href="/google-sheets"
               prefetch={false}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-teal-500/40 bg-background px-5 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-500/10 dark:text-teal-300"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-brand/40 bg-background px-5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10 dark:text-brand"
             >
               View Full Track
             </Link>
@@ -97,16 +97,16 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
               key={module.slug}
               href={`/google-sheets#${module.slug}`}
               prefetch={false}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-teal-500/60 hover:shadow-lg"
+              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/60 hover:shadow-lg"
             >
               <span
                 aria-hidden
-                className="pointer-events-none absolute right-4 top-3 text-4xl font-bold leading-none text-teal-500/15"
+                className="pointer-events-none absolute right-4 top-3 text-4xl font-bold leading-none text-brand/15"
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
 
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-teal-500/15 text-teal-700 transition-colors group-hover:bg-teal-600 group-hover:text-white dark:text-teal-300 dark:group-hover:text-white">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand transition-colors group-hover:bg-brand group-hover:text-white dark:text-brand dark:group-hover:text-white">
                 {moduleIcon(module.slug, "h-6 w-6")}
               </div>
 
@@ -114,7 +114,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Module {index + 1}
                 </p>
-                <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-teal-700 dark:group-hover:text-teal-300">
+                <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-brand dark:group-hover:text-brand">
                   {module.name}
                 </h3>
                 <p className="text-[15px] text-muted-foreground">
@@ -124,7 +124,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
                 </p>
               </div>
 
-              <div className="mt-5 flex items-center gap-1.5 text-[13px] font-semibold text-teal-700 dark:text-teal-300">
+              <div className="mt-5 flex items-center gap-1.5 text-[13px] font-semibold text-brand">
                 <span>Explore module</span>
                 <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
               </div>

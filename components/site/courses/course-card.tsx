@@ -49,7 +49,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
               className="h-full w-full object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-emerald-500/10 via-primary/5 to-sky-500/10 text-muted-foreground">
+            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-brand/10 via-navy/5 to-navy/10 text-muted-foreground">
               <IconSchool className="size-10 text-primary/40 transition-transform group-hover:scale-110" />
             </div>
           )}
@@ -97,7 +97,7 @@ export function CourseCard({ course, className }: CourseCardProps) {
 
             <div>
               {course.is_free ? (
-                <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                <span className="font-semibold text-brand">
                   FREE
                 </span>
               ) : (

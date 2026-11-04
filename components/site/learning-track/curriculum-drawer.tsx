@@ -28,7 +28,7 @@ export function CurriculumDrawer({
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
-        className="fixed bottom-6 right-4 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-teal-600 px-4 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-teal-700 xl:hidden"
+        className="fixed bottom-6 right-4 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-brand px-4 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand xl:hidden"
         aria-label="Browse Topics"
       >
         <IconListTree className="h-4.5 w-4.5" />

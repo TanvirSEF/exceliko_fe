@@ -146,10 +146,10 @@ export default function AboutPage() {
   return (
     <>
       {/* 1. Banner — About Us / Our Story */}
-      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-chart-2 via-primary to-chart-5">
+      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-40 -top-40 h-[580px] w-[580px] rounded-full bg-teal-300/12 blur-3xl"
+          className="pointer-events-none absolute -right-40 -top-40 h-[580px] w-[580px] rounded-full bg-brand/12 blur-3xl"
         />
         <div
           aria-hidden
@@ -168,7 +168,7 @@ export default function AboutPage() {
             </div>
 
             <h1 className="text-[2.6rem] font-bold leading-[1.1] tracking-tight text-primary-foreground sm:text-5xl lg:text-[3rem]">
-              Our <span className="text-teal-400">Story</span>
+              Our <span className="text-brand">Story</span>
             </h1>
 
             <p className="max-w-md text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
@@ -271,14 +271,14 @@ export default function AboutPage() {
             subtitle="Everything we publish follows one plan — and three promises we hold ourselves to."
           />
 
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-bl from-chart-2 via-primary to-chart-5 p-8 text-center shadow-lg sm:p-12">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-bl from-navy-deep via-navy to-navy-soft p-8 text-center shadow-lg sm:p-12">
             <div
               aria-hidden
               className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10 blur-2xl"
             />
             <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-teal-300/12 blur-2xl"
+              className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-brand/12 blur-2xl"
             />
             <p className="relative mx-auto max-w-2xl text-xl font-bold leading-snug tracking-tight text-primary-foreground sm:text-2xl">
               Our plan makes you feel more comfortable in Excel &amp; Google
@@ -407,10 +407,10 @@ export default function AboutPage() {
 
         {/* 6. Let's Connect */}
         <section className="pb-16 pt-4">
-          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-bl from-chart-2 via-primary to-chart-5 px-6 py-14 text-center shadow-xl sm:px-12 sm:py-18">
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-bl from-navy-deep via-navy to-navy-soft px-6 py-14 text-center shadow-xl sm:px-12 sm:py-18">
             <div
               aria-hidden
-              className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-teal-300/12 blur-3xl"
+              className="pointer-events-none absolute -left-24 -top-24 h-64 w-64 rounded-full bg-brand/12 blur-3xl"
             />
             <div
               aria-hidden

@@ -254,11 +254,11 @@ export function ServiceRequestWizard({
 
   if (ticketId) {
     return (
-      <div className="mx-auto max-w-2xl rounded-3xl border border-emerald-500/30 bg-card p-8 text-center shadow-xl sm:p-12">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+      <div className="mx-auto max-w-2xl rounded-3xl border border-brand/30 bg-card p-8 text-center shadow-xl sm:p-12">
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-brand/15 text-brand">
           <IconCircleCheck className="h-10 w-10 stroke-[2.5]" />
         </div>
-        <span className="mt-4 inline-block rounded-full bg-emerald-500/10 px-3.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300">
+        <span className="mt-4 inline-block rounded-full bg-brand/10 px-3.5 py-1 text-xs font-bold text-brand">
           Order Request Submitted
         </span>
         <h2 className="mt-3 text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
@@ -272,7 +272,7 @@ export function ServiceRequestWizard({
           <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
             Tracking Reference
           </p>
-          <p className="mt-1 font-mono text-xl font-bold text-emerald-600 dark:text-emerald-400 tracking-wide">
+          <p className="mt-1 font-mono text-xl font-bold text-brand tracking-wide">
             {ticketId}
           </p>
         </div>
@@ -280,7 +280,7 @@ export function ServiceRequestWizard({
         <div className="mt-8 flex justify-center gap-4">
           <Link
             href="/"
-            className="inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-emerald-700"
+            className="inline-flex items-center justify-center rounded-xl bg-brand px-6 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand"
           >
             Back to Home
           </Link>
@@ -307,7 +307,7 @@ export function ServiceRequestWizard({
     <div className={cn("w-full max-w-4xl mx-auto space-y-10", className)}>
       {/* Page Title Matching Screenshot */}
       <div className="text-center space-y-2">
-        <h1 className="text-3xl font-extrabold tracking-tight text-[#064e3b] dark:text-emerald-100 sm:text-4xl lg:text-[40px]">
+        <h1 className="text-3xl font-extrabold tracking-tight text-[#064e3b] dark:text-brand sm:text-4xl lg:text-[40px]">
           Get Started with 3 Easy Steps
         </h1>
         <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto">
@@ -324,23 +324,23 @@ export function ServiceRequestWizard({
           className={cn(
             "relative flex flex-col items-center justify-center rounded-2xl py-6 px-4 text-center transition-all duration-300 cursor-pointer shadow-xs",
             step === 1
-              ? "bg-[#059669] text-white shadow-lg shadow-emerald-700/20 scale-[1.02]"
+              ? "bg-[#059669] text-white shadow-lg shadow-brand/20 scale-[1.02]"
               : step > 1
-                ? "bg-[#eaf8f1] dark:bg-emerald-950/30 text-[#065f46] dark:text-emerald-300 hover:bg-[#dcf4e7]"
-                : "bg-[#eaf8f1] dark:bg-emerald-950/20 text-[#065f46] dark:text-emerald-300 hover:bg-[#dcf4e7]"
+                ? "bg-[#eaf8f1] dark:bg-brand/30 text-[#065f46] dark:text-brand hover:bg-[#dcf4e7]"
+                : "bg-[#eaf8f1] dark:bg-brand/20 text-[#065f46] dark:text-brand hover:bg-[#dcf4e7]"
           )}
         >
           <div className="flex items-center gap-1.5">
-            <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 1 ? "text-white" : "text-[#059669] dark:text-emerald-300")}>
+            <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 1 ? "text-white" : "text-[#059669] dark:text-brand")}>
               01
             </span>
             {step > 1 && (
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white">
                 <IconCheck className="h-3.5 w-3.5 stroke-[3]" />
               </span>
             )}
           </div>
-          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 1 ? "text-white" : "text-[#065f46] dark:text-emerald-200")}>
+          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 1 ? "text-white" : "text-[#065f46] dark:text-brand")}>
             Product Details
           </span>
         </button>
@@ -354,23 +354,23 @@ export function ServiceRequestWizard({
           className={cn(
             "relative flex flex-col items-center justify-center rounded-2xl py-6 px-4 text-center transition-all duration-300 cursor-pointer shadow-xs",
             step === 2
-              ? "bg-[#059669] text-white shadow-lg shadow-emerald-700/20 scale-[1.02]"
+              ? "bg-[#059669] text-white shadow-lg shadow-brand/20 scale-[1.02]"
               : step > 2
-                ? "bg-[#eaf8f1] dark:bg-emerald-950/30 text-[#065f46] dark:text-emerald-300 hover:bg-[#dcf4e7]"
-                : "bg-[#eaf8f1] dark:bg-emerald-950/20 text-[#065f46] dark:text-emerald-300 hover:bg-[#dcf4e7]"
+                ? "bg-[#eaf8f1] dark:bg-brand/30 text-[#065f46] dark:text-brand hover:bg-[#dcf4e7]"
+                : "bg-[#eaf8f1] dark:bg-brand/20 text-[#065f46] dark:text-brand hover:bg-[#dcf4e7]"
           )}
         >
           <div className="flex items-center gap-1.5">
-            <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 2 ? "text-white" : "text-[#059669] dark:text-emerald-300")}>
+            <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 2 ? "text-white" : "text-[#059669] dark:text-brand")}>
               02
             </span>
             {step > 2 && (
-              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-600 text-white">
+              <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand text-white">
                 <IconCheck className="h-3.5 w-3.5 stroke-[3]" />
               </span>
             )}
           </div>
-          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 2 ? "text-white" : "text-[#065f46] dark:text-emerald-200")}>
+          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 2 ? "text-white" : "text-[#065f46] dark:text-brand")}>
             Contact Information
           </span>
         </button>
@@ -384,14 +384,14 @@ export function ServiceRequestWizard({
           className={cn(
             "relative flex flex-col items-center justify-center rounded-2xl py-6 px-4 text-center transition-all duration-300 cursor-pointer shadow-xs",
             step === 3
-              ? "bg-[#059669] text-white shadow-lg shadow-emerald-700/20 scale-[1.02]"
-              : "bg-[#eaf8f1] dark:bg-emerald-950/20 text-[#065f46] dark:text-emerald-300 hover:bg-[#dcf4e7]"
+              ? "bg-[#059669] text-white shadow-lg shadow-brand/20 scale-[1.02]"
+              : "bg-[#eaf8f1] dark:bg-brand/20 text-[#065f46] dark:text-brand hover:bg-[#dcf4e7]"
           )}
         >
-          <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 3 ? "text-white" : "text-[#059669] dark:text-emerald-300")}>
+          <span className={cn("text-3xl sm:text-4xl font-extrabold tracking-tight", step === 3 ? "text-white" : "text-[#059669] dark:text-brand")}>
             03
           </span>
-          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 3 ? "text-white" : "text-[#065f46] dark:text-emerald-200")}>
+          <span className={cn("mt-1.5 text-sm sm:text-base font-bold tracking-tight", step === 3 ? "text-white" : "text-[#065f46] dark:text-brand")}>
             Pricing & Confirmation
           </span>
         </button>
@@ -477,7 +477,7 @@ export function ServiceRequestWizard({
                 <select
                   value={serviceCategory}
                   onChange={(e) => setServiceCategory(e.target.value)}
-                  className="rounded-lg border border-emerald-500/30 bg-emerald-50/50 dark:bg-emerald-950/30 px-3 py-1 text-xs font-semibold text-emerald-800 dark:text-emerald-300 focus-visible:outline-none cursor-pointer"
+                  className="rounded-lg border border-brand/30 bg-brand/50 dark:bg-brand/30 px-3 py-1 text-xs font-semibold text-brand focus-visible:outline-none cursor-pointer"
                 >
                   <option value="Spreadsheet Troubleshooting & Bug Fixing" className="bg-card text-foreground">
                     Troubleshooting & Bug Fixing
@@ -507,7 +507,7 @@ export function ServiceRequestWizard({
                   }}
                   placeholder="e.g. Need help fixing circular reference error in monthly budget model"
                   className={cn(
-                    "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-emerald-600 focus-visible:ring-emerald-600/20",
+                    "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-brand focus-visible:ring-brand/20",
                     errors.subject && "border-red-500 focus-visible:ring-red-500"
                   )}
                 />
@@ -529,7 +529,7 @@ export function ServiceRequestWizard({
                   }}
                   placeholder="Describe Your Task with All Detail Information"
                   className={cn(
-                    "rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-emerald-600 focus-visible:ring-emerald-600/20",
+                    "rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-brand focus-visible:ring-brand/20",
                     errors.requirements && "border-red-500 focus-visible:ring-red-500"
                   )}
                 />
@@ -560,7 +560,7 @@ export function ServiceRequestWizard({
                       className="absolute inset-0 opacity-0 cursor-pointer"
                     />
                     {file ? (
-                      <div className="flex items-center gap-2 truncate text-emerald-700 dark:text-emerald-300 font-medium">
+                      <div className="flex items-center gap-2 truncate text-brand font-medium">
                         <IconFileSpreadsheet className="h-5 w-5 shrink-0" />
                         <span className="truncate">{file.name}</span>
                       </div>
@@ -607,7 +607,7 @@ export function ServiceRequestWizard({
                     id="spreadsheet-type"
                     value={spreadsheetType}
                     onChange={(e) => setSpreadsheetType(e.target.value)}
-                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
+                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
                   >
                     {SPREADSHEET_TYPES.map((t) => (
                       <option key={t} value={t} className="bg-card text-foreground">
@@ -625,7 +625,7 @@ export function ServiceRequestWizard({
                     id="urgency-level"
                     value={urgencyLevel}
                     onChange={(e) => setUrgencyLevel(e.target.value)}
-                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
+                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
                   >
                     {URGENCY_LEVELS.map((u) => (
                       <option key={u} value={u} className="bg-card text-foreground">
@@ -650,7 +650,7 @@ export function ServiceRequestWizard({
               </div>
 
               <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand">
                   <IconLock className="h-3 w-3 stroke-[2.5]" />
                 </span>
                 <span>256-bit SSL Encrypted • All workbooks handled under strict confidentiality.</span>
@@ -687,7 +687,7 @@ export function ServiceRequestWizard({
                     }}
                     placeholder="Enter your name"
                     className={cn(
-                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-emerald-600 focus-visible:ring-emerald-600/20",
+                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-brand focus-visible:ring-brand/20",
                       errors.name && "border-red-500 focus-visible:ring-red-500"
                     )}
                   />
@@ -709,7 +709,7 @@ export function ServiceRequestWizard({
                     }}
                     placeholder="you@example.com"
                     className={cn(
-                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-emerald-600 focus-visible:ring-emerald-600/20",
+                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-brand focus-visible:ring-brand/20",
                       errors.email && "border-red-500 focus-visible:ring-red-500"
                     )}
                   />
@@ -727,7 +727,7 @@ export function ServiceRequestWizard({
                     id="client-country"
                     value={country}
                     onChange={(e) => setCountry(e.target.value)}
-                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
+                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
                   >
                     {COUNTRIES.map((c) => (
                       <option key={c} value={c} className="bg-card text-foreground">
@@ -746,7 +746,7 @@ export function ServiceRequestWizard({
                     id="contact-method"
                     value={preferredContact}
                     onChange={(e) => setPreferredContact(e.target.value)}
-                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
+                    className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
                   >
                     {CONTACT_METHODS.map((m) => (
                       <option key={m} value={m} className="bg-card text-foreground">
@@ -780,7 +780,7 @@ export function ServiceRequestWizard({
                             : "Your phone number or Skype ID"
                     }
                     className={cn(
-                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-emerald-600 focus-visible:ring-emerald-600/20",
+                      "h-11 rounded-lg border border-border/80 bg-background text-sm transition-all focus-visible:border-brand focus-visible:ring-brand/20",
                       errors.contactHandle && "border-red-500 focus-visible:ring-red-500"
                     )}
                   />
@@ -809,7 +809,7 @@ export function ServiceRequestWizard({
               </div>
 
               <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand">
                   <IconLock className="h-3 w-3 stroke-[2.5]" />
                 </span>
                 <span>Your contact details are kept strictly private and never shared.</span>
@@ -840,7 +840,7 @@ export function ServiceRequestWizard({
                   id="budget-range"
                   value={budgetRange}
                   onChange={(e) => setBudgetRange(e.target.value)}
-                  className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-emerald-600 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-600"
+                  className="flex h-11 w-full rounded-lg border border-border/80 bg-background px-3 py-2 text-sm shadow-xs transition-colors focus-visible:border-brand focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand"
                 >
                   {BUDGET_RANGES.map((b) => (
                     <option key={b} value={b} className="bg-card text-foreground">
@@ -854,33 +854,33 @@ export function ServiceRequestWizard({
               </div>
 
               {/* Summary Card Before Submission */}
-              <div className="rounded-2xl border border-emerald-500/20 bg-emerald-50/40 dark:bg-emerald-950/20 p-5 space-y-2.5 text-xs sm:text-sm">
-                <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+              <div className="rounded-2xl border border-brand/20 bg-brand/40 dark:bg-brand/20 p-5 space-y-2.5 text-xs sm:text-sm">
+                <div className="flex justify-between border-b border-brand/15 pb-2">
                   <span className="text-muted-foreground">Category:</span>
                   <span className="font-semibold text-foreground">{serviceCategory}</span>
                 </div>
-                <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+                <div className="flex justify-between border-b border-brand/15 pb-2">
                   <span className="text-muted-foreground">Task Subject:</span>
                   <span className="font-semibold text-foreground truncate max-w-[240px] sm:max-w-md">{subject}</span>
                 </div>
-                <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+                <div className="flex justify-between border-b border-brand/15 pb-2">
                   <span className="text-muted-foreground">Platform:</span>
                   <span className="font-semibold text-foreground">{spreadsheetType} ({urgencyLevel})</span>
                 </div>
-                <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+                <div className="flex justify-between border-b border-brand/15 pb-2">
                   <span className="text-muted-foreground">Contact:</span>
                   <span className="font-semibold text-foreground">{name} &lt;{email}&gt; via {preferredContact}</span>
                 </div>
                 {file && (
-                  <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+                  <div className="flex justify-between border-b border-brand/15 pb-2">
                     <span className="text-muted-foreground">Attachment:</span>
-                    <span className="font-semibold text-emerald-700 dark:text-emerald-300 truncate max-w-[200px]">{file.name}</span>
+                    <span className="font-semibold text-brand truncate max-w-[200px]">{file.name}</span>
                   </div>
                 )}
                 {cloudLink && (
-                  <div className="flex justify-between border-b border-emerald-500/15 pb-2">
+                  <div className="flex justify-between border-b border-brand/15 pb-2">
                     <span className="text-muted-foreground">Cloud Link:</span>
-                    <span className="font-semibold text-emerald-700 dark:text-emerald-300 truncate max-w-[200px]">{cloudLink}</span>
+                    <span className="font-semibold text-brand truncate max-w-[200px]">{cloudLink}</span>
                   </div>
                 )}
               </div>
@@ -895,11 +895,11 @@ export function ServiceRequestWizard({
                       setAgreedToTerms(e.target.checked)
                       if (errors.terms) setErrors((prev) => ({ ...prev, terms: "" }))
                     }}
-                    className="mt-0.5 h-4 w-4 rounded border-border text-emerald-600 focus:ring-emerald-500"
+                    className="mt-0.5 h-4 w-4 rounded border-border text-brand focus:ring-brand"
                   />
                   <span>
                     I agree to the{" "}
-                    <Link href="/terms-and-conditions/" target="_blank" className="font-semibold text-emerald-700 dark:text-emerald-400 hover:underline">
+                    <Link href="/terms-and-conditions/" target="_blank" className="font-semibold text-brand hover:underline">
                       Terms & Conditions
                     </Link>{" "}
                     of Service for Excel Insider <span className="text-red-500">*</span>
@@ -937,7 +937,7 @@ export function ServiceRequestWizard({
               </div>
 
               <div className="flex items-center gap-2 pt-2 text-xs text-muted-foreground">
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">
+                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand/15 text-brand">
                   <IconLock className="h-3 w-3 stroke-[2.5]" />
                 </span>
                 <span>Immediate Discord alert triggered for our engineering team upon submission.</span>

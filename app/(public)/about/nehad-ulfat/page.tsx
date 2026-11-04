@@ -101,10 +101,10 @@ export default function NehadUlfatProfilePage() {
       />
 
       {/* Hero Header — matches /about banner style */}
-      <header className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-bl from-chart-2 via-primary to-chart-5 p-6 sm:p-10 shadow-xs">
+      <header className="relative mt-6 overflow-hidden rounded-3xl bg-gradient-to-bl from-navy-deep via-navy to-navy-soft p-6 sm:p-10 shadow-xs">
         <div
           aria-hidden
-          className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-teal-300/12 blur-3xl"
+          className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-brand-light/12 blur-3xl"
         />
         <div
           aria-hidden

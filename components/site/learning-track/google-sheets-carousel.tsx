@@ -59,7 +59,7 @@ export function GoogleSheetsCarousel({
     >
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
         <div className="space-y-1">
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-teal-500/30 bg-teal-500/10 px-2.5 py-0.5 text-xs font-semibold text-teal-700 dark:text-teal-300">
+          <div className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-2.5 py-0.5 text-xs font-semibold text-brand">
             <IconBulb className="h-3.5 w-3.5" />
             <span>Google Sheets Basics</span>
           </div>
@@ -79,7 +79,7 @@ export function GoogleSheetsCarousel({
             onClick={() => handleScroll("left")}
             disabled={!canScrollLeft}
             aria-label="Previous articles"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-all duration-200 hover:border-teal-500/50 hover:bg-teal-500/10 hover:text-teal-600 disabled:pointer-events-none disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-all duration-200 hover:border-brand/50 hover:bg-brand/10 hover:text-brand disabled:pointer-events-none disabled:opacity-30"
           >
             <IconChevronLeft className="h-4.5 w-4.5" />
           </button>
@@ -88,7 +88,7 @@ export function GoogleSheetsCarousel({
             onClick={() => handleScroll("right")}
             disabled={!canScrollRight}
             aria-label="Next articles"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-all duration-200 hover:border-teal-500/50 hover:bg-teal-500/10 hover:text-teal-600 disabled:pointer-events-none disabled:opacity-30"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border/80 bg-card text-foreground transition-all duration-200 hover:border-brand/50 hover:bg-brand/10 hover:text-brand disabled:pointer-events-none disabled:opacity-30"
           >
             <IconChevronRight className="h-4.5 w-4.5" />
           </button>

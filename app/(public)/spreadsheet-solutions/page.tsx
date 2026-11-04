@@ -58,10 +58,10 @@ export const revalidate = 86400
 export default function SpreadsheetSolutionsPage() {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-chart-2 via-primary to-chart-5">
+      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
         <div
           aria-hidden
-          className="absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-teal-300/12 blur-3xl"
+          className="absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-brand/12 blur-3xl"
         />
         <div
           aria-hidden
@@ -80,7 +80,7 @@ export default function SpreadsheetSolutionsPage() {
 
           <h1 className="mx-auto mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-5xl">
             Solve Your Spreadsheet Problems{" "}
-            <span className="text-teal-300">Fast.</span>
+            <span className="text-brand">Fast.</span>
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">

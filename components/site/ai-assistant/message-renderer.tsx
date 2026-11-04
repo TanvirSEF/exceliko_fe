@@ -28,8 +28,8 @@ function CodeBlock({ code, language }: { code: string; language: string }) {
         >
           {copied ? (
             <>
-              <IconCheck className="h-3 w-3 text-emerald-400" />
-              <span className="text-emerald-400">Copied</span>
+              <IconCheck className="h-3 w-3 text-brand" />
+              <span className="text-brand">Copied</span>
             </>
           ) : (
             <>

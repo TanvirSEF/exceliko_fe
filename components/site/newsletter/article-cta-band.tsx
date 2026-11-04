@@ -13,7 +13,7 @@ export function ArticleCtaBand({ source, heading, className }: ArticleCtaBandPro
   return (
     <div
       className={cn(
-        "relative mt-10 overflow-hidden rounded-2xl bg-gradient-to-bl from-chart-2 via-primary to-chart-5 p-6 text-primary-foreground shadow-xl sm:p-8",
+        "relative mt-10 overflow-hidden rounded-2xl bg-gradient-to-bl from-navy-deep via-navy to-navy-soft p-6 text-primary-foreground shadow-xl sm:p-8",
         className
       )}
     >

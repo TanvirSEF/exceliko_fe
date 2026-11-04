@@ -36,11 +36,11 @@ function getLessonIcon(type: LessonType) {
     case "video":
       return <IconVideo className="size-4 text-sky-500 shrink-0" />
     case "article":
-      return <IconFileText className="size-4 text-emerald-500 shrink-0" />
+      return <IconFileText className="size-4 text-brand shrink-0" />
     case "exercise":
       return <IconFileSpreadsheet className="size-4 text-amber-500 shrink-0" />
     case "quiz":
-      return <IconSchool className="size-4 text-purple-500 shrink-0" />
+      return <IconSchool className="size-4 text-blue-500 shrink-0" />
     default:
       return <IconVideo className="size-4 text-sky-500 shrink-0" />
   }
@@ -168,7 +168,7 @@ export function CourseCurriculumAccordion({
                             >
                               <Badge
                                 variant="outline"
-                                className="border-emerald-500/30 bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 cursor-pointer text-xs"
+                                className="border-brand/30 bg-brand/10 text-brand hover:bg-brand/20 cursor-pointer text-xs"
                               >
                                 Preview
                               </Badge>

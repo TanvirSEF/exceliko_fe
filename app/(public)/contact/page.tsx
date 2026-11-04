@@ -44,7 +44,7 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
 
       <div className="mt-10 grid gap-6 lg:grid-cols-5 lg:gap-8">
         <aside className="space-y-5 lg:col-span-2">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-chart-2 via-primary to-chart-5 p-6 text-primary-foreground shadow-lg">
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-6 text-primary-foreground shadow-lg">
             <div
               aria-hidden
               className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-white/10 blur-2xl"

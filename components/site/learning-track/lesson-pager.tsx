@@ -27,13 +27,13 @@ export function LessonPager({ prev, next }: LessonPagerProps) {
       {prev ? (
         <Link
           href={`/google-sheets/${prev.slug}`}
-          className="group flex min-w-0 flex-col gap-1 rounded-xl border border-border/70 bg-card p-4 transition-colors hover:border-teal-500/50"
+          className="group flex min-w-0 flex-col gap-1 rounded-xl border border-border/70 bg-card p-4 transition-colors hover:border-brand/50"
         >
           <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             <IconArrowLeft className="h-4 w-4" />
             Previous
           </span>
-          <span className="line-clamp-2 text-base font-bold text-foreground group-hover:text-teal-700 dark:group-hover:text-teal-300">
+          <span className="line-clamp-2 text-base font-bold text-foreground group-hover:text-brand dark:group-hover:text-brand">
             {prev.title}
           </span>
           {prev.topicName ? (
@@ -48,13 +48,13 @@ export function LessonPager({ prev, next }: LessonPagerProps) {
       {next ? (
         <Link
           href={`/google-sheets/${next.slug}`}
-          className="group flex min-w-0 flex-col items-end gap-1 rounded-xl border border-border/70 bg-card p-4 text-right transition-colors hover:border-teal-500/50"
+          className="group flex min-w-0 flex-col items-end gap-1 rounded-xl border border-border/70 bg-card p-4 text-right transition-colors hover:border-brand/50"
         >
           <span className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             Next
             <IconArrowRight className="h-4 w-4" />
           </span>
-          <span className="line-clamp-2 text-base font-bold text-foreground group-hover:text-teal-700 dark:group-hover:text-teal-300">
+          <span className="line-clamp-2 text-base font-bold text-foreground group-hover:text-brand dark:group-hover:text-brand">
             {next.title}
           </span>
           {next.topicName ? (
@@ -64,7 +64,7 @@ export function LessonPager({ prev, next }: LessonPagerProps) {
           ) : null}
         </Link>
       ) : (
-        <span className="hidden items-center justify-end gap-1.5 rounded-xl border border-teal-500/40 bg-teal-500/10 p-4 text-sm font-semibold text-teal-700 dark:text-teal-300 sm:flex">
+        <span className="hidden items-center justify-end gap-1.5 rounded-xl border border-brand/40 bg-brand/10 p-4 text-sm font-semibold text-brand sm:flex">
           <IconCheck className="h-4 w-4" />
           Track complete — nice work!
         </span>

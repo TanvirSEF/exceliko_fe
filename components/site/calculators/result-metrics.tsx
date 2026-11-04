@@ -19,7 +19,7 @@ export function GradientHeroMetric({
   return (
     <div
       className={cn(
-        "rounded-2xl bg-gradient-to-br from-chart-2 via-primary to-chart-5 p-5 text-primary-foreground shadow-lg",
+        "rounded-2xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-5 text-primary-foreground shadow-lg",
         className
       )}
     >
