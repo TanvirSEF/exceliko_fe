@@ -37,7 +37,8 @@ Set on the service:
 
 - `NEXT_PUBLIC_API_URL=https://api.<domain>`
 - `API_URL` — internal service hostname if routed internally, else the public URL (used server-side for ISR fetches and the `/sitemap.xml` rewrite)
-- `NEXT_PUBLIC_SITE_URL` — public frontend origin
+- `NEXT_PUBLIC_SITE_URL` — public frontend origin (build arg; canonical URLs, Open Graph and structured data use it)
+- `ALLOW_INDEXING` — runtime flag. Leave unset until launch: every page is served with `X-Robots-Tag: noindex, nofollow`. Set it to `true` to let search engines index the site
 
 Backend `ALLOWED_ORIGINS` must include the final site origin — dashboard calls hit the API from the browser with credentials.
 

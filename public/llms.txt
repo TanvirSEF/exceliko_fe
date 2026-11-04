@@ -1,6 +1,6 @@
 # Exceliko
 
-> Exceliko is an authoritative, free technical platform and resource hub for Microsoft Excel, Google Sheets, Financial Modeling, Statistical Analysis, and Business Automation. It provides 1,600+ in-depth, example-driven tutorials, structured learning paths, downloadable templates, and 45 specialized interactive web calculators.
+> Exceliko is an authoritative, free technical platform and resource hub for Microsoft Excel, Google Sheets, Financial Modeling, Statistical Analysis, and Business Automation. It provides in-depth, example-driven tutorials, structured learning paths, downloadable templates, and 45 specialized interactive web calculators.
 
 ## Core Tutorials & Knowledge Base
 

@@ -66,8 +66,8 @@ export const FREE_PLAN: FreePlan = {
   priceLabel: "$0",
   unit: "forever",
   features: [
-    "1,600+ tutorials & formula deep-dives",
-    "100+ downloadable newsletter templates",
+    "Free tutorials & formula deep-dives",
+    "Downloadable newsletter templates",
     "Weekly 3-minute tips & cheat sheet",
   ],
   primaryCta: { label: "Explore Free Tutorials", href: "/blog" },

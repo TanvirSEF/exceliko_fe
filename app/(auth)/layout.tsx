@@ -1,11 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { IconCheck, IconShieldCheck } from "@tabler/icons-react"
+import { IconCheck } from "@tabler/icons-react"
 
 const PANEL_POINTS = [
-  "1,600+ free tutorials & formula deep-dives",
-  "40,000+ monthly readers level up here",
-  "100+ business templates & spreadsheet tools",
+  "Step-by-step formula tutorials & deep-dives",
+  "Free calculators for finance, accounting & statistics",
+  "Custom templates & spreadsheet tools",
 ]
 
 export default function AuthLayout({
@@ -50,12 +50,12 @@ export default function AuthLayout({
 
         <div className="relative max-w-md space-y-6">
           <h2 className="text-balance text-3xl font-bold leading-tight tracking-tight xl:text-4xl">
-            The spreadsheet authority behind{" "}
-            <span className="text-teal-300">1,600+ tutorials.</span>
+            Practical spreadsheet help{" "}
+            <span className="text-brand-light">built for real work.</span>
           </h2>
           <p className="text-pretty text-sm leading-relaxed text-primary-foreground/80">
             Formulas, VBA automation, Pivot Tables and dashboards — written for
-            real workbook work, trusted by analysts worldwide.
+            real workbook work.
           </p>
           <ul className="space-y-3 pt-1">
             {PANEL_POINTS.map((point) => (
@@ -72,10 +72,6 @@ export default function AuthLayout({
           </ul>
         </div>
 
-        <div className="relative inline-flex w-fit items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-1.5 text-xs font-semibold text-primary-foreground/90">
-          <IconShieldCheck className="h-3.5 w-3.5" />
-          Excel 365 & Google Sheets Verified
-        </div>
       </aside>
 
       <div className="flex items-center justify-center px-4 py-14 sm:py-16">

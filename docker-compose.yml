@@ -14,6 +14,7 @@ services:
       API_URL: ${API_URL:-}
       DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
       REVALIDATE_SECRET: ${REVALIDATE_SECRET:-}
+      ALLOW_INDEXING: ${ALLOW_INDEXING:-}
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--spider", "-q", "http://localhost:3000/health"]

@@ -2,36 +2,41 @@ import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
 const REFRESH_COOKIE = "ei_refresh"
+const PAGINATION_EXCLUDED = /^\/(?:blog|author|tags|search|dashboard|api|_next)(?:\/|$)/
+
+function withIndexingPolicy(response: NextResponse) {
+  if (process.env.ALLOW_INDEXING !== "true") {
+    response.headers.set("X-Robots-Tag", "noindex, nofollow")
+  }
+  return response
+}
 
 export function proxy(request: NextRequest) {
   const { pathname, searchParams } = request.nextUrl
 
   if (!pathname.startsWith("/dashboard")) {
     const page = Number(searchParams.get("page"))
-    if (!Number.isInteger(page) || page < 2) return NextResponse.next()
+    const isPaginated = Number.isInteger(page) && page >= 2
+    if (!isPaginated || PAGINATION_EXCLUDED.test(pathname)) {
+      return withIndexingPolicy(NextResponse.next())
+    }
 
     const target = request.nextUrl.clone()
     target.pathname = `${pathname.replace(/\/+$/, "")}/page/${page}/`
     target.search = ""
-    return NextResponse.rewrite(target)
+    return withIndexingPolicy(NextResponse.rewrite(target))
   }
 
   if (!request.cookies.has(REFRESH_COOKIE)) {
     const loginUrl = new URL("/insider-studio", request.url)
     loginUrl.searchParams.set("next", pathname)
-    return NextResponse.redirect(loginUrl)
+    return withIndexingPolicy(NextResponse.redirect(loginUrl))
   }
 
   const headers = new Headers(request.headers)
-  return NextResponse.next({ request: { headers } })
+  return withIndexingPolicy(NextResponse.next({ request: { headers } }))
 }
 
 export const config = {
-  matcher: [
-    "/dashboard/:path*",
-    {
-      source: "/((?!(?:blog|author|tags|search|dashboard|api|_next)(?:/|$)).+)",
-      has: [{ type: "query", key: "page" }],
-    },
-  ],
+  matcher: ["/((?!_next/|api/|.*\\.[a-zA-Z0-9]+$).*)"],
 }

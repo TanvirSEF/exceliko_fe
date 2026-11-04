@@ -188,7 +188,7 @@ export default function SpreadsheetSolutionsPage() {
           className="scroll-mt-20 border-t border-border/60 py-14 sm:py-18"
         >
           <SectionHeading
-            badge="100+ Free Templates"
+            badge="Free Templates"
             title="Reader-favorite free templates"
             subtitle="Eight of the most-requested downloads — the full library ships free through the weekly newsletter."
           />

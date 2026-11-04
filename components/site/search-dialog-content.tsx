@@ -66,7 +66,7 @@ export function SearchDialogContent({
           <IconSearch className="h-5 w-5 text-muted-foreground shrink-0" />
           <input
             type="search"
-            placeholder="Search 1,600+ Excel formulas, tips, tutorials & templates…"
+            placeholder="Search Excel formulas, tips, tutorials & templates…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="h-14 w-full bg-transparent px-3.5 text-base font-medium placeholder:text-muted-foreground/60 focus:outline-none"

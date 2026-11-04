@@ -208,6 +208,7 @@ export async function generateMetadata({
       alternates: {
         canonical: `/${resolved.category.slug}/`,
       },
+      robots: resolved.posts.total === 0 ? { index: false, follow: true } : undefined,
     }
   }
 
@@ -226,6 +227,7 @@ export async function generateMetadata({
       alternates: {
         canonical: `/${catSlug}/${resolved.series.slug}/`,
       },
+      robots: resolved.posts.total === 0 ? { index: false, follow: true } : undefined,
     }
   }
 

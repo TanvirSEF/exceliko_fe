@@ -19,3 +19,5 @@ User-agent: Bytespider
 Allow: /llms.txt
 Allow: /.well-known/ard.json
 Disallow: /
+
+Sitemap: https://exceliko.com/sitemap.xml

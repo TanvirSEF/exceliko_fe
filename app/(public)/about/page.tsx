@@ -13,6 +13,11 @@ import {
 
 import { SectionHeading } from "@/components/site/section-heading"
 import { Button } from "@/components/ui/button"
+import {
+  ACCOUNTING_CALCULATORS,
+  FINANCE_CALCULATORS,
+  STATS_CALCULATORS,
+} from "@/lib/calculators"
 
 export const revalidate = 86400
 
@@ -30,11 +35,12 @@ export const metadata: Metadata = {
   },
 }
 
+const TOTAL_CALCULATORS =
+  STATS_CALCULATORS.length + FINANCE_CALCULATORS.length + ACCOUNTING_CALCULATORS.length
+
 const SNAPSHOT_FACTS = [
-  { value: "2024", label: "Founded" },
-  { value: "1,600+", label: "Articles published" },
-  { value: "40k+", label: "Monthly readers" },
-  { value: "100+", label: "Free templates" },
+  { value: String(TOTAL_CALCULATORS), label: "Free calculators" },
+  { value: "Excel + Sheets", label: "Platforms covered" },
 ]
 
 const OFFERINGS = [

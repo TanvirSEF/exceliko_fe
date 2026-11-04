@@ -47,7 +47,7 @@ export function NewsletterBand({
 
           {/* Subtitle */}
           <p className="max-w-xl text-balance text-[15px] sm:text-base leading-relaxed text-primary-foreground/90 lg:text-[17px]">
-            Join <strong className="text-white font-bold">40,000+</strong> data analysts, finance managers, and spreadsheet learners. Bite-sized formula breakdowns and free templates sent directly to your inbox every week.
+            Bite-sized formula breakdowns and free templates sent directly to your inbox every week, made for data analysts, finance managers, and spreadsheet learners.
           </p>
 
           {/* Value Bullet Points */}

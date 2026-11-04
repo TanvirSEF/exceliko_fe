@@ -124,7 +124,7 @@ export function HomeHero({ categories = [] }: { categories?: Category[] }) {
           <p className="max-w-xl text-base leading-relaxed text-primary-foreground/75 sm:text-lg">
             Need a spreadsheet built, fixed, or automated? Our experts create solutions designed
             around your business. Prefer to learn on your own? Start with our Power Query course or
-            explore 1,500+ free tutorials.
+            explore our free tutorials.
           </p>
 
           {/* CTAs */}
