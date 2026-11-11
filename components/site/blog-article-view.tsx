@@ -220,10 +220,10 @@ export async function BlogArticleView({
             <script
               type="application/ld+json"
               dangerouslySetInnerHTML={{
-                __html: buildArticleJsonLd({
-                  ...post,
-                  featured_image_url: effectiveFeaturedImage,
-                }),
+                __html: buildArticleJsonLd(
+                  { ...post, featured_image_url: effectiveFeaturedImage },
+                  currentPath
+                ),
               }}
             />
             <script
