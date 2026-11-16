@@ -13,12 +13,12 @@ export const revalidate = 86400
 export const metadata: Metadata = {
   title: "About Us | Exceliko",
   description:
-    "Founded by spreadsheet consultant Nehad Ulfat, Exceliko is a comprehensive library of 50+ free calculators, in-depth formula tutorials, and practical templates for Excel & Google Sheets.",
+    "Exceliko is a comprehensive, independent library of 50+ free calculators, in-depth formula tutorials, and practical templates for Microsoft Excel & Google Sheets.",
   alternates: { canonical: "/about/" },
   openGraph: {
     title: "About Us | Exceliko",
     description:
-      "Meet the team behind Exceliko — practical, in-depth tutorials, 50+ free calculators, and templates for everyday and advanced spreadsheet users.",
+      "Learn about Exceliko — practical, in-depth tutorials, 50+ free calculators, and templates for everyday and advanced spreadsheet users.",
     url: "/about/",
     images: ["/og-default.png"],
   },
@@ -43,13 +43,6 @@ export default function AboutPage() {
         name: "Exceliko",
         url: config.siteUrl,
         logo: `${config.siteUrl}/icon-512.png`,
-        founder: {
-          "@type": "Person",
-          name: "Nehad Ulfat",
-          jobTitle: "Founder & Strategist",
-          url: `${config.siteUrl}/about/nehad-ulfat/`,
-          sameAs: ["https://www.linkedin.com/in/nehad-ulfat-22042017b"],
-        },
       },
     ],
   })

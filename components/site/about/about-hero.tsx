@@ -45,9 +45,9 @@ export function AboutHero() {
 
         {/* Subhead */}
         <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl">
-          Founded by spreadsheet consultant Nehad Ulfat, Exceliko is a comprehensive library
-          of free calculators, step-by-step formula tutorials, and practical templates designed
-          to turn hours of manual spreadsheet crunching into simple, repeatable workflows.
+          Exceliko is an independent digital library of free calculators, step-by-step formula
+          tutorials, and practical spreadsheet templates designed to turn hours of manual crunching
+          into simple, repeatable workflows.
         </p>
 
         {/* CTA Buttons */}

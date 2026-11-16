@@ -1,8 +1,7 @@
 import Link from "next/link"
 import {
   IconArrowRight,
-  IconBrandLinkedin,
-  IconExternalLink,
+  IconCalculator,
   IconMail,
 } from "@tabler/icons-react"
 
@@ -54,33 +53,28 @@ export function AboutConnect() {
             </div>
           </div>
 
-          {/* Card 2: Follow Along & Social */}
+          {/* Card 2: Explore Tools & Guides */}
           <div className="flex flex-col justify-between rounded-2xl border border-border/70 bg-card p-6 shadow-2xs sm:p-8">
             <div className="space-y-3">
               <div className="flex size-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <IconBrandLinkedin className="size-5 text-[#0077B5]" />
+                <IconCalculator className="size-5" />
               </div>
               <h4 className="text-xl font-bold tracking-tight text-foreground">
-                Connect on LinkedIn
+                Browse our free calculator hub
               </h4>
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Connect directly with our founder Nehad Ulfat on LinkedIn for spreadsheet tips,
-                formula breakdowns, industry discussions, and upcoming calculator releases.
+                Need an immediate answer? Try our 50+ financial, accounting, and statistical
+                calculators. Completely free, no login or complex setup required.
               </p>
             </div>
 
             <div className="mt-6 pt-4 border-t border-border/60">
               <Button asChild variant="outline" className="w-full sm:w-auto">
-                <a
-                  href="https://www.linkedin.com/in/nehad-ulfat-22042017b"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <IconBrandLinkedin className="size-4 text-[#0077B5]" />
-                  <span>Connect with Nehad</span>
-                  <IconExternalLink className="size-3.5 text-muted-foreground" />
-                </a>
+                <Link href="/calculator/" className="flex items-center gap-2">
+                  <IconCalculator className="size-4" />
+                  <span>Explore calculators</span>
+                  <IconArrowRight className="size-4" />
+                </Link>
               </Button>
             </div>
           </div>
