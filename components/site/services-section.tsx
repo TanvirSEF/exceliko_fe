@@ -6,7 +6,6 @@ import {
   IconClock,
   IconCode,
   IconFileSpreadsheet,
-  IconShieldCheck,
   IconTool,
 } from "@tabler/icons-react"
 
@@ -209,18 +208,6 @@ export function ServicesSection() {
             </Link>
           </div>
         </article>
-      </div>
-
-      {/* ── Tier 3: Trust & Confidentiality Assurance Strip ── */}
-      <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-1.5 rounded-xl sm:rounded-2xl border border-border/60 bg-muted/20 px-4 py-2.5 sm:px-5 sm:py-3 text-[11px] sm:text-xs font-medium text-muted-foreground text-center">
-        <span className="flex items-center gap-1.5">
-          <IconShieldCheck className="size-3.5 sm:size-4 text-brand" />
-          Strict Non-Disclosure &amp; Data Confidentiality
-        </span>
-        <span className="hidden sm:inline text-border">•</span>
-        <span>Tested on Microsoft Excel &amp; Google Sheets</span>
-        <span className="hidden sm:inline text-border">•</span>
-        <span>Clear Upfront Pricing with Zero Hidden Fees</span>
       </div>
     </section>
   )

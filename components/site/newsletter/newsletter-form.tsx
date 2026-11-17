@@ -1,7 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { IconArrowRight, IconCheck, IconMail } from "@tabler/icons-react"
+import {
+  IconArrowRight,
+  IconCheck,
+  IconMail,
+} from "@tabler/icons-react"
 import { toast } from "sonner"
 
 import { Button } from "@/components/ui/button"
@@ -56,11 +60,11 @@ export function NewsletterForm({
 
   if (subscribed) {
     return (
-      <div className="flex items-center gap-2.5 rounded-xl border border-primary-foreground/30 bg-primary-foreground/15 px-4 py-3 text-sm font-semibold text-primary-foreground">
-        <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary-foreground text-primary">
-          <IconCheck className="h-3.5 w-3.5 stroke-[3]" />
+      <div className="flex items-center gap-3 rounded-xl border border-brand/30 bg-brand/10 p-4 text-sm font-semibold text-brand shadow-xs">
+        <div className="flex size-7 shrink-0 items-center justify-center rounded-full bg-brand text-brand-foreground font-bold">
+          <IconCheck className="size-4 stroke-[3]" />
         </div>
-        <span>You&apos;re subscribed! Check your inbox for the free PDF guide.</span>
+        <span>You&apos;re subscribed! Check your inbox for the free 50+ Formula PDF Guide.</span>
       </div>
     )
   }
@@ -75,7 +79,7 @@ export function NewsletterForm({
       >
         <div className="relative flex-1">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3.5 text-muted-foreground">
-            <IconMail className="h-4 w-4" />
+            <IconMail className="size-4" />
           </div>
           <input
             type="email"
@@ -85,22 +89,19 @@ export function NewsletterForm({
             aria-label="Email address"
             autoComplete="email"
             required
-            className="h-12 w-full rounded-xl border border-primary-foreground/25 bg-background pl-10 pr-4 text-sm sm:text-base text-foreground shadow-xs placeholder:text-muted-foreground focus:border-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary-foreground/40"
+            className="h-11 sm:h-12 w-full rounded-xl border border-border/80 bg-background pl-10 pr-4 text-sm text-foreground shadow-2xs placeholder:text-muted-foreground transition-all focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20"
           />
         </div>
         <Button
           type="submit"
           disabled={pending}
           size="lg"
-          className="h-12 shrink-0 rounded-xl bg-primary-foreground px-6 text-sm sm:text-base font-bold text-primary shadow-xs transition-all duration-200 hover:bg-primary-foreground/90 hover:shadow-md cursor-pointer"
+          className="h-11 sm:h-12 shrink-0 rounded-xl bg-brand px-5 sm:px-6 text-sm font-bold text-brand-foreground shadow-xs transition-all duration-200 hover:bg-brand/90 hover:shadow-sm active:scale-[0.98] cursor-pointer"
         >
-          <span>{pending ? "Subscribing..." : "Get Free Access"}</span>
-          <IconArrowRight className="h-4 w-4" />
+          <span>{pending ? "Subscribing..." : "Get Free Guide"}</span>
+          <IconArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
         </Button>
       </div>
-      <p className="mt-2.5 text-xs sm:text-sm font-medium text-primary-foreground/85">
-        🔒 100% Free · No spam ever · Unsubscribe anytime with 1-click
-      </p>
     </form>
   )
 }

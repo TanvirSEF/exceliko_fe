@@ -1,34 +1,40 @@
 "use client"
 
 import { useState } from "react"
-import { IconChevronDown } from "@tabler/icons-react"
-import { SectionHeading } from "@/components/site/section-heading"
+import Link from "next/link"
+import {
+  IconArrowRight,
+  IconChevronDown,
+  IconMessageQuestion,
+} from "@tabler/icons-react"
+
+import { Button } from "@/components/ui/button"
 
 const FAQS = [
   {
-    question: "Are all the formulas, tutorials, and templates completely free?",
+    question: "Are all the formulas, tutorials, and calculators completely free?",
     answer:
-      "Yes! The vast majority of our tutorials, formula breakdowns, and foundational spreadsheet templates are 100% free to read, copy, and use for personal or commercial projects with no paywall.",
+      "Yes! Every tutorial, formula breakdown, and interactive browser-based calculator on Exceliko is 100% free to access, copy, and use for both personal and commercial work. There are no subscriptions, paywalls, or hidden fees.",
   },
   {
     question: "Do your articles work on both Microsoft Excel and Google Sheets?",
     answer:
-      "Absolutely. Every tutorial clearly indicates version compatibility across Microsoft Excel (Excel 365, 2021, 2019) and Google Sheets. When functions differ (such as XLOOKUP vs VLOOKUP or Google Sheets QUERY), we provide dedicated syntax for both platforms.",
+      "Every tutorial clearly indicates cross-platform compatibility across Microsoft Excel (Excel 365, 2021, 2019) and Google Sheets. Whenever formulas differ (such as XLOOKUP vs VLOOKUP or Google Sheets QUERY and ARRAYFORMULA), we provide dedicated syntax for both platforms.",
   },
   {
     question: "How does the Custom Spreadsheet & Consulting service work?",
     answer:
-      "If you have a broken workbook, need custom financial modeling, or require VBA/Apps Script automation, simply submit your request via our Contact page. Our experts will evaluate your requirements, provide an upfront quote, and deliver a clean, tested solution.",
+      "If you have a broken workbook, need an executive financial model, or require custom VBA/Apps Script automation, simply submit your project via our Services or Contact page. We review your requirements, provide transparent upfront pricing, and deliver a production-ready, documented solution.",
   },
   {
     question: "Do I need coding or VBA knowledge to use the downloadable templates?",
     answer:
-      "No coding knowledge is necessary. All our standard business templates and financial models use native spreadsheet formulas and intuitive data input sheets with clean instructions. For specialized automation tools that use VBA macros, full setup documentation is provided.",
+      "No coding knowledge is required. All standard financial models and business trackers use native spreadsheet formulas with intuitive data input sheets and full instructions. For specialized automation tools that use VBA macros, we include one-click buttons and comprehensive setup guides.",
   },
   {
     question: "How frequently is new content published on Exceliko?",
     answer:
-      "We publish multiple comprehensive articles, formula deep-dives, and downloadable business templates every week, constantly updating our library to reflect the newest Excel 365 and Google Sheets capabilities.",
+      "We publish multiple comprehensive guides, practical formula walkthroughs, and downloadable templates every week, constantly updating our library to reflect the newest Excel 365 and Google Sheets features.",
   },
 ]
 
@@ -40,59 +46,113 @@ export function FaqSection() {
   }
 
   return (
-    <section className="py-12 sm:py-16">
-      <SectionHeading
-        badge="Got Questions?"
-        title="Frequently Asked Questions"
-        subtitle="Find quick answers to common questions about our tutorials, formula compatibility, and custom spreadsheet services."
-        action={{ label: "Ask a question", href: "/contact" }}
-      />
+    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="faq-heading">
+      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 items-start">
+        {/* ── Left Column: Section Intro & Contact Help Card (5 cols) ── */}
+        <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-28">
+          <div className="space-y-3">
+            <div className="inline-flex items-center gap-1.5 rounded-full border border-brand/25 bg-brand/10 px-3 py-0.5 text-xs font-semibold text-brand">
+              <span className="size-1.5 rounded-full bg-brand" />
+              <span>Got Questions?</span>
+            </div>
 
-      <div className="mx-auto max-w-4xl space-y-4">
-        {FAQS.map((faq, index) => {
-          const isOpen = openIndex === index
-          return (
-            <div
-              key={faq.question}
-              className={`rounded-2xl border bg-card p-5 transition-all duration-200 ${
-                isOpen
-                  ? "border-primary/70 shadow-xs"
-                  : "border-primary/40 shadow-2xs hover:border-primary/60"
-              }`}
+            <h2
+              id="faq-heading"
+              className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl text-balance"
             >
-              <button
-                type="button"
-                onClick={() => toggle(index)}
-                aria-expanded={isOpen}
-                className="flex w-full cursor-pointer items-center justify-between gap-4 text-left font-semibold text-foreground transition-colors hover:text-primary"
-              >
-                <span className={`text-[17px] sm:text-lg font-semibold transition-colors ${isOpen ? "text-primary" : ""}`}>
-                  {faq.question}
-                </span>
-                <div
-                  className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-muted transition-all duration-200 ${
-                    isOpen
-                      ? "rotate-180 bg-primary/10 text-primary"
-                      : "text-muted-foreground"
-                  }`}
-                >
-                  <IconChevronDown className="h-4 w-4" />
-                </div>
-              </button>
-              <div
-                className={`grid transition-[grid-template-rows] duration-200 ease-out ${
-                  isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <p className="pt-3.5 text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
-                    {faq.answer}
-                  </p>
-                </div>
+              Frequently Asked <span className="text-brand">Questions</span>
+            </h2>
+
+            <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+              Quick, clear answers to common questions about our free tutorials, formula compatibility,
+              and custom spreadsheet services.
+            </p>
+          </div>
+
+          {/* Dedicated Support Card */}
+          <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card to-brand/5 p-5 sm:p-6 shadow-xs dark:bg-card">
+            <div className="flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand">
+                <IconMessageQuestion className="size-5" />
+              </div>
+              <div>
+                <h3 className="text-base font-bold text-foreground">Still have questions?</h3>
+                <span className="text-xs text-muted-foreground">We are here to help</span>
               </div>
             </div>
-          )
-        })}
+
+            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
+              Can’t find the answer you’re looking for? Reach out directly to our spreadsheet specialists for personalized guidance.
+            </p>
+
+            <div className="mt-4 pt-3 border-t border-border/60">
+              <Button asChild size="sm" className="w-full rounded-xl font-semibold h-10">
+                <Link href="/contact" className="flex items-center justify-center gap-2">
+                  <span>Contact our team</span>
+                  <IconArrowRight className="size-4" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Right Column: Interactive Accordions (7 cols) ── */}
+        <div className="space-y-3.5 lg:col-span-7">
+          {FAQS.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={faq.question}
+                className={`rounded-2xl border transition-all duration-300 ${
+                  isOpen
+                    ? "border-brand/60 bg-gradient-to-br from-card via-card to-brand/5 shadow-xs"
+                    : "border-border/80 bg-card hover:border-brand/40 shadow-2xs dark:bg-card"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 sm:p-6 text-left"
+                >
+                  <span
+                    className={`text-base sm:text-lg font-bold leading-snug tracking-tight transition-colors ${
+                      isOpen ? "text-brand" : "text-foreground"
+                    }`}
+                  >
+                    {faq.question}
+                  </span>
+
+                  <div
+                    className={`flex size-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                      isOpen
+                        ? "rotate-180 border-brand/30 bg-brand/15 text-brand shadow-xs"
+                        : "border-border/60 bg-muted/30 text-muted-foreground"
+                    }`}
+                  >
+                    <IconChevronDown className="size-4 stroke-[2.5]" />
+                  </div>
+                </button>
+
+                <div
+                  className={`grid transition-[grid-template-rows] duration-200 ease-out ${
+                    isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                  }`}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0">
+                      <div className="border-t border-border/50 pt-3.5">
+                        <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )
+          })}
+        </div>
       </div>
     </section>
   )

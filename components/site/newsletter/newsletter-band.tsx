@@ -1,12 +1,12 @@
 import Image from "next/image"
-import { IconCheck, IconDownload, IconMail } from "@tabler/icons-react"
+import { IconCheck, IconMail } from "@tabler/icons-react"
 
 import { NewsletterForm } from "@/components/site/newsletter/newsletter-form"
 
 const BENEFITS = [
-  "Instant 50+ Essential Excel Formulas Cheat Sheet PDF",
-  "1 Practical 3-minute spreadsheet trick every Tuesday",
-  "Free downloadable business templates & VBA shortcuts",
+  "Instant 50+ Essential Excel Formulas Cheat Sheet PDF (XLOOKUP, INDEX/MATCH & more)",
+  "1 Practical 3-minute spreadsheet trick every Tuesday morning",
+  "Free downloadable business templates & ready-to-use VBA workbooks",
 ]
 
 export function NewsletterBand({
@@ -15,77 +15,63 @@ export function NewsletterBand({
   source?: string
 }) {
   return (
-    <section className="relative my-8 overflow-hidden rounded-3xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-8 text-primary-foreground shadow-xl sm:p-12 lg:p-14">
-      {/* Decorative ambient glow orbs */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-24 -top-24 h-96 w-96 rounded-full bg-white/10 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-20 -left-20 h-80 w-80 rounded-full bg-white/8 blur-3xl"
-      />
-      {/* Subtle shine overlay */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent"
-      />
-
-      <div className="relative grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
-        {/* ── Left Column: Value Copy & Form ── */}
-        <div className="space-y-6 lg:col-span-7">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3.5 py-1.5 text-xs sm:text-[13px] font-semibold text-primary-foreground shadow-xs">
-            <IconMail className="h-4 w-4" />
-            <span>Weekly Exceliko Newsletter</span>
+    <section
+      className="relative my-8 sm:my-12 overflow-hidden rounded-2xl sm:rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card to-brand/5 p-6 sm:p-10 lg:p-12 shadow-xs"
+      aria-labelledby="newsletter-heading"
+    >
+      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">
+        {/* ── Left Column: Value Copy & Signup Form ── */}
+        <div className="space-y-5 lg:col-span-7">
+          {/* Brand Kicker */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+            <IconMail className="size-3.5" />
+            <span>WEEKLY EXCELIKO NEWSLETTER</span>
           </div>
 
           {/* Heading */}
-          <h2 className="text-balance text-2xl font-bold leading-tight tracking-tight sm:text-3xl lg:text-4xl">
-            Level Up Your Spreadsheet Skills — Get Our Free 50+ Formula PDF Guide
+          <h2
+            id="newsletter-heading"
+            className="text-balance text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl"
+          >
+            Level Up Your Spreadsheet Skills —{" "}
+            <span className="text-brand">Get Our Free 50+ Formula PDF Guide</span>
           </h2>
 
           {/* Subtitle */}
-          <p className="max-w-xl text-balance text-[15px] sm:text-base leading-relaxed text-primary-foreground/90 lg:text-[17px]">
-            Bite-sized formula breakdowns and free templates sent directly to your inbox every week, made for data analysts, finance managers, and spreadsheet learners.
+          <p className="max-w-xl text-balance text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Bite-sized formula breakdowns, automated templates, and practical spreadsheet tricks sent directly
+            to your inbox every week. 100% free for analysts, accountants, and spreadsheet learners.
           </p>
 
-          {/* Value Bullet Points */}
-          <ul className="space-y-2.5 pt-1">
+          {/* Clean 3-Item Benefit Checklist */}
+          <ul className="space-y-2.5 pt-1 text-xs sm:text-sm font-medium text-foreground/85">
             {BENEFITS.map((benefit) => (
-              <li
-                key={benefit}
-                className="flex items-center gap-2.5 text-sm sm:text-[15px] font-medium text-primary-foreground/90"
-              >
-                <div className="flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-full bg-primary-foreground/20 text-primary-foreground">
-                  <IconCheck className="h-3 w-3 stroke-[3]" />
+              <li key={benefit} className="flex items-start gap-2.5">
+                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-brand/15 text-brand mt-0.5">
+                  <IconCheck className="size-3.5 stroke-[2.5]" />
                 </div>
                 <span>{benefit}</span>
               </li>
             ))}
           </ul>
 
-          {/* Form */}
+          {/* Signup Form */}
           <div className="pt-2">
             <NewsletterForm source={source} variant="band" />
           </div>
         </div>
 
-        {/* ── Right Column: 3D Cheat Sheet Mockup ── */}
+        {/* ── Right Column: Clean 2D Flat Editorial Vector Artwork ── */}
         <div className="relative flex items-center justify-center lg:col-span-5">
-          <div className="group relative aspect-square w-full max-w-sm overflow-hidden rounded-2xl border border-primary-foreground/20 bg-primary-foreground/10 p-3 shadow-2xl backdrop-blur-xs transition-transform duration-500 hover:scale-102">
+          <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none flex items-center justify-center">
             <Image
-              src="/images/newsletter-ebook.webp"
-              alt="50+ Essential Excel Formulas Free PDF Guide"
-              fill
-              sizes="(max-width: 640px) 100vw, 400px"
-              className="object-cover rounded-xl"
+              src="/images/newsletter-guide-editorial.webp"
+              alt="50+ Essential Excel Formulas Free PDF Guide and Spreadsheet Cheat Sheet"
+              width={854}
+              height={685}
+              priority
+              className="w-full h-auto max-h-[280px] sm:max-h-[340px] object-contain drop-shadow-xs transition-transform duration-300 hover:scale-[1.02]"
             />
-            {/* Tag overlay */}
-            <div className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full border border-white/20 bg-background/90 px-3 py-1.5 text-xs sm:text-[13px] font-bold text-foreground shadow-md backdrop-blur-xs">
-              <IconDownload className="h-4 w-4 text-primary" />
-              <span>Free Instant Download</span>
-            </div>
           </div>
         </div>
       </div>
