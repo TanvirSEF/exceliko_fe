@@ -9,8 +9,8 @@ interface AssistantAvatarProps {
 
 export function AssistantAvatar({
   className = "h-12 w-12",
-  src = "/images/assistant-avatar.webp",
-  alt = "Cellie Mascot",
+  src = "/images/cellie-2d-avatar.webp",
+  alt = "Cellie Spreadsheet Bot Mascot",
 }: AssistantAvatarProps) {
   return (
     <div
@@ -22,10 +22,11 @@ export function AssistantAvatar({
       <Image
         src={src}
         alt={alt}
-        width={96}
-        height={96}
+        width={160}
+        height={160}
         unoptimized
-        className="h-full w-full object-contain drop-shadow-md select-none pointer-events-none"
+        priority
+        className="h-full w-full object-contain drop-shadow-sm select-none pointer-events-none"
       />
     </div>
   )
