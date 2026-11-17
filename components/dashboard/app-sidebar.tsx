@@ -11,7 +11,6 @@ import {
   IconMessage,
   IconMessageQuestion,
   IconPhoto,
-  IconSchool,
   IconSettings,
   IconShieldLock,
   IconTags,

@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 
 import { QueryProvider } from "@/components/query-provider"
 import { HomeHero } from "@/components/site/home-hero"
+import { FreeTrainingSection } from "@/components/site/free-training-section"
 import { LearningTrackSection } from "@/components/site/learning-track-section"
 import { TrendingSection } from "@/components/site/trending-list"
 import { ServicesSection } from "@/components/site/services-section"
@@ -66,8 +67,14 @@ export default async function HomePage() {
         <ServicesSection />
 
         <div className="border-t border-border/60">
-          <LearningTrackSection modules={trackModules} />
+          <FreeTrainingSection />
         </div>
+
+        {trackModules.length > 0 ? (
+          <div className="border-t border-border/60">
+            <LearningTrackSection modules={trackModules} />
+          </div>
+        ) : null}
 
         <div className="border-t border-border/60">
           <TrendingSection posts={trending.items} className="py-12 sm:py-16" />
