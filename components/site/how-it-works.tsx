@@ -1,3 +1,4 @@
+import Image from "next/image"
 import type { TablerIcon } from "@tabler/icons-react"
 
 import { SectionHeading } from "@/components/site/section-heading"
@@ -8,6 +9,7 @@ export interface HowItWorksStep {
   title: string
   description: string
   icon: TablerIcon
+  image?: string
 }
 
 interface HowItWorksProps {
@@ -17,14 +19,20 @@ interface HowItWorksProps {
   subtitle?: string
 }
 
+const DEFAULT_STEP_IMAGES = [
+  "/images/how-it-works/step-1-submit.svg",
+  "/images/how-it-works/step-2-audit.svg",
+  "/images/how-it-works/step-3-delivery.svg",
+]
+
 export function HowItWorks({
   steps,
-  badge = "Simple Process",
-  title = "How It Works",
+  badge = "Simple process",
+  title = "How it works",
   subtitle,
 }: HowItWorksProps) {
   return (
-    <section className="border-t border-border/60 py-14 sm:py-18">
+    <section className="border-t border-border/60 py-12 sm:py-16 lg:py-20">
       <SectionHeading badge={badge} title={title} subtitle={subtitle} />
 
       <div
@@ -37,25 +45,38 @@ export function HowItWorks({
               : "sm:grid-cols-2 lg:grid-cols-3"
         )}
       >
-        {steps.map((step) => {
+        {steps.map((step, index) => {
           const Icon = step.icon
+          const imageSrc = step.image ?? DEFAULT_STEP_IMAGES[index]
           return (
             <div
               key={step.step}
-              className="rounded-2xl border border-primary/50 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/80 hover:shadow-lg"
+              className="flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors duration-150 hover:border-brand/40"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                  <Icon className="h-[22px] w-[22px]" />
+              {imageSrc ? (
+                <div className="mb-5 overflow-hidden rounded-xl border border-border/70 bg-[#f8f9fb]">
+                  <Image
+                    src={imageSrc}
+                    alt={step.title}
+                    width={400}
+                    height={220}
+                    className="h-auto w-full object-cover"
+                  />
                 </div>
-                <span className="text-4xl font-bold leading-none text-primary/15">
-                  {step.step}
+              ) : null}
+
+              <div className="flex items-center justify-between">
+                <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-brand">
+                  <Icon className="size-5 stroke-[1.5]" />
+                </div>
+                <span className="font-mono text-xs text-muted-foreground tabular-nums">
+                  Step {step.step}
                 </span>
               </div>
-              <h3 className="mt-4 text-lg sm:text-xl font-bold tracking-tight text-foreground">
+              <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground sm:text-xl">
                 {step.title}
               </h3>
-              <p className="mt-1.5 text-[15px] leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {step.description}
               </p>
             </div>
