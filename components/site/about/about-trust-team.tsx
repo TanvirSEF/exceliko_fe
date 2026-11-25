@@ -9,19 +9,19 @@ import { SectionHeading } from "@/components/site/section-heading"
 const TRUST_PILLARS = [
   {
     icon: IconCheck,
-    title: "Tested on Live Workbooks",
+    title: "Tested on live workbooks",
     description:
       "Every formula syntax, edge case, and calculator algorithm is validated on active versions of Microsoft Excel and Google Sheets before publication.",
   },
   {
     icon: IconFileSpreadsheet,
-    title: "Downloadable Practice Files",
+    title: "Downloadable practice files",
     description:
       "We believe in learning by doing. Whenever practical, we include clean sample datasets so you can inspect formulas directly in your own spreadsheet.",
   },
   {
     icon: IconShieldCheck,
-    title: "Zero Artificial Fluff",
+    title: "Zero artificial fluff",
     description:
       "No robotic, copy-paste content or unverified tips. Our articles are written by practitioners who spend their days building real spreadsheets.",
   },
@@ -29,26 +29,25 @@ const TRUST_PILLARS = [
 
 export function AboutTrustTeam() {
   return (
-    <section className="border-t border-border/60 py-14 sm:py-20">
+    <section className="border-t border-border/60 py-12 sm:py-16 lg:py-20">
       <SectionHeading
-        badge="Why Trust Us"
+        badge="Why trust us"
         title="Authentic expertise, verified on actual workbooks"
         subtitle="We build tools and write tutorials for professionals who need reliable, production-ready spreadsheet solutions."
       />
 
-      {/* 3 Trust Pillars */}
-      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+      <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
         {TRUST_PILLARS.map((pillar) => {
           const Icon = pillar.icon
           return (
             <div
               key={pillar.title}
-              className="rounded-2xl border border-border/70 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-md"
+              className="rounded-2xl border border-border bg-card p-6 transition-colors duration-150 hover:border-brand/40"
             >
-              <div className="flex size-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <Icon className="size-5" />
+              <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-brand">
+                <Icon className="size-5 stroke-[1.5]" />
               </div>
-              <h3 className="mt-4 text-lg font-bold tracking-tight text-foreground">
+              <h3 className="mt-4 text-lg font-semibold tracking-tight text-foreground">
                 {pillar.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">

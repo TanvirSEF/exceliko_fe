@@ -5,61 +5,41 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const STATS = [
-  { value: "15+", label: "Years Spreadsheet Expertise" },
-  { value: "50+", label: "Free Interactive Calculators" },
-  { value: "100+", label: "Formulas & In-Depth Guides" },
+  { value: "15+", label: "Years spreadsheet expertise" },
+  { value: "50+", label: "Free interactive calculators" },
+  { value: "100+", label: "Formulas & in-depth guides" },
   { value: "2", label: "Platforms: Excel & Sheets" },
-  { value: "100%", label: "Free & Practical Focus" },
+  { value: "100%", label: "Free & practical focus" },
 ]
 
 export function AboutHero() {
   return (
-    <section className="relative isolate w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft pb-16 pt-16 sm:pb-20 sm:pt-20 lg:pb-24 lg:pt-24">
-      {/* Spreadsheet Grid Pattern Overlay */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:28px_28px]"
-      />
-
-      {/* Ambient Gradient Glows */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-32 -top-32 -z-10 h-96 w-96 rounded-full bg-brand/15 blur-3xl"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-20 left-1/4 -z-10 h-80 w-80 rounded-full bg-brand-light/10 blur-3xl"
-      />
-
-      <div className="mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
-        {/* Pill Badge */}
-        <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-xs">
+    <section className="w-full border-b border-white/10 bg-navy-deep py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <p className="text-xs font-medium text-brand-light sm:text-sm">
           About Exceliko
-        </div>
+        </p>
 
-        {/* Main Heading */}
-        <h1 className="mt-6 text-balance text-3xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
+        <h1 className="mt-3 text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl lg:text-6xl lg:tracking-[-0.03em]">
           Empowering spreadsheet users to work{" "}
-          <span className="text-brand-light">faster and smarter.</span>
+          <span className="text-brand-light">faster and smarter</span>
         </h1>
 
-        {/* Subhead */}
-        <p className="mx-auto mt-6 max-w-3xl text-pretty text-base leading-relaxed text-white/80 sm:text-lg lg:text-xl">
+        <p className="mx-auto mt-5 max-w-2xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
           Exceliko is an independent digital library of free calculators, step-by-step formula
           tutorials, and practical spreadsheet templates designed to turn hours of manual crunching
           into simple, repeatable workflows.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Button
             asChild
             size="lg"
-            className="h-12 rounded-xl bg-white px-7 text-sm font-semibold text-navy shadow-md hover:bg-white/90"
+            className="h-11 rounded-lg bg-white px-5 text-sm font-medium text-navy-deep transition-colors duration-150 hover:bg-white/90 active:scale-[0.98]"
           >
-            <Link href="/calculator/" className="flex items-center gap-2">
-              <span>Try Free Calculators</span>
-              <IconArrowRight className="size-4" />
+            <Link href="/calculator/" className="inline-flex items-center gap-2">
+              <span>Try free calculators</span>
+              <IconArrowRight className="size-4 stroke-[1.5]" />
             </Link>
           </Button>
 
@@ -67,26 +47,25 @@ export function AboutHero() {
             asChild
             variant="ghost"
             size="lg"
-            className="h-12 rounded-xl border border-white/25 px-7 text-sm font-semibold text-white hover:bg-white/10 hover:text-white dark:hover:bg-white/10"
+            className="h-11 rounded-lg border border-white/15 bg-white/5 px-5 text-sm font-medium text-white transition-colors duration-150 hover:bg-white/10 hover:text-white active:scale-[0.98]"
           >
-            <Link href="/blog/">Browse Tutorials</Link>
+            <Link href="/blog/">Browse tutorials</Link>
           </Button>
         </div>
       </div>
 
-      {/* Floating Metric Card (Full-width max-w-7xl, clean responsive layout) */}
       <div className="mx-auto mt-12 w-full max-w-7xl px-4 sm:px-6 lg:mt-16 lg:px-8">
-        <div className="rounded-2xl border border-border/70 bg-card p-5 shadow-xl backdrop-blur-md sm:rounded-3xl sm:p-7 lg:p-8 dark:bg-card/95">
+        <div className="rounded-2xl border border-border bg-card p-6 sm:p-8">
           <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-border/60">
             {STATS.map((stat, index) => (
               <div
                 key={stat.label}
                 className={cn(
-                  "flex flex-col items-center justify-center px-3 py-3 text-center sm:px-4 sm:py-2",
+                  "flex flex-col items-center justify-center px-3 py-2 text-center sm:px-4",
                   index === 4 && "col-span-2 lg:col-span-1"
                 )}
               >
-                <p className="text-3xl font-black tracking-tight text-foreground sm:text-4xl lg:text-4xl">
+                <p className="font-mono text-3xl font-semibold tracking-tight text-foreground tabular-nums sm:text-4xl">
                   {stat.value}
                 </p>
                 <p className="mt-1.5 text-xs font-medium text-muted-foreground sm:text-sm">
