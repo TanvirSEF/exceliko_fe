@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   IconArrowRight,
@@ -72,26 +73,38 @@ const COURSES: TrainingCourse[] = [
 
 export function FreeTrainingSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="free-training-title">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="text-xs font-medium text-brand sm:text-sm">
-          Free Excel training
-        </p>
+    <section className="py-10 sm:py-12 lg:py-14" aria-labelledby="free-training-title">
+      <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
+        <div className="space-y-2.5 text-center lg:col-span-7 lg:text-left">
+          <p className="text-xs font-medium text-brand sm:text-sm">
+            Free Excel training
+          </p>
 
-        <h2
-          id="free-training-title"
-          className="mt-2 text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl text-balance"
-        >
-          Four full courses, zero cost
-        </h2>
+          <h2
+            id="free-training-title"
+            className="text-balance text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl"
+          >
+            Four full courses, zero cost
+          </h2>
 
-        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Pick a course and start learning today. No sign-up needed, and every lesson comes
-          with example files you can download.
-        </p>
+          <p className="mx-auto max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:mx-0">
+            Pick a course and start learning today. No sign-up needed, and every lesson comes
+            with example files you can download.
+          </p>
+        </div>
+
+        <div className="flex items-center justify-center lg:col-span-5 lg:justify-end">
+          <Image
+            src="/images/learning-modules.svg"
+            alt="Three stacked isometric spreadsheet planes showing progression from raw data to pivot lookups to executive KPI cards"
+            width={560}
+            height={360}
+            className="h-auto max-h-48 w-auto object-contain sm:max-h-52"
+          />
+        </div>
       </div>
 
-      <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-card sm:mt-10">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card sm:mt-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
           {COURSES.map((course, idx) => {
             const Icon = course.icon

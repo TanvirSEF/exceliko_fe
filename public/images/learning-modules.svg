@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" fill="none">
+  <!-- Vertical isometric alignment guide axes -->
+  <g stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3 3">
+    <line x1="280" y1="26" x2="280" y2="334" />
+    <line x1="124" y1="104" x2="124" y2="256" />
+    <line x1="436" y1="104" x2="436" y2="256" />
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- LAYER 1 (BOTTOM, y = 248): Raw Unsorted Cells             -->
+  <!-- ========================================================= -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Left & Right Isometric Thickness Bevels -->
+    <polygon points="124,248 280,326 280,334 124,256" fill="#e2e8f0" />
+    <polygon points="436,248 280,326 280,334 436,256" fill="#cbd5e1" />
+    <!-- Top Surface -->
+    <polygon points="280,170 436,248 280,326 124,248" fill="#ffffff" />
+
+    <!-- 4x4 Isometric Cell Grid -->
+    <g stroke="#cbd5e1" stroke-width="1">
+      <line x1="241" y1="189.5" x2="397" y2="267.5" />
+      <line x1="202" y1="209" x2="358" y2="287" />
+      <line x1="163" y1="228.5" x2="319" y2="306.5" />
+      <line x1="319" y1="189.5" x2="163" y2="267.5" />
+      <line x1="358" y1="209" x2="202" y2="287" />
+      <line x1="397" y1="228.5" x2="241" y2="306.5" />
+    </g>
+
+    <!-- Scattered Unsorted Cell Markers -->
+    <polygon points="202,248 241,267.5 202,287 163,267.5" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+    <polygon points="319,228.5 358,248 319,267.5 280,248" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1" />
+    <line x1="254" y1="274" x2="274" y2="284" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="292" y1="294" x2="318" y2="281" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="182" y1="240" x2="206" y2="228" stroke="#94a3b8" stroke-width="1.5" />
+  </g>
+
+  <!-- Layer 1 Callout -->
+  <g>
+    <line x1="124" y1="252" x2="96" y2="252" stroke="#94a3b8" stroke-width="1" />
+    <circle cx="124" cy="252" r="2.5" fill="#94a3b8" />
+    <text x="90" y="255" text-anchor="end" fill="#64748b" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">01 RAW DATA</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- LAYER 2 (MIDDLE, y = 176): Pivot Filters & Lookups        -->
+  <!-- ========================================================= -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bevels -->
+    <polygon points="124,176 280,254 280,262 124,184" fill="#e2e8f0" />
+    <polygon points="436,176 280,254 280,262 436,184" fill="#cbd5e1" />
+    <!-- Top Surface -->
+    <polygon points="280,98 436,176 280,254 124,176" fill="#ffffff" />
+
+    <!-- Isometric Grid -->
+    <g stroke="#e2e8f0" stroke-width="1">
+      <line x1="241" y1="117.5" x2="397" y2="195.5" />
+      <line x1="202" y1="137" x2="358" y2="215" />
+      <line x1="163" y1="156.5" x2="319" y2="234.5" />
+      <line x1="319" y1="117.5" x2="163" y2="195.5" />
+      <line x1="358" y1="137" x2="202" y2="215" />
+      <line x1="397" y1="156.5" x2="241" y2="234.5" />
+    </g>
+
+    <!-- Pivot Filter Header Strip (Top-Left Edge) -->
+    <polygon points="280,98 319,117.5 163,195.5 124,176" fill="#f8fafc" stroke="#1a2744" stroke-width="1.25" />
+
+    <!-- Forest-Green Active Pivot & Lookup Cells -->
+    <polygon points="241,156.5 280,176 241,195.5 202,176" fill="#dcfce7" stroke="#15803d" stroke-width="1.5" />
+    <polygon points="319,195.5 358,215 319,234.5 280,215" fill="#dcfce7" stroke="#15803d" stroke-width="1.5" />
+
+    <!-- Isometric Lookup Connector Path in Forest-Green -->
+    <path d="M260 185.5 L299.5 205.5" stroke="#15803d" stroke-width="1.75" fill="none" />
+    <circle cx="241" cy="176" r="3" fill="#15803d" stroke="#ffffff" stroke-width="1" />
+    <circle cx="319" cy="215" r="3" fill="#15803d" stroke="#ffffff" stroke-width="1" />
+  </g>
+
+  <!-- Layer 2 Callout (Right) -->
+  <g>
+    <line x1="436" y1="180" x2="464" y2="180" stroke="#15803d" stroke-width="1.25" />
+    <circle cx="436" cy="180" r="2.5" fill="#15803d" />
+    <text x="470" y="183" text-anchor="start" fill="#15803d" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">02 PIVOT · fx</text>
+  </g>
+
+  <!-- ========================================================= -->
+  <!-- LAYER 3 (TOP, y = 104): Finished Executive KPI Card       -->
+  <!-- ========================================================= -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Bevels -->
+    <polygon points="124,104 280,182 280,190 124,112" fill="#e2e8f0" />
+    <polygon points="436,104 280,182 280,190 436,112" fill="#cbd5e1" />
+    <!-- Top Surface -->
+    <polygon points="280,26 436,104 280,182 124,104" fill="#ffffff" />
+
+    <!-- Subtle Divider Between KPI Text (Left) and Trend Bars (Right) -->
+    <line x1="202" y1="65" x2="358" y2="143" stroke="#cbd5e1" stroke-width="1" />
+
+    <!-- Executive KPI Card Header & Metric Bars (Left Quadrant) -->
+    <polygon points="160,100 226,67 248,78 182,111" fill="#f8fafc" stroke="#1a2744" stroke-width="1.25" />
+    <line x1="176" y1="100" x2="218" y2="79" stroke="#1a2744" stroke-width="2" />
+    <line x1="192" y1="118" x2="254" y2="87" stroke="#15803d" stroke-width="2.5" />
+    <line x1="208" y1="128" x2="252" y2="106" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="224" y1="138" x2="262" y2="119" stroke="#94a3b8" stroke-width="1.5" />
+
+    <!-- Isometric Upward KPI Trend Columns (Right Quadrant) -->
+    <!-- Bar 1 (short) -->
+    <g stroke="#15803d" stroke-width="1.25">
+      <polygon points="274,142 290,150 290,134 274,126" fill="#dcfce7" />
+      <polygon points="306,142 290,150 290,134 306,126" fill="#bbf7d0" />
+      <polygon points="290,118 306,126 290,134 274,126" fill="#ffffff" />
+    </g>
+
+    <!-- Bar 2 (medium) -->
+    <g stroke="#15803d" stroke-width="1.25">
+      <polygon points="304,127 320,135 320,107 304,99" fill="#bbf7d0" />
+      <polygon points="336,127 320,135 320,107 336,99" fill="#86efac" />
+      <polygon points="320,91 336,99 320,107 304,99" fill="#dcfce7" />
+    </g>
+
+    <!-- Bar 3 (tallest, forest-green peak) -->
+    <g stroke="#15803d" stroke-width="1.25">
+      <polygon points="334,112 350,120 350,76 334,68" fill="#15803d" />
+      <polygon points="366,112 350,120 350,76 366,68" fill="#166534" />
+      <polygon points="350,60 366,68 350,76 334,68" fill="#4ade80" />
+    </g>
+  </g>
+
+  <!-- Verified Checkmark Seal at Top Vertex -->
+  <g>
+    <circle cx="280" cy="26" r="12" fill="#15803d" stroke="#ffffff" stroke-width="2.5" />
+    <path d="M275 26.5 L278.5 30 L285 23" fill="none" stroke="#ffffff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Layer 3 Callout (Left) -->
+  <g>
+    <line x1="124" y1="108" x2="96" y2="108" stroke="#1a2744" stroke-width="1.25" />
+    <circle cx="124" cy="108" r="2.5" fill="#1a2744" />
+    <text x="90" y="111" text-anchor="end" fill="#1a2744" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">03 KPI CARD</text>
+  </g>
+</svg>
