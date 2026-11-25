@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { IconArrowUpRight, IconFlame } from "@tabler/icons-react"
+import { IconArrowUpRight, IconFileSpreadsheet, IconFlame } from "@tabler/icons-react"
 
 import { Time } from "@/components/shared/time"
 import { toCdnUrl } from "@/lib/blocks"
@@ -44,12 +44,11 @@ export function PostCard({ post, className, priority = false }: PostCardProps) {
   return (
     <article
       className={cn(
-        "group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/80 bg-card p-4 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/60 hover:shadow-md dark:bg-card",
+        "group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card p-4 transition-colors duration-150 hover:border-brand/40",
         className
       )}
     >
       <Link href={postHref(post)} prefetch={false} className="flex h-full flex-col">
-        {/* Featured Image or Gradient Fallback */}
         <div className="relative aspect-16/10 w-full overflow-hidden rounded-xl border border-border/40 bg-muted">
           {imageUrl ? (
             <Image
@@ -57,64 +56,51 @@ export function PostCard({ post, className, priority = false }: PostCardProps) {
               alt={post.title}
               fill
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              className="object-cover transition-transform duration-500 will-change-transform group-hover:scale-105"
+              className="object-cover"
               priority={priority}
             />
           ) : (
-            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/15 via-primary/5 to-muted">
-              <div
-                aria-hidden
-                className="absolute inset-0 opacity-20 [background-image:radial-gradient(var(--color-primary)_1px,transparent_1px)] [background-size:16px_16px]"
-              />
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-primary/70">
-                Exceliko
-              </span>
+            <div className="absolute inset-0 flex items-center justify-center bg-muted/60">
+              <IconFileSpreadsheet className="size-6 stroke-[1.5] text-muted-foreground" />
             </div>
           )}
 
-          {/* Trending Badge Overlay */}
           {post.is_trending ? (
-            <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-full border border-primary/20 bg-background/90 px-2.5 py-1 text-xs font-semibold text-primary shadow-xs backdrop-blur-xs">
-              <IconFlame className="h-3.5 w-3.5 text-primary" />
+            <div className="absolute left-3 top-3 inline-flex items-center gap-1 rounded-md border border-border bg-background/95 px-2 py-1 text-xs font-medium text-foreground">
+              <IconFlame className="size-3.5 stroke-[1.5] text-brand" />
               <span>Trending</span>
             </div>
           ) : null}
         </div>
 
-        {/* Card Content */}
         <div className="flex flex-1 flex-col justify-between pt-4">
           <div className="space-y-2">
-            {/* Category kicker */}
             {post.category ? (
-              <span className="inline-flex line-clamp-1 text-xs font-semibold uppercase tracking-wider text-primary">
+              <span className="inline-flex line-clamp-1 text-xs font-medium text-brand">
                 {post.category.name}
               </span>
             ) : null}
 
-            {/* Title */}
-            <h3 className="text-base font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-primary sm:text-lg">
+            <h3 className="text-base font-semibold leading-snug tracking-tight text-foreground transition-colors duration-150 group-hover:text-brand sm:text-lg">
               {post.title}
             </h3>
 
-            {/* Description */}
             {post.meta_description || post.excerpt ? (
-              <p className="line-clamp-2 text-[15px] leading-relaxed text-muted-foreground">
+              <p className="line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                 {post.meta_description || post.excerpt}
               </p>
             ) : null}
 
-            {/* Meta Row */}
             {post.published_at ? (
-              <div className="flex items-center gap-2 pt-1 text-[13px] text-muted-foreground">
+              <div className="flex items-center gap-2 pt-1 text-xs text-muted-foreground tabular-nums">
                 <Time date={post.published_at} variant="date" />
               </div>
             ) : null}
           </div>
 
-          {/* Read article arrow indicator */}
-          <div className="mt-4 flex items-center gap-1 text-[13px] font-semibold text-primary opacity-0 transition-all duration-200 group-hover:opacity-100">
+          <div className="mt-4 flex items-center gap-1 text-sm font-medium text-brand opacity-0 transition-opacity duration-150 group-hover:opacity-100">
             <span>Read article</span>
-            <IconArrowUpRight className="h-3.5 w-3.5" />
+            <IconArrowUpRight className="size-4 stroke-[1.5]" />
           </div>
         </div>
       </Link>

@@ -30,16 +30,15 @@ export function SectionHeading({
     >
       <div className="max-w-2xl space-y-2">
         {badge ? (
-          <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs sm:text-[13px] font-semibold text-primary">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-            <span>{badge}</span>
-          </div>
+          <p className="text-xs font-medium text-brand sm:text-sm">
+            {badge}
+          </p>
         ) : null}
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl">
           {title}
         </h2>
         {subtitle ? (
-          <p className="text-[15px] sm:text-base leading-relaxed text-muted-foreground">
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
             {subtitle}
           </p>
         ) : null}
@@ -51,10 +50,10 @@ export function SectionHeading({
           {...(action.href.startsWith("http")
             ? { target: "_blank", rel: "noopener noreferrer" }
             : {})}
-          className="group inline-flex shrink-0 items-center gap-2 rounded-full border border-border/90 bg-card px-4 py-2 text-sm font-semibold text-foreground shadow-2xs transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary/5 hover:text-primary hover:shadow-xs"
+          className="inline-flex shrink-0 items-center gap-2 rounded-lg border border-border bg-card px-4 py-2 text-sm font-medium text-foreground transition-colors duration-150 hover:border-brand/40 hover:text-brand"
         >
           <span>{action.label}</span>
-          <IconArrowRight className="h-4 w-4 text-primary transition-transform duration-200 group-hover:translate-x-1" />
+          <IconArrowRight className="size-4 stroke-[1.5] text-brand" />
         </Link>
       ) : null}
     </div>

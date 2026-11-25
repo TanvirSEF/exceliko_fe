@@ -29,29 +29,29 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
   ]
 
   return (
-    <section className="py-12 sm:py-16" aria-labelledby="learning-track-heading">
-      <div className="overflow-hidden rounded-2xl border border-brand/25 bg-gradient-to-br from-brand/10 via-brand/5 to-transparent p-6 sm:p-10">
+    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="learning-track-heading">
+      <div className="rounded-2xl border border-border bg-card p-6 sm:p-10">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
-              <IconBrandGoogle className="h-3.5 w-3.5" />
-              Google Sheets Learning Track
+            <span className="inline-flex items-center gap-1.5 text-xs font-medium text-brand">
+              <IconBrandGoogle className="size-4 stroke-[1.5]" />
+              <span>Google Sheets learning track</span>
             </span>
             <h2
               id="learning-track-heading"
-              className="mt-4 text-2xl font-bold tracking-tight text-balance sm:text-3xl lg:text-4xl"
+              className="mt-2 text-2xl font-semibold tracking-tight text-balance text-foreground sm:text-3xl lg:text-4xl"
             >
-              Master Google Sheets, Lesson by Lesson
+              Master Google Sheets, lesson by lesson
             </h2>
-            <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground sm:text-[17px]">
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
               A complete structured course — from your first spreadsheet to Apps
               Script automation — with every lesson in the right order.
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+            <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 tabular-nums">
               {stats.map((stat) => (
-                <span key={stat.label} className="text-[15px]">
-                  <span className="font-bold text-foreground">{stat.value}</span>
+                <span key={stat.label} className="text-sm">
+                  <span className="font-semibold text-foreground">{stat.value}</span>
                   <span className="ml-1.5 text-muted-foreground">{stat.label}</span>
                 </span>
               ))}
@@ -63,18 +63,18 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
               <Link
                 href={`/google-sheets/${firstLesson.slug}`}
                 prefetch={false}
-                className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-brand px-5 text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand"
+                className="inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-brand px-5 text-sm font-medium text-brand-foreground transition-colors duration-150 hover:bg-brand/90"
               >
-                Start Learning
-                <IconArrowRight className="h-4 w-4" />
+                <span>Start learning</span>
+                <IconArrowRight className="size-4 stroke-[1.5]" />
               </Link>
             ) : null}
             <Link
               href="/google-sheets"
               prefetch={false}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-brand/40 bg-background px-5 text-sm font-semibold text-brand transition-colors hover:bg-brand/10 dark:text-brand"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-lg border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors duration-150 hover:bg-muted/50"
             >
-              View Full Track
+              <span>View full track</span>
             </Link>
           </div>
         </div>
@@ -88,36 +88,33 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
               key={module.slug}
               href={`/google-sheets#${module.slug}`}
               prefetch={false}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-border/70 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-brand/60 hover:shadow-lg"
+              className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-colors duration-150 hover:border-brand/40"
             >
-              <span
-                aria-hidden
-                className="pointer-events-none absolute right-4 top-3 text-4xl font-bold leading-none text-brand/15"
-              >
-                {String(index + 1).padStart(2, "0")}
-              </span>
+              <div>
+                <div className="flex items-center justify-between">
+                  <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-brand transition-colors duration-150 group-hover:bg-brand group-hover:text-brand-foreground">
+                    <IconTable className="size-5 stroke-[1.5]" />
+                  </div>
+                  <span className="font-mono text-xs text-muted-foreground tabular-nums">
+                    Module {String(index + 1).padStart(2, "0")}
+                  </span>
+                </div>
 
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/15 text-brand transition-colors group-hover:bg-brand group-hover:text-white dark:text-brand dark:group-hover:text-white">
-                <IconTable className="h-6 w-6" />
+                <div className="mt-4 space-y-1.5">
+                  <h3 className="text-lg font-semibold leading-snug tracking-tight text-foreground transition-colors duration-150 group-hover:text-brand">
+                    {module.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground tabular-nums">
+                    {topics.length} {topics.length === 1 ? "topic" : "topics"} ·{" "}
+                    {module.lesson_count}{" "}
+                    {module.lesson_count === 1 ? "lesson" : "lessons"}
+                  </p>
+                </div>
               </div>
 
-              <div className="mt-4 space-y-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                  Module {index + 1}
-                </p>
-                <h3 className="text-lg font-bold leading-snug tracking-tight text-foreground transition-colors group-hover:text-brand dark:group-hover:text-brand">
-                  {module.name}
-                </h3>
-                <p className="text-[15px] text-muted-foreground">
-                  {topics.length} {topics.length === 1 ? "topic" : "topics"} ·{" "}
-                  {module.lesson_count}{" "}
-                  {module.lesson_count === 1 ? "lesson" : "lessons"}
-                </p>
-              </div>
-
-              <div className="mt-5 flex items-center gap-1.5 text-[13px] font-semibold text-brand">
+              <div className="mt-5 flex items-center gap-1.5 text-sm font-medium text-brand">
                 <span>Explore module</span>
-                <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                <IconArrowRight className="size-4 stroke-[1.5]" />
               </div>
             </Link>
           )

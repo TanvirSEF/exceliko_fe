@@ -77,7 +77,7 @@ export default async function HomePage() {
         ) : null}
 
         <div className="border-t border-border/60">
-          <TrendingSection posts={trending.items} className="py-12 sm:py-16" />
+          <TrendingSection posts={trending.items} />
         </div>
 
         <div className="border-t border-border/60">

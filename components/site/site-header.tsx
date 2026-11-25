@@ -19,12 +19,12 @@ export async function SiteHeader() {
   const trendingTitles = (trending?.items ?? []).map((post) => post.title)
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/85 backdrop-blur-md supports-backdrop-filter:bg-background/70 shadow-2xs transition-all">
-      <div className="mx-auto flex h-16 sm:h-[4.25rem] w-full max-w-7xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-border/60 bg-background/95 backdrop-blur-sm transition-colors duration-150">
+      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           <Link
             href="/"
-            className="flex items-center gap-2 transition-transform duration-200 hover:scale-[1.02]"
+            className="flex items-center gap-2"
             aria-label="Exceliko Home"
           >
             <Image
@@ -33,14 +33,14 @@ export async function SiteHeader() {
               width={2172}
               height={724}
               priority
-              className="h-12 sm:h-13 md:h-14 w-auto object-contain dark:hidden"
+              className="h-12 w-auto object-contain dark:hidden sm:h-13 md:h-14"
             />
             <Image
               src="/logo-light.png"
               alt="Exceliko"
               width={1086}
               height={362}
-              className="hidden h-12 sm:h-13 md:h-14 w-auto object-contain dark:block"
+              className="hidden h-12 w-auto object-contain dark:block sm:h-13 md:h-14"
             />
           </Link>
         </div>

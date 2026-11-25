@@ -14,7 +14,7 @@ const FAQS = [
   {
     question: "Are all the formulas, tutorials, and calculators completely free?",
     answer:
-      "Yes! Every tutorial, formula breakdown, and interactive browser-based calculator on Exceliko is 100% free to access, copy, and use for both personal and commercial work. There are no subscriptions, paywalls, or hidden fees.",
+      "Yes. Every tutorial, formula breakdown, and interactive browser-based calculator on Exceliko is 100% free to access, copy, and use for both personal and commercial work. There are no subscriptions, paywalls, or hidden fees.",
   },
   {
     question: "Do your articles work on both Microsoft Excel and Google Sheets?",
@@ -24,17 +24,17 @@ const FAQS = [
   {
     question: "How does the Custom Spreadsheet & Consulting service work?",
     answer:
-      "If you have a broken workbook, need an executive financial model, or require custom VBA/Apps Script automation, simply submit your project via our Services or Contact page. We review your requirements, provide transparent upfront pricing, and deliver a production-ready, documented solution.",
+      "If you have a broken workbook, need an executive financial model, or require custom VBA or Apps Script automation, submit your project via our Services or Contact page. We review your requirements, provide transparent upfront pricing, and deliver a production-ready, documented solution.",
   },
   {
     question: "Do I need coding or VBA knowledge to use the downloadable templates?",
     answer:
-      "No coding knowledge is required. All standard financial models and business trackers use native spreadsheet formulas with intuitive data input sheets and full instructions. For specialized automation tools that use VBA macros, we include one-click buttons and comprehensive setup guides.",
+      "No coding knowledge is required. All standard financial models and business trackers use native spreadsheet formulas with intuitive data input sheets and full instructions. For specialized automation tools that use VBA macros, we include one-click buttons and setup guides.",
   },
   {
     question: "How frequently is new content published on Exceliko?",
     answer:
-      "We publish multiple comprehensive guides, practical formula walkthroughs, and downloadable templates every week, constantly updating our library to reflect the newest Excel 365 and Google Sheets features.",
+      "We publish multiple comprehensive guides, practical formula walkthroughs, and downloadable templates every week, keeping our library updated for the newest Excel 365 and Google Sheets features.",
   },
 ]
 
@@ -47,20 +47,19 @@ export function FaqSection() {
 
   return (
     <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="faq-heading">
-      <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-12 items-start">
-        {/* ── Left Column: Section Intro & Contact Help Card (5 cols) ── */}
-        <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-28">
-          <div className="space-y-3">
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-brand/25 bg-brand/10 px-3 py-0.5 text-xs font-semibold text-brand">
-              <span className="size-1.5 rounded-full bg-brand" />
-              <span>Got Questions?</span>
-            </div>
+      <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
+        {/* Left Column: Section Intro & Contact Help Card */}
+        <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-24">
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-brand sm:text-sm">
+              Common questions
+            </p>
 
             <h2
               id="faq-heading"
-              className="text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl lg:text-4xl text-balance"
+              className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl lg:text-4xl text-balance"
             >
-              Frequently Asked <span className="text-brand">Questions</span>
+              Frequently asked questions
             </h2>
 
             <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
@@ -69,54 +68,51 @@ export function FaqSection() {
             </p>
           </div>
 
-          {/* Dedicated Support Card */}
-          <div className="rounded-2xl sm:rounded-3xl border border-border/80 bg-gradient-to-br from-card via-card to-brand/5 p-5 sm:p-6 shadow-xs dark:bg-card">
+          <div className="rounded-2xl border border-border bg-card p-6">
             <div className="flex items-center gap-3">
-              <div className="flex size-10 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-brand">
-                <IconMessageQuestion className="size-5" />
+              <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-brand">
+                <IconMessageQuestion className="size-5 stroke-[1.5]" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-foreground">Still have questions?</h3>
+                <h3 className="text-base font-semibold text-foreground">Still have questions?</h3>
                 <span className="text-xs text-muted-foreground">We are here to help</span>
               </div>
             </div>
 
-            <p className="mt-3 text-xs sm:text-sm leading-relaxed text-muted-foreground">
-              Can’t find the answer you’re looking for? Reach out directly to our spreadsheet specialists for personalized guidance.
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              Can&apos;t find the answer you&apos;re looking for? Reach out directly to our spreadsheet specialists for personalized guidance.
             </p>
 
-            <div className="mt-4 pt-3 border-t border-border/60">
-              <Button asChild size="sm" className="w-full rounded-xl font-semibold h-10">
-                <Link href="/contact" className="flex items-center justify-center gap-2">
+            <div className="mt-4 border-t border-border/60 pt-4">
+              <Button asChild size="sm" className="h-10 w-full rounded-lg font-medium">
+                <Link href="/contact" className="inline-flex items-center justify-center gap-2">
                   <span>Contact our team</span>
-                  <IconArrowRight className="size-4" />
+                  <IconArrowRight className="size-4 stroke-[1.5]" />
                 </Link>
               </Button>
             </div>
           </div>
         </div>
 
-        {/* ── Right Column: Interactive Accordions (7 cols) ── */}
-        <div className="space-y-3.5 lg:col-span-7">
+        {/* Right Column: Interactive Accordions */}
+        <div className="space-y-3 lg:col-span-7">
           {FAQS.map((faq, index) => {
             const isOpen = openIndex === index
             return (
               <div
                 key={faq.question}
-                className={`rounded-2xl border transition-all duration-300 ${
-                  isOpen
-                    ? "border-brand/60 bg-gradient-to-br from-card via-card to-brand/5 shadow-xs"
-                    : "border-border/80 bg-card hover:border-brand/40 shadow-2xs dark:bg-card"
+                className={`rounded-2xl border bg-card transition-colors duration-150 ${
+                  isOpen ? "border-brand/50" : "border-border hover:border-brand/30"
                 }`}
               >
                 <button
                   type="button"
                   onClick={() => toggle(index)}
                   aria-expanded={isOpen}
-                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 sm:p-6 text-left"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4 p-5 text-left sm:p-6"
                 >
                   <span
-                    className={`text-base sm:text-lg font-bold leading-snug tracking-tight transition-colors ${
+                    className={`text-base font-semibold leading-snug tracking-tight transition-colors duration-150 sm:text-lg ${
                       isOpen ? "text-brand" : "text-foreground"
                     }`}
                   >
@@ -124,13 +120,13 @@ export function FaqSection() {
                   </span>
 
                   <div
-                    className={`flex size-8 shrink-0 items-center justify-center rounded-full border transition-all duration-300 ${
+                    className={`flex size-8 shrink-0 items-center justify-center rounded-lg border transition-transform duration-200 ${
                       isOpen
-                        ? "rotate-180 border-brand/30 bg-brand/15 text-brand shadow-xs"
-                        : "border-border/60 bg-muted/30 text-muted-foreground"
+                        ? "rotate-180 border-brand/30 bg-brand/10 text-brand"
+                        : "border-border bg-muted/40 text-muted-foreground"
                     }`}
                   >
-                    <IconChevronDown className="size-4 stroke-[2.5]" />
+                    <IconChevronDown className="size-4 stroke-[1.5]" />
                   </div>
                 </button>
 
@@ -140,9 +136,9 @@ export function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-5 pb-5 sm:px-6 sm:pb-6 pt-0">
-                      <div className="border-t border-border/50 pt-3.5">
-                        <p className="text-xs sm:text-sm leading-relaxed text-muted-foreground">
+                    <div className="px-5 pb-5 pt-0 sm:px-6 sm:pb-6">
+                      <div className="border-t border-border/60 pt-4">
+                        <p className="text-sm leading-relaxed text-muted-foreground">
                           {faq.answer}
                         </p>
                       </div>
