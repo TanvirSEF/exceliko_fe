@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import {
   IconArrowRight,
@@ -12,7 +13,15 @@ interface HubPageProps {
   hub: CalculatorHub
 }
 
+const HUB_ILLUSTRATIONS: Record<string, string> = {
+  finance: "/images/calculators/finance.svg",
+  accounting: "/images/calculators/accounting.svg",
+  statistics: "/images/calculators/statistics.svg",
+}
+
 export function HubPage({ hub }: HubPageProps) {
+  const hubImage = HUB_ILLUSTRATIONS[hub.slug]
+
   return (
     <>
       <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
@@ -54,8 +63,21 @@ export function HubPage({ hub }: HubPageProps) {
       </section>
 
       <div className="mx-auto w-full max-w-6xl px-4 pt-10 sm:pt-14 sm:px-6">
-        <div className="rounded-2xl border border-primary/25 bg-primary/5 px-5 py-4 text-[15px] sm:text-base leading-relaxed text-foreground/85 sm:px-6">
-          {hub.hubNote}
+        <div className="flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-5 sm:flex-row sm:p-6">
+          {hubImage ? (
+            <div className="w-full shrink-0 overflow-hidden rounded-xl border border-border/70 bg-[#f8f9fb] sm:w-56">
+              <Image
+                src={hubImage}
+                alt={`${hub.title} ${hub.titleAccent} illustration`}
+                width={400}
+                height={200}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+          ) : null}
+          <p className="text-sm leading-relaxed text-foreground/85 sm:text-base">
+            {hub.hubNote}
+          </p>
         </div>
 
         {hub.groups.map((group) => {

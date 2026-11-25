@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { IconArrowRight } from "@tabler/icons-react"
 
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
   },
 }
 
+const HUB_ILLUSTRATIONS: Record<string, string> = {
+  finance: "/images/calculators/finance.svg",
+  accounting: "/images/calculators/accounting.svg",
+  statistics: "/images/calculators/statistics.svg",
+}
+
 export default function CalculatorsPage() {
   return (
     <section className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
@@ -39,12 +46,24 @@ export default function CalculatorsPage() {
             (total, group) => total + group.calculators.length,
             0
           )
+          const hubImage = HUB_ILLUSTRATIONS[hub.slug]
           return (
             <Link
               key={hub.slug}
               href={`/calculator/${hub.slug}/`}
-              className="group flex flex-col rounded-2xl border border-primary/50 bg-card p-6 shadow-2xs transition-all duration-300 hover:-translate-y-1 hover:border-primary/80 hover:shadow-lg"
+              className="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-colors duration-150 hover:border-brand/40"
             >
+              {hubImage ? (
+                <div className="mb-5 overflow-hidden rounded-xl border border-border/70 bg-[#f8f9fb]">
+                  <Image
+                    src={hubImage}
+                    alt={`${hub.title} ${hub.titleAccent} illustration`}
+                    width={400}
+                    height={200}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+              ) : null}
               <div className="flex items-center justify-between">
                 <div
                   className={`flex h-11 w-11 items-center justify-center rounded-xl ${hub.groups[0].accent}`}

@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import type { TablerIcon } from "@tabler/icons-react"
 import {
@@ -26,6 +27,7 @@ interface HubCard {
   title: string
   badgeLabel: string
   description: string
+  image: string
   icon: TablerIcon
   hub: CalculatorHub
   find: (slug: string) => CalculatorEntry | undefined
@@ -39,6 +41,7 @@ const HUB_CARDS: HubCard[] = [
     badgeLabel: "Finance suite",
     description:
       "Model investment yields, calculate Internal Rate of Return (IRR), DRIP compounding, and analyze rental property ROI.",
+    image: "/images/calculators/finance.svg",
     icon: IconReportMoney,
     hub: FINANCE_HUB,
     find: getFinanceCalculator,
@@ -55,6 +58,7 @@ const HUB_CARDS: HubCard[] = [
     badgeLabel: "Accounting suite",
     description:
       "Calculate retail margins, working capital cycles, overtime wages, and tiered sales commission schedules.",
+    image: "/images/calculators/accounting.svg",
     icon: IconScale,
     hub: ACCOUNTING_HUB,
     find: getAccountingCalculator,
@@ -71,6 +75,7 @@ const HUB_CARDS: HubCard[] = [
     badgeLabel: "Statistics suite",
     description:
       "Run one-way ANOVA hypothesis tests, convert Z-scores to percentiles, and calculate weighted averages and geometric means.",
+    image: "/images/calculators/statistics.svg",
     icon: IconChartHistogram,
     hub: STATS_HUB,
     find: getStatsCalculator,
@@ -115,6 +120,16 @@ export function CalculatorsSection() {
               className="group flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-colors duration-150 hover:border-brand/40 sm:p-7"
             >
               <div className="space-y-5">
+                <div className="overflow-hidden rounded-xl border border-border/70 bg-[#f8f9fb]">
+                  <Image
+                    src={card.image}
+                    alt={`${card.title} calculators illustration`}
+                    width={400}
+                    height={200}
+                    className="h-auto w-full object-cover"
+                  />
+                </div>
+
                 <div className="flex items-center justify-between">
                   <div className="flex size-10 items-center justify-center rounded-lg border border-border bg-muted/50 text-brand">
                     <CardIcon className="size-5 stroke-[1.5]" />

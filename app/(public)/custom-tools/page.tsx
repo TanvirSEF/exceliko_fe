@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import {
   IconArrowRight,
@@ -74,53 +75,58 @@ export const revalidate = 86400
 export default function CustomToolsPage() {
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-gradient-to-bl from-navy-deep via-navy to-navy-soft">
-        <div
-          aria-hidden
-          className="absolute -top-24 right-[10%] h-72 w-72 rounded-full bg-brand/12 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="absolute bottom-0 left-[5%] h-64 w-64 rounded-full bg-white/8 blur-3xl"
-        />
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-gradient-to-bl from-white/8 via-transparent to-transparent"
-        />
+      <section className="w-full border-b border-white/10 bg-navy-deep">
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+            <div className="space-y-5 lg:col-span-6">
+              <p className="text-xs font-medium text-brand-light sm:text-sm">
+                Custom tools · Automation · Workspace add-ons
+              </p>
 
-        <div className="relative mx-auto w-full max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-24">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary-foreground/25 bg-primary-foreground/10 px-3 py-1 text-xs font-semibold text-primary-foreground/90 backdrop-blur-xs">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary-foreground/80" />
-            Custom Tools · Automation · Workspace Add-ons
-          </span>
+              <h1 className="text-balance text-3xl font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl">
+                Need a custom spreadsheet tool{" "}
+                <span className="text-brand-light">built just for you?</span>
+              </h1>
 
-          <h1 className="mx-auto mt-5 max-w-3xl text-balance text-3xl font-bold leading-tight tracking-tight text-primary-foreground sm:text-5xl">
-            Need a Custom Spreadsheet Tool{" "}
-            <span className="text-brand">Built Just for You?</span>
-          </h1>
+              <p className="max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
+                Expertly designed, custom spreadsheet tools — delivered on time and
+                on budget.
+              </p>
 
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-primary-foreground/80 sm:text-base">
-            Expertly designed, custom spreadsheet tools — delivered on time and
-            on budget.
-          </p>
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <Button
+                  asChild
+                  size="lg"
+                  className="h-11 rounded-lg bg-white px-5 text-sm font-medium text-navy-deep transition-colors duration-150 hover:bg-white/90"
+                >
+                  <a href="#plans" className="inline-flex items-center gap-2">
+                    <span>Get started</span>
+                    <IconArrowRight className="size-4 stroke-[1.5]" />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="lg"
+                  className="h-11 rounded-lg border border-white/15 bg-white/5 px-5 text-sm font-medium text-white transition-colors duration-150 hover:bg-white/10 hover:text-white"
+                >
+                  <Link href="/spreadsheet-solutions/">Compare all services</Link>
+                </Button>
+              </div>
+            </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <Button
-              asChild
-              className="bg-primary-foreground text-primary hover:bg-primary-foreground/90"
-            >
-              <a href="#plans">
-                Get Started
-                <IconArrowRight className="h-4 w-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              className="border-primary-foreground/35 bg-primary-foreground/5 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            >
-              <Link href="/spreadsheet-solutions/">Compare all services</Link>
-            </Button>
+            <div className="lg:col-span-6">
+              <div className="overflow-hidden rounded-2xl border border-white/12 bg-[#f8f9fb]">
+                <Image
+                  src="/images/custom-tools-hero.svg"
+                  alt="Raw CSV data table feeding into an automated script and formula engine to output a clean report"
+                  width={560}
+                  height={400}
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>

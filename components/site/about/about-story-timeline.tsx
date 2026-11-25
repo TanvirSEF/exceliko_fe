@@ -40,6 +40,16 @@ export function AboutStoryTimeline() {
         subtitle="Behind every formula, calculator, and tutorial is a commitment to authentic, reliable spreadsheet solutions."
       />
 
+      <div className="mt-8 overflow-hidden rounded-2xl border border-border bg-[#f8f9fb]">
+        <Image
+          src="/images/about-editorial.svg"
+          alt="Evolution from cluttered paper receipts and broken spreadsheets into a structured, single-source-of-truth digital grid"
+          width={800}
+          height={300}
+          className="h-auto w-full object-cover"
+        />
+      </div>
+
       <div className="mt-10 grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Editorial Standard Card */}
         <div className="lg:col-span-5">

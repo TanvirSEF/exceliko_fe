@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300" fill="none">
+  <rect width="800" height="300" fill="#f8f9fb" />
+
+  <!-- Subtle architectural ledger grid -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="0" y1="50" x2="800" y2="50" />
+    <line x1="0" y1="100" x2="800" y2="100" />
+    <line x1="0" y1="150" x2="800" y2="150" />
+    <line x1="0" y1="200" x2="800" y2="200" />
+    <line x1="0" y1="250" x2="800" y2="250" />
+    <line x1="100" y1="0" x2="100" y2="300" />
+    <line x1="200" y1="0" x2="200" y2="300" />
+    <line x1="300" y1="0" x2="300" y2="300" />
+    <line x1="400" y1="0" x2="400" y2="300" />
+    <line x1="500" y1="0" x2="500" y2="300" />
+    <line x1="600" y1="0" x2="600" y2="300" />
+    <line x1="700" y1="0" x2="700" y2="300" />
+  </g>
+
+  <!-- LEFT: Cluttered paper receipts & broken spreadsheets -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Back tilted broken sheet -->
+    <g transform="translate(54, 48) rotate(-8)">
+      <rect x="0" y="0" width="136" height="164" rx="4" fill="#ffffff" />
+      <line x1="0" y1="26" x2="136" y2="26" stroke="#cbd5e1" stroke-width="1" />
+      <line x1="14" y1="46" x2="84" y2="46" stroke="#94a3b8" />
+      <line x1="14" y1="64" x2="112" y2="64" stroke="#94a3b8" />
+      <line x1="14" y1="82" x2="72" y2="82" stroke="#94a3b8" />
+      <rect x="14" y="100" width="66" height="22" rx="2" fill="#fef2f2" stroke="#dc2626" stroke-width="1.25" stroke-dasharray="3 2" />
+      <text x="47" y="114.5" text-anchor="middle" fill="#dc2626" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">#REF!</text>
+    </g>
+
+    <!-- Serrated paper receipt (middle-left) -->
+    <g transform="translate(152, 66) rotate(6)">
+      <path d="M0 0 H102 V154 L94 148 L86 154 L78 148 L70 154 L62 148 L54 154 L46 148 L38 154 L30 148 L22 154 L14 148 L6 154 L0 148 Z" fill="#ffffff" />
+      <line x1="14" y1="22" x2="88" y2="22" stroke="#64748b" />
+      <line x1="14" y1="38" x2="58" y2="38" stroke="#94a3b8" />
+      <line x1="70" y1="38" x2="88" y2="38" stroke="#94a3b8" />
+      <line x1="14" y1="54" x2="64" y2="54" stroke="#94a3b8" />
+      <line x1="74" y1="54" x2="88" y2="54" stroke="#94a3b8" />
+      <line x1="14" y1="70" x2="52" y2="70" stroke="#94a3b8" />
+      <line x1="14" y1="88" x2="88" y2="88" stroke="#cbd5e1" stroke-dasharray="3 3" />
+      <line x1="14" y1="106" x2="48" y2="106" stroke="#1a2744" />
+      <line x1="64" y1="106" x2="88" y2="106" stroke="#1a2744" />
+    </g>
+
+    <!-- Foreground crooked error slip -->
+    <g transform="translate(88, 152) rotate(-5)">
+      <rect x="0" y="0" width="120" height="78" rx="4" fill="#ffffff" />
+      <line x1="12" y1="20" x2="74" y2="20" stroke="#64748b" />
+      <rect x="12" y="34" width="76" height="22" rx="2" fill="#fef2f2" stroke="#dc2626" stroke-width="1.25" />
+      <text x="50" y="48.5" text-anchor="middle" fill="#dc2626" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">#VALUE!</text>
+    </g>
+  </g>
+
+  <!-- CENTER: Architectural alignment bridge -->
+  <g stroke="#15803d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="304" y1="150" x2="394" y2="150" />
+    <path d="M387 144 L395 150 L387 156" fill="none" />
+    <!-- Precision tick marks -->
+    <line x1="324" y1="144" x2="324" y2="156" stroke="#cbd5e1" stroke-width="1.25" />
+    <line x1="348" y1="144" x2="348" y2="156" stroke="#cbd5e1" stroke-width="1.25" />
+    <line x1="372" y1="144" x2="372" y2="156" stroke="#cbd5e1" stroke-width="1.25" />
+  </g>
+
+  <!-- RIGHT: Calm, structured single-source-of-truth digital grid -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="424" y="42" width="328" height="216" rx="8" fill="#ffffff" />
+
+    <!-- Workbook Header Bar -->
+    <line x1="424" y1="74" x2="752" y2="74" stroke="#cbd5e1" stroke-width="1" />
+    <text x="442" y="62" fill="#1a2744" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="600">SINGLE_SOURCE_MODEL.xlsx</text>
+    <text x="734" y="62" text-anchor="end" fill="#15803d" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" font-weight="700">fx</text>
+
+    <!-- Formula Bar -->
+    <rect x="440" y="84" width="296" height="24" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <text x="450" y="99.5" fill="#15803d" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" font-weight="600">=XLOOKUP(A4, Ledger!A:A, Ledger!D:D)</text>
+
+    <!-- Structured Grid Table -->
+    <rect x="440" y="118" width="204" height="122" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="440" y1="148" x2="644" y2="148" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="440" y1="178" x2="644" y2="178" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="440" y1="208" x2="644" y2="208" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="554" y1="118" x2="554" y2="240" stroke="#cbd5e1" stroke-width="1" />
+
+    <!-- Table rows -->
+    <line x1="452" y1="133" x2="528" y2="133" stroke="#64748b" />
+    <line x1="568" y1="133" x2="628" y2="133" stroke="#1a2744" />
+    <line x1="452" y1="163" x2="516" y2="163" stroke="#94a3b8" />
+    <line x1="568" y1="163" x2="622" y2="163" stroke="#1a2744" />
+    <line x1="452" y1="193" x2="534" y2="193" stroke="#94a3b8" />
+    <line x1="452" y1="224" x2="522" y2="224" stroke="#94a3b8" />
+    <line x1="568" y1="224" x2="626" y2="224" stroke="#1a2744" />
+
+    <!-- Active Green Verified Cell -->
+    <rect x="554" y="178" width="90" height="30" fill="#dcfce7" stroke="#15803d" stroke-width="1.5" />
+    <line x1="568" y1="193" x2="628" y2="193" stroke="#15803d" stroke-width="2" />
+    <rect x="641.5" y="205.5" width="5" height="5" fill="#15803d" stroke="#ffffff" stroke-width="1" />
+
+    <!-- Summary Chart Panel -->
+    <rect x="656" y="118" width="80" height="122" rx="4" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1" />
+    <rect x="668" y="192" width="12" height="34" rx="1.5" fill="#bbf7d0" stroke="#15803d" stroke-width="1.25" />
+    <rect x="690" y="174" width="12" height="52" rx="1.5" fill="#4ade80" stroke="#15803d" stroke-width="1.25" />
+    <rect x="712" y="150" width="12" height="76" rx="1.5" fill="#15803d" stroke="#15803d" stroke-width="1.25" />
+  </g>
+
+  <!-- Verified Check Seal -->
+  <g>
+    <circle cx="748" cy="46" r="15" fill="#15803d" stroke="#f8f9fb" stroke-width="3" />
+    <path d="M742 46.5 L746.5 51 L754.5 42.5" fill="none" stroke="#ffffff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+</svg>
