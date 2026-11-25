@@ -10,7 +10,7 @@ interface AssistantAvatarProps {
 export function AssistantAvatar({
   className = "h-12 w-12",
   src = "/images/cellie-2d-avatar.webp",
-  alt = "Cellie Spreadsheet Bot Mascot",
+  alt = "Exceliko AI Assistant",
 }: AssistantAvatarProps) {
   return (
     <div

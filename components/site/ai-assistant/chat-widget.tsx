@@ -16,7 +16,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { API_BASE_PATH, config } from "@/lib/config"
 import { cn } from "@/lib/utils"
-import { AssistantAvatar } from "./assistant-avatar"
 import { MessageRenderer } from "./message-renderer"
 
 interface RecommendedArticle {
@@ -64,6 +63,7 @@ export function ChatWidget() {
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLTextAreaElement>(null)
   const streamAccumulatorRef = useRef("")
+  const sendMessageRef = useRef<((text?: string) => Promise<void>) | null>(null)
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
@@ -99,6 +99,20 @@ export function ChatWidget() {
       setTimeout(() => inputRef.current?.focus(), 100)
     }
   }, [isOpen, messages, isGenerating])
+
+  useEffect(() => {
+    const handleOpenEvent = (event: Event) => {
+      const customEvent = event as CustomEvent<{ query?: string }>
+      const query = customEvent.detail?.query?.trim()
+      setIsOpen(true)
+      if (query) {
+        void sendMessageRef.current?.(query)
+      }
+    }
+
+    window.addEventListener("exceliko:open-ai", handleOpenEvent)
+    return () => window.removeEventListener("exceliko:open-ai", handleOpenEvent)
+  }, [])
 
   const handleFeedback = async (messageId: string, rating: "up" | "down") => {
     const target = messages.find((m) => m.id === messageId)
@@ -245,6 +259,10 @@ export function ChatWidget() {
     }
   }
 
+  useEffect(() => {
+    sendMessageRef.current = handleSendMessage
+  })
+
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
@@ -261,273 +279,265 @@ export function ChatWidget() {
   }
 
   return (
-    <div className="fixed bottom-26 sm:bottom-28 right-4 sm:right-6 z-[2147483647] flex flex-col items-end pointer-events-none">
+    <div className="fixed bottom-5 right-5 z-[2147483647] flex flex-col items-end pointer-events-none">
       <div className="pointer-events-auto flex flex-col items-end">
-        {/* Floating Mascot & Trigger */}
+        {/* Active Excel Formula Cell Trigger */}
         {!isOpen ? (
-          <div className="group relative flex items-center gap-2 select-none">
-            {/* Friendly Speech Bubble / Prompt Pill (Desktop only; hidden on mobile) */}
-            <button
-              type="button"
-              onClick={() => setIsOpen(true)}
-              className="hidden sm:flex items-center gap-2 rounded-2xl border border-border/80 bg-card/95 px-3.5 py-2 text-foreground shadow-lg backdrop-blur-md transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-x-0.5 cursor-pointer"
-              aria-label="Open Cellie Assistant"
-            >
-              <span className="relative flex h-2 w-2 shrink-0">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand" />
-              </span>
-              <div className="flex flex-col text-left pr-0.5">
-                <span className="text-xs font-bold leading-tight text-foreground">
-                  Need Excel help?
-                </span>
-                <span className="text-[10px] text-muted-foreground leading-tight mt-0.5">
-                  Ask Cellie &bull; Formulas &amp; Guides
-                </span>
-              </div>
-            </button>
+          <button
+            type="button"
+            onClick={() => setIsOpen(true)}
+            aria-label="Open Exceliko AI"
+            className="group relative flex items-center gap-2.5 rounded-sm border border-brand bg-card px-3 py-2 text-left shadow-[0_8px_24px_rgba(0,0,0,0.08)] ring-1 ring-inset ring-brand/20 transition-colors duration-150 hover:bg-muted/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand cursor-pointer select-none"
+          >
+            <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-sm border border-brand/30 bg-brand/10 font-mono text-xs font-semibold text-brand">
+              fx
+            </span>
 
-            {/* Completely Free Floating Mascot Character */}
-            <button
-              type="button"
-              onClick={() => setIsOpen(true)}
-              aria-label="Open Cellie Assistant"
-              className="relative flex items-center justify-center transition-transform duration-300 hover:scale-115 active:scale-95 cursor-pointer focus:outline-none"
-            >
-              <AssistantAvatar className="h-14 w-14 sm:h-16 sm:w-16 drop-shadow-lg" />
-            </button>
-          </div>
+            <div className="flex flex-col pr-1">
+              <span className="text-xs font-semibold leading-tight text-foreground">
+                Exceliko AI
+              </span>
+              <span className="hidden text-xs leading-tight text-muted-foreground sm:block">
+                Debug errors &amp; build formulas
+              </span>
+            </div>
+
+            {/* Excel Active-Cell Fill Handle */}
+            <span
+              aria-hidden
+              className="absolute -bottom-[3.5px] -right-[3.5px] size-[7px] border border-background bg-brand"
+            />
+          </button>
         ) : null}
 
-        {/* Modern Chat Window Panel */}
+        {/* Chat Window Panel */}
         {isOpen ? (
-          <div className="flex flex-col w-[410px] max-w-[calc(100vw-2rem)] h-[520px] max-h-[calc(100vh-140px)] rounded-2xl border border-border/90 bg-card shadow-2xl overflow-hidden animate-in fade-in-50 zoom-in-95 duration-200">
-          {/* Header */}
-          <div className="flex items-center justify-between border-b border-border/80 bg-muted/40 px-4 py-3">
-            <div className="flex items-center gap-2.5">
-              <AssistantAvatar className="h-10 w-10 drop-shadow-sm" />
-              <div className="flex flex-col">
-                <div className="flex items-center gap-1.5">
-                  <h3 className="text-sm font-bold text-foreground leading-tight">
-                    Cellie
+          <div className="flex h-[520px] max-h-[calc(100vh-100px)] w-[410px] max-w-[calc(100vw-2.5rem)] flex-col overflow-hidden rounded-xl border border-border bg-card shadow-[0_16px_40px_rgba(0,0,0,0.16)] animate-in fade-in-50 zoom-in-95 duration-200">
+            {/* Header */}
+            <div className="flex items-center justify-between border-b border-border bg-muted/40 px-4 py-3">
+              <div className="flex items-center gap-2.5">
+                <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-md border border-brand/30 bg-brand/10 font-mono text-xs font-semibold text-brand">
+                  fx
+                </span>
+                <div className="flex flex-col">
+                  <h3 className="text-sm font-semibold leading-tight text-foreground">
+                    Exceliko AI
                   </h3>
-                  <span className="inline-flex items-center rounded-full bg-brand/10 px-1.5 py-0.5 text-[10px] font-semibold text-brand">
-                    Online
+                  <span className="text-xs leading-tight text-muted-foreground">
+                    Spreadsheet &amp; formula assistant
                   </span>
                 </div>
-                <span className="text-[11px] text-muted-foreground leading-tight mt-0.5">
-                  Spreadsheet &amp; formula assistant
-                </span>
               </div>
-            </div>
 
-            <div className="flex items-center gap-1">
-              {messages.length > 0 ? (
+              <div className="flex items-center gap-1">
+                {messages.length > 0 ? (
+                  <button
+                    type="button"
+                    onClick={handleClearChat}
+                    title="Clear conversation"
+                    className="rounded-lg p-1.5 text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground cursor-pointer"
+                  >
+                    <IconRefresh className="size-4 stroke-[1.5]" />
+                  </button>
+                ) : null}
                 <button
                   type="button"
-                  onClick={handleClearChat}
-                  title="Clear conversation"
-                  className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                  title="Close assistant"
+                  className="rounded-lg p-1.5 text-muted-foreground transition-colors duration-150 hover:bg-muted hover:text-foreground cursor-pointer"
                 >
-                  <IconRefresh className="h-4 w-4" />
+                  <IconX className="size-4 stroke-[1.5]" />
                 </button>
-              ) : null}
-              <button
-                type="button"
-                onClick={() => setIsOpen(false)}
-                title="Close Assistant"
-                className="rounded-lg p-1.5 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors cursor-pointer"
-              >
-                <IconX className="h-4 w-4" />
-              </button>
+              </div>
             </div>
-          </div>
 
-          {/* Messages Body */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 [scrollbar-width:thin]">
-            {messages.length === 0 ? (
-              <div className="flex flex-col items-center justify-center h-full text-center py-4 px-2 space-y-3.5">
-                <AssistantAvatar className="h-16 w-16 drop-shadow-md" />
-                <div className="space-y-1">
-                  <h4 className="text-sm font-bold text-foreground">
-                    Hi! I&apos;m Cellie. How can I help today?
-                  </h4>
-                  <p className="text-xs text-muted-foreground leading-relaxed max-w-xs">
-                    Ask how to build any formula, troubleshoot errors like #N/A or #VALUE!, or explore Excel tutorials.
-                  </p>
-                </div>
+            {/* Messages Body */}
+            <div className="flex-1 space-y-4 overflow-y-auto p-4 [scrollbar-width:thin]">
+              {messages.length === 0 ? (
+                <div className="flex h-full flex-col items-center justify-center space-y-4 px-2 py-4 text-center">
+                  <span className="inline-flex size-11 items-center justify-center rounded-lg border border-brand/30 bg-brand/10 font-mono text-base font-semibold text-brand">
+                    fx
+                  </span>
+                  <div className="space-y-1">
+                    <h4 className="text-sm font-semibold text-foreground">
+                      Ask Exceliko AI
+                    </h4>
+                    <p className="max-w-xs text-xs leading-relaxed text-muted-foreground">
+                      Ask how to build any formula, troubleshoot errors like #N/A or #VALUE!, or explore Excel tutorials.
+                    </p>
+                  </div>
 
-                <div className="w-full space-y-2 pt-2">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground/80">
-                    Frequently Asked Questions
-                  </p>
-                  <div className="flex flex-col gap-1.5">
-                    {QUICK_PROMPTS.map((prompt) => (
-                      <button
-                        key={prompt}
-                        type="button"
-                        onClick={() => handleSendMessage(prompt)}
-                        className="text-left rounded-xl border border-border/80 bg-background/80 px-3 py-2 text-xs font-medium text-foreground hover:border-primary/50 hover:bg-muted/60 transition-colors shadow-2xs cursor-pointer"
-                      >
-                        {prompt}
-                      </button>
-                    ))}
+                  <div className="w-full space-y-2 pt-1">
+                    <p className="text-xs font-medium text-muted-foreground">
+                      Suggested prompts
+                    </p>
+                    <div className="flex flex-col gap-1.5">
+                      {QUICK_PROMPTS.map((prompt) => (
+                        <button
+                          key={prompt}
+                          type="button"
+                          onClick={() => handleSendMessage(prompt)}
+                          className="rounded-lg border border-border bg-background px-3 py-2 text-left text-xs font-medium text-foreground transition-colors duration-150 hover:border-brand/40 hover:bg-muted/50 cursor-pointer"
+                        >
+                          {prompt}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ) : null}
+              ) : null}
 
-            {messages.map((m) => (
-              <div
-                key={m.id}
-                className={cn(
-                  "flex flex-col",
-                  m.role === "user" ? "items-end" : "items-start"
-                )}
-              >
+              {messages.map((m) => (
                 <div
+                  key={m.id}
                   className={cn(
-                    "max-w-[88%] rounded-2xl px-3.5 py-2.5 text-xs sm:text-sm leading-relaxed",
-                    m.role === "user"
-                      ? "bg-primary text-primary-foreground font-medium rounded-br-xs shadow-xs"
-                      : "bg-muted/50 text-foreground border border-border/70 rounded-bl-xs shadow-xs"
+                    "flex flex-col",
+                    m.role === "user" ? "items-end" : "items-start"
                   )}
                 >
-                  {m.role === "user" ? (
-                    <p className="whitespace-pre-wrap">{m.content}</p>
-                  ) : (
-                    <>
-                      {m.content ? (
-                        <MessageRenderer content={m.content} />
-                      ) : (
-                        <div className="flex items-center gap-1.5 py-1 text-muted-foreground">
-                          <span className="h-2 w-2 rounded-full bg-primary/70 animate-bounce" />
-                          <span className="h-2 w-2 rounded-full bg-primary/70 animate-bounce [animation-delay:0.2s]" />
-                          <span className="h-2 w-2 rounded-full bg-primary/70 animate-bounce [animation-delay:0.4s]" />
-                        </div>
-                      )}
-                    </>
-                  )}
+                  <div
+                    className={cn(
+                      "max-w-[88%] rounded-xl px-3.5 py-2.5 text-xs leading-relaxed sm:text-sm",
+                      m.role === "user"
+                        ? "rounded-br-xs bg-primary font-medium text-primary-foreground"
+                        : "rounded-bl-xs border border-border bg-muted/40 text-foreground"
+                    )}
+                  >
+                    {m.role === "user" ? (
+                      <p className="whitespace-pre-wrap">{m.content}</p>
+                    ) : (
+                      <>
+                        {m.content ? (
+                          <MessageRenderer content={m.content} />
+                        ) : (
+                          <div className="flex items-center gap-1.5 py-1 text-muted-foreground">
+                            <span className="size-1.5 rounded-full bg-brand/70 animate-bounce" />
+                            <span className="size-1.5 rounded-full bg-brand/70 animate-bounce [animation-delay:0.2s]" />
+                            <span className="size-1.5 rounded-full bg-brand/70 animate-bounce [animation-delay:0.4s]" />
+                          </div>
+                        )}
+                      </>
+                    )}
+                  </div>
+
+                  {/* Recommended Articles & Calculators Cards */}
+                  {m.articles && m.articles.length > 0 ? (
+                    <div className="mt-2.5 w-full max-w-[90%] space-y-1.5">
+                      <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                        <IconArticle className="size-3.5 stroke-[1.5] text-brand" />
+                        <span>Recommended tutorials</span>
+                      </p>
+                      <div className="flex flex-col gap-1.5">
+                        {m.articles.map((art) => (
+                          <Link
+                            key={art.url}
+                            href={art.url}
+                            prefetch={false}
+                            className="group flex items-center justify-between rounded-lg border border-border bg-background p-2 text-xs transition-colors duration-150 hover:border-brand/40 hover:bg-muted/40"
+                          >
+                            <span className="truncate pr-2 font-medium text-foreground transition-colors duration-150 group-hover:text-brand">
+                              {art.title}
+                            </span>
+                            <IconChevronRight className="size-3.5 shrink-0 stroke-[1.5] text-muted-foreground transition-colors duration-150 group-hover:text-brand" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {m.calculators && m.calculators.length > 0 ? (
+                    <div className="mt-2 w-full max-w-[90%] space-y-1.5">
+                      <p className="flex items-center gap-1.5 text-xs font-medium text-muted-foreground">
+                        <IconCalculator className="size-3.5 stroke-[1.5] text-brand" />
+                        <span>Related calculators</span>
+                      </p>
+                      <div className="flex flex-col gap-1.5">
+                        {m.calculators.map((calc) => (
+                          <Link
+                            key={calc.url}
+                            href={calc.url}
+                            prefetch={false}
+                            className="group flex items-center justify-between rounded-lg border border-brand/25 bg-brand/5 p-2 text-xs transition-colors duration-150 hover:border-brand/50"
+                          >
+                            <span className="truncate pr-2 font-medium text-foreground transition-colors duration-150 group-hover:text-brand">
+                              {calc.name} ({calc.hub})
+                            </span>
+                            <IconChevronRight className="size-3.5 shrink-0 stroke-[1.5] text-muted-foreground transition-colors duration-150 group-hover:text-brand" />
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : null}
+
+                  {/* Feedback Toolbar for Assistant Messages */}
+                  {m.role === "assistant" && m.content && !isGenerating ? (
+                    <div className="mt-1.5 flex items-center gap-1.5 px-1 text-xs text-muted-foreground select-none">
+                      <span className="text-muted-foreground/80">Helpful?</span>
+                      <button
+                        type="button"
+                        onClick={() => handleFeedback(m.id, "up")}
+                        title="Helpful"
+                        className={cn(
+                          "flex size-6 items-center justify-center rounded-md transition-colors duration-150 hover:bg-muted cursor-pointer",
+                          m.rating === "up"
+                            ? "bg-brand/15 font-medium text-brand"
+                            : "text-muted-foreground hover:text-foreground"
+                        )}
+                      >
+                        <IconThumbUp className="size-3.5 stroke-[1.5]" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleFeedback(m.id, "down")}
+                        title="Not helpful"
+                        className={cn(
+                          "flex size-6 items-center justify-center rounded-md transition-colors duration-150 hover:bg-muted cursor-pointer",
+                          m.rating === "down"
+                            ? "bg-rose-500/15 font-medium text-rose-600 dark:text-rose-400"
+                            : "text-muted-foreground hover:text-foreground"
+                        )}
+                      >
+                        <IconThumbDown className="size-3.5 stroke-[1.5]" />
+                      </button>
+                      {m.rating ? (
+                        <span className="text-xs text-brand animate-in fade-in duration-150">
+                          Thanks
+                        </span>
+                      ) : null}
+                    </div>
+                  ) : null}
                 </div>
+              ))}
+              <div ref={messagesEndRef} />
+            </div>
 
-                {/* Recommended Articles & Calculators Cards */}
-                {m.articles && m.articles.length > 0 ? (
-                  <div className="mt-2.5 w-full max-w-[90%] space-y-1.5">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1">
-                      <IconArticle className="h-3.5 w-3.5 text-primary" />
-                      <span>Recommended Tutorials</span>
-                    </p>
-                    <div className="flex flex-col gap-1.5">
-                      {m.articles.map((art) => (
-                        <Link
-                          key={art.url}
-                          href={art.url}
-                          prefetch={false}
-                          className="group flex items-center justify-between rounded-xl border border-border/80 bg-background/80 p-2 text-xs hover:border-primary/60 hover:bg-muted/50 transition-colors shadow-2xs"
-                        >
-                          <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate pr-2">
-                            {art.title}
-                          </span>
-                          <IconChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-
-                {m.calculators && m.calculators.length > 0 ? (
-                  <div className="mt-2 w-full max-w-[90%] space-y-1.5">
-                    <p className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-1">
-                      <IconCalculator className="h-3.5 w-3.5 text-primary" />
-                      <span>Related Free Calculators</span>
-                    </p>
-                    <div className="flex flex-col gap-1.5">
-                      {m.calculators.map((calc) => (
-                        <Link
-                          key={calc.url}
-                          href={calc.url}
-                          prefetch={false}
-                          className="group flex items-center justify-between rounded-xl border border-primary/20 bg-primary/5 p-2 text-xs hover:border-primary/50 transition-colors shadow-2xs"
-                        >
-                          <span className="font-semibold text-foreground group-hover:text-primary transition-colors truncate pr-2">
-                            {calc.name} ({calc.hub})
-                          </span>
-                          <IconChevronRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                ) : null}
-
-                {/* Feedback Toolbar for Assistant Messages */}
-                {m.role === "assistant" && m.content && !isGenerating ? (
-                  <div className="mt-1.5 flex items-center gap-1.5 px-1 text-[11px] text-muted-foreground select-none">
-                    <span className="text-[10px] text-muted-foreground/75">Was this helpful?</span>
-                    <button
-                      type="button"
-                      onClick={() => handleFeedback(m.id, "up")}
-                      title="Helpful"
-                      className={cn(
-                        "flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-muted cursor-pointer",
-                        m.rating === "up"
-                          ? "bg-brand/15 text-brand font-bold"
-                          : "text-muted-foreground hover:text-foreground"
-                      )}
-                    >
-                      <IconThumbUp className="h-3.5 w-3.5" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleFeedback(m.id, "down")}
-                      title="Not helpful"
-                      className={cn(
-                        "flex h-6 w-6 items-center justify-center rounded-md transition-colors hover:bg-muted cursor-pointer",
-                        m.rating === "down"
-                          ? "bg-rose-500/15 text-rose-600 dark:text-rose-400 font-bold"
-                          : "text-muted-foreground hover:text-foreground"
-                      )}
-                    >
-                      <IconThumbDown className="h-3.5 w-3.5" />
-                    </button>
-                    {m.rating ? (
-                      <span className="text-[10px] text-brand animate-in fade-in duration-200">
-                        Thanks!
-                      </span>
-                    ) : null}
-                  </div>
-                ) : null}
+            {/* Input Area */}
+            <div className="border-t border-border bg-muted/20 p-3">
+              <div className="flex items-center gap-2">
+                <textarea
+                  ref={inputRef}
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={handleKeyDown}
+                  placeholder="Ask about a formula, error, or workbook"
+                  rows={1}
+                  disabled={isGenerating}
+                  className="max-h-24 flex-1 resize-none rounded-lg border border-input bg-background px-3 py-2 text-xs text-foreground placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-brand disabled:opacity-50 sm:text-sm"
+                />
+                <Button
+                  type="button"
+                  size="icon"
+                  onClick={() => handleSendMessage()}
+                  disabled={!input.trim() || isGenerating}
+                  className="size-9 shrink-0 rounded-lg cursor-pointer"
+                  aria-label="Send message"
+                >
+                  <IconArrowUp className="size-4 stroke-[1.5]" />
+                </Button>
               </div>
-            ))}
-            <div ref={messagesEndRef} />
-          </div>
-
-          {/* Clean Input Area - Zero Model Mentions */}
-          <div className="border-t border-border/80 p-3 bg-muted/20">
-            <div className="relative flex items-center gap-2">
-              <textarea
-                ref={inputRef}
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyDown={handleKeyDown}
-                placeholder="Ask about a formula, error, or workbook..."
-                rows={1}
-                disabled={isGenerating}
-                className="flex-1 max-h-24 resize-none rounded-xl border border-input bg-background px-3.5 py-2 text-xs sm:text-sm text-foreground placeholder:text-muted-foreground/60 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-primary disabled:opacity-50"
-              />
-              <Button
-                type="button"
-                size="icon"
-                onClick={() => handleSendMessage()}
-                disabled={!input.trim() || isGenerating}
-                className="h-8.5 w-8.5 shrink-0 rounded-xl cursor-pointer"
-                aria-label="Send message"
-              >
-                <IconArrowUp className="h-4 w-4" />
-              </Button>
             </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
       </div>
     </div>
   )

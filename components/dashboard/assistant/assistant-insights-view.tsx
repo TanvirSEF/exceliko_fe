@@ -270,13 +270,13 @@ export function AssistantInsightsView() {
             </CardTitle>
           </div>
           <CardDescription>
-            Live stream of questions asked through the Cellie Assistant.
+            Live stream of questions asked through Exceliko AI.
           </CardDescription>
         </CardHeader>
         <CardContent>
           {recent_queries.length === 0 ? (
             <div className="py-8 text-center text-sm text-muted-foreground">
-              No queries recorded yet. Ask a question through Cellie on the site to see it here!
+              No queries recorded yet. Ask a question through Exceliko AI on the site to see it here!
             </div>
           ) : (
             <div className="rounded-xl border border-border/70 overflow-hidden">

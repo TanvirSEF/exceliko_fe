@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import {
   IconSearch,
@@ -33,6 +33,8 @@ export function SearchDialogContent({
 }: SearchDialogContentProps) {
   const [query, setQuery] = useState("")
   const router = useRouter()
+  const inputRef = useRef<HTMLInputElement>(null)
+  const aiActionRef = useRef<HTMLButtonElement>(null)
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault()
@@ -52,6 +54,15 @@ export function SearchDialogContent({
     router.push(`/search?q=${encodeURIComponent(topic)}`)
   }
 
+  function handleAskAI() {
+    const trimmed = query.trim()
+    onOpenChange(false)
+    setQuery("")
+    window.dispatchEvent(
+      new CustomEvent("exceliko:open-ai", { detail: { query: trimmed } })
+    )
+  }
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent
@@ -65,10 +76,17 @@ export function SearchDialogContent({
         <form onSubmit={handleSubmit} className="relative flex items-center border-b border-border/60 px-4">
           <IconSearch className="h-5 w-5 text-muted-foreground shrink-0" />
           <input
+            ref={inputRef}
             type="search"
             placeholder="Search Excel formulas, tips, tutorials & templates…"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowDown") {
+                e.preventDefault()
+                aiActionRef.current?.focus()
+              }
+            }}
             className="h-14 w-full bg-transparent px-3.5 text-base font-medium placeholder:text-muted-foreground/60 focus:outline-none"
             autoFocus
           />
@@ -94,6 +112,37 @@ export function SearchDialogContent({
         </form>
 
         <div className="max-h-[60vh] overflow-y-auto p-5 space-y-6">
+          {/* Quick Action: Ask Exceliko AI */}
+          <button
+            ref={aiActionRef}
+            type="button"
+            onClick={handleAskAI}
+            onKeyDown={(e) => {
+              if (e.key === "ArrowUp") {
+                e.preventDefault()
+                inputRef.current?.focus()
+              }
+            }}
+            className="group flex w-full items-center justify-between gap-3 rounded-lg border border-brand/40 bg-brand/5 px-3.5 py-2.5 text-left transition-colors duration-150 hover:border-brand hover:bg-brand/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand cursor-pointer"
+          >
+            <div className="flex min-w-0 items-center gap-3">
+              <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-sm border border-brand/30 bg-brand/10 font-mono text-xs font-semibold text-brand">
+                fx
+              </span>
+              <div className="min-w-0">
+                <p className="truncate text-sm font-medium text-foreground">
+                  {query.trim()
+                    ? `Ask Exceliko AI: "${query.trim()}"`
+                    : "Ask Exceliko AI"}
+                </p>
+                <p className="text-xs text-muted-foreground">
+                  Debug errors &amp; build formulas
+                </p>
+              </div>
+            </div>
+            <IconArrowRight className="size-4 shrink-0 stroke-[1.5] text-brand" />
+          </button>
+
           {categories.length > 0 ? (
             <div className="space-y-2.5">
               <p className="text-xs font-semibold tracking-wider text-muted-foreground uppercase">
