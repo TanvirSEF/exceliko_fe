@@ -16,7 +16,7 @@ export function NewsletterBand({
 }) {
   return (
     <section
-      className="my-8 rounded-2xl border border-border bg-card p-6 sm:my-12 sm:p-10 lg:p-12"
+      className="rounded-2xl border border-border bg-card p-6 sm:p-8 lg:p-10"
       aria-labelledby="newsletter-heading"
     >
       <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10">

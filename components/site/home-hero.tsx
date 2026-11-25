@@ -25,7 +25,7 @@ export function HomeHero({ categories = [] }: { categories?: Category[] }) {
       aria-labelledby="home-hero-title"
       className="w-full border-b border-white/10 bg-navy-deep"
     >
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="space-y-6 lg:col-span-6">
             <h1

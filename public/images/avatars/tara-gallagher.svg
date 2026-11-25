@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#f8f9fb" />
+  <!-- Hair Back -->
+  <path d="M21 34 C20 19, 30 13, 40 13 C50 13, 60 19, 59 34 L61 54 C56 56, 24 56, 19 54 Z" fill="#6b3e2e" stroke="#1a2744" stroke-width="1.5" stroke-linejoin="round" />
+  <!-- Shoulders / Forest-Green Knit -->
+  <path d="M14 80 C16 63, 27 57, 40 57 C53 57, 64 63, 66 80 Z" fill="#15803d" stroke="#1a2744" stroke-width="1.5" />
+  <path d="M31 58 C34 63, 46 63, 49 58" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" />
+  <!-- Neck -->
+  <rect x="34" y="47" width="12" height="12" rx="4" fill="#f0c8ab" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Face -->
+  <path d="M26 32 C26 21, 54 21, 54 32 V39 C54 47, 48 52, 40 52 C32 52, 26 47, 26 39 Z" fill="#f5d3ba" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Hair Parting -->
+  <path d="M26 31 C28 22, 44 19, 54 29 C48 25, 36 25, 26 31 Z" fill="#6b3e2e" />
+  <!-- Eyes & Smile -->
+  <circle cx="34" cy="36.5" r="1.25" fill="#1a2744" />
+  <circle cx="46" cy="36.5" r="1.25" fill="#1a2744" />
+  <path d="M35.5 44 C38 46.2, 42 46.2, 44.5 44" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" />
+</svg>

@@ -29,7 +29,7 @@ export function LearningTrackSection({ modules }: LearningTrackSectionProps) {
   ]
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="learning-track-heading">
+    <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="learning-track-heading">
       <div className="rounded-2xl border border-border bg-card p-6 sm:p-10">
         <div className="flex flex-wrap items-start justify-between gap-8">
           <div className="max-w-2xl">

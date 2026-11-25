@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#f8f9fb" />
+  <!-- Ponytail -->
+  <circle cx="56" cy="24" r="8" fill="#475569" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Cardigan + Shirt -->
+  <path d="M14 80 C16 63, 27 57, 40 57 C53 57, 64 63, 66 80 Z" fill="#ffffff" stroke="#1a2744" stroke-width="1.5" />
+  <path d="M14 80 C16 64, 24 59, 32 58 L35 80 Z" fill="#15803d" stroke="#1a2744" stroke-width="1.5" />
+  <path d="M66 80 C64 64, 56 59, 48 58 L45 80 Z" fill="#15803d" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Neck -->
+  <rect x="34" y="47" width="12" height="12" rx="4" fill="#efc6a8" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Face -->
+  <path d="M26 32 C26 21, 54 21, 54 32 V39 C54 47, 48 52, 40 52 C32 52, 26 47, 26 39 Z" fill="#f5d4bc" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Hair Top -->
+  <path d="M25 32 C25 19, 33 15, 40 15 C48 15, 55 19, 55 32 C50 26, 42 24, 34 25 C29 26, 27 28, 25 32 Z" fill="#475569" />
+  <!-- Eyes & Smile -->
+  <circle cx="34" cy="36.5" r="1.25" fill="#1a2744" />
+  <circle cx="46" cy="36.5" r="1.25" fill="#1a2744" />
+  <path d="M36 44.5 C38 46.2, 42 46.2, 44 44.5" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" />
+</svg>

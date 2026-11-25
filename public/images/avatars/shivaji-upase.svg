@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#f8f9fb" />
+  <!-- Sweater Vest + White Shirt -->
+  <path d="M14 80 C16 63, 27 57, 40 57 C53 57, 64 63, 66 80 Z" fill="#334155" stroke="#1a2744" stroke-width="1.5" />
+  <path d="M31 57 L40 72 L49 57 Z" fill="#ffffff" stroke="#1a2744" stroke-width="1.5" stroke-linejoin="round" />
+  <!-- Neck -->
+  <rect x="34" y="47" width="12" height="12" rx="4" fill="#d4a07a" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Face -->
+  <path d="M25 32 C25 20, 55 20, 55 32 V39 C55 48, 48 53, 40 53 C32 53, 25 48, 25 39 Z" fill="#dfb08c" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Neat Side-Part Hair -->
+  <path d="M24 33 C24 19, 33 14, 43 14 C52 14, 57 21, 56 32 C53 25, 45 23, 35 24 C29 25, 26 28, 24 33 Z" fill="#1e293b" />
+  <!-- Eyes & Smile -->
+  <circle cx="34" cy="36.5" r="1.25" fill="#1a2744" />
+  <circle cx="46" cy="36.5" r="1.25" fill="#1a2744" />
+  <path d="M36 44.5 C38.5 46.5, 41.5 46.5, 44 44.5" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" />
+</svg>

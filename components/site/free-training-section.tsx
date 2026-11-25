@@ -73,7 +73,7 @@ const COURSES: TrainingCourse[] = [
 
 export function FreeTrainingSection() {
   return (
-    <section className="py-10 sm:py-12 lg:py-14" aria-labelledby="free-training-title">
+    <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="free-training-title">
       <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-12 lg:gap-8">
         <div className="space-y-2.5 text-center lg:col-span-7 lg:text-left">
           <p className="text-xs font-medium text-brand sm:text-sm">

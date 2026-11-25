@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+  <rect width="80" height="80" fill="#f8f9fb" />
+  <!-- Shoulders / Collar -->
+  <path d="M14 80 C16 63, 27 57, 40 57 C53 57, 64 63, 66 80 Z" fill="#1a2744" />
+  <path d="M32 57 L40 66 L48 57" fill="#ffffff" stroke="#1a2744" stroke-width="1.5" stroke-linejoin="round" />
+  <!-- Neck -->
+  <rect x="34" y="47" width="12" height="12" rx="4" fill="#d9a882" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Head -->
+  <path d="M25 32 C25 20, 55 20, 55 32 V39 C55 48, 48 53, 40 53 C32 53, 25 48, 25 39 Z" fill="#e5b893" stroke="#1a2744" stroke-width="1.5" />
+  <!-- Hair -->
+  <path d="M24 33 C23 20, 32 14, 41 14 C51 14, 57 21, 56 33 C54 27, 49 24, 41 24 C33 24, 27 27, 24 33 Z" fill="#1a2744" />
+  <!-- Glasses -->
+  <g stroke="#1a2744" stroke-width="1.5">
+    <rect x="28" y="33" width="10" height="7" rx="2" fill="#ffffff" fill-opacity="0.35" />
+    <rect x="42" y="33" width="10" height="7" rx="2" fill="#ffffff" fill-opacity="0.35" />
+    <line x1="38" y1="36" x2="42" y2="36" />
+  </g>
+  <!-- Eyes & Subtle Smile -->
+  <circle cx="33" cy="36.5" r="1.2" fill="#1a2744" />
+  <circle cx="47" cy="36.5" r="1.2" fill="#1a2744" />
+  <path d="M36 45 C38 46.8, 42 46.8, 44 45" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" />
+</svg>

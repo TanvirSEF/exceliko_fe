@@ -22,13 +22,13 @@ export function TrendingSection({ posts, className }: TrendingSectionProps) {
   const rightColumnPosts = posts.slice(5, 10)
 
   return (
-    <section className={cn("py-12 sm:py-16 lg:py-20", className)} aria-labelledby="trending-heading">
+    <section className={cn("py-8 sm:py-10 lg:py-12", className)} aria-labelledby="trending-heading">
       <SectionHeading
         title="Trending spreadsheet tutorials"
         subtitle="Top formula breakdowns, practical tutorials, and spreadsheet guides most read this week."
         badge="Popular this week"
         action={{ label: "View all tutorials", href: "/blog" }}
-        className="mb-8 sm:mb-10"
+        className="mb-6 sm:mb-8"
       />
 
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-6">

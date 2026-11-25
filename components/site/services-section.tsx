@@ -14,13 +14,13 @@ import { Button } from "@/components/ui/button"
 
 export function ServicesSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20">
+    <section className="py-8 sm:py-10 lg:py-12">
       <SectionHeading
         badge="Custom solutions & consulting"
         title="Professional Excel & Sheets services"
         subtitle="From diagnosing stubborn formula bugs to building executive dashboards and automated pipelines, get fast, expert spreadsheet solutions."
         action={{ label: "Request a custom quote", href: "/spreadsheet-solutions/" }}
-        className="mb-8 sm:mb-10"
+        className="mb-6 sm:mb-8"
       />
 
       {/* Tier 1: Flagship Service Showcase */}

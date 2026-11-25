@@ -130,7 +130,7 @@ function TopicsExplorerContent({
   const currentPosts = postsData?.items ?? (activeSlug === initialCategorySlug ? initialPosts : [])
 
   return (
-    <section id="topics-explorer" className="py-12 sm:py-16 lg:py-20 scroll-mt-20">
+    <section id="topics-explorer" className="py-8 sm:py-10 lg:py-12 scroll-mt-20">
       <SectionHeading
         badge="Topic directory"
         title="All topics &amp; tutorials"

@@ -9,6 +9,7 @@ import { ServicesSection } from "@/components/site/services-section"
 import { TopicsExplorer } from "@/components/site/topics-explorer"
 import { FaqSection } from "@/components/site/faq-section"
 import { CalculatorsSection } from "@/components/site/calculators-section"
+import { ReviewsSection } from "@/components/site/reviews-section"
 import { NewsletterBand } from "@/components/site/newsletter/newsletter-band"
 import { getCategoryTree } from "@/lib/api/categories"
 import { buildNavGroups, withPublishedPosts } from "@/lib/nav-groups"
@@ -94,7 +95,11 @@ export default async function HomePage() {
           <FaqSection />
         </div>
 
-        <div className="pb-16 pt-4">
+        <div className="border-t border-border/60">
+          <ReviewsSection />
+        </div>
+
+        <div className="border-t border-border/60 py-8 sm:py-10 lg:py-12">
           <NewsletterBand />
         </div>
       </div>

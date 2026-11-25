@@ -46,7 +46,7 @@ export function FaqSection() {
   }
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="faq-heading">
+    <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="faq-heading">
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Section Intro & Contact Help Card */}
         <div className="space-y-6 lg:col-span-5 lg:sticky lg:top-24">

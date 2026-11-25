@@ -96,13 +96,13 @@ const TOTAL_CALCULATORS = HUB_CARDS.reduce((total, card) => total + countCalcula
 
 export function CalculatorsSection() {
   return (
-    <section className="py-12 sm:py-16 lg:py-20" aria-labelledby="calculators-heading">
+    <section className="py-8 sm:py-10 lg:py-12" aria-labelledby="calculators-heading">
       <SectionHeading
         badge={`${TOTAL_CALCULATORS} free interactive tools`}
         title="Instant browser-based calculators"
         subtitle="Three dedicated calculation libraries for finance, accounting, and statistics — every formula explained, every result calculated step by step."
         action={{ label: `View all ${TOTAL_CALCULATORS} calculators`, href: "/calculator/" }}
-        className="mb-8 sm:mb-10"
+        className="mb-6 sm:mb-8"
       />
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
