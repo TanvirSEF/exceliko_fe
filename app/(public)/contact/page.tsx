@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import { IconClock } from "@tabler/icons-react"
 
 import { Breadcrumb } from "@/components/site/breadcrumb"
@@ -28,33 +29,43 @@ export default async function ContactPage({ searchParams }: ContactPageProps) {
         items={[{ label: "Home", href: "/" }, { label: "Contact Us" }]}
       />
 
-      <header className="max-w-2xl space-y-2">
-        <div className="inline-flex items-center gap-1.5 rounded-full border border-primary/20 bg-primary/8 px-3 py-1 text-xs font-semibold text-primary">
-          <span className="h-1.5 w-1.5 rounded-full bg-primary" />
-          <span>Contact &amp; Support</span>
+      <header className="mt-4 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="max-w-xl space-y-2">
+          <p className="text-xs font-medium text-brand sm:text-sm">
+            Contact &amp; support
+          </p>
+          <h1 className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Get in touch
+          </h1>
+          <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Have a question or need custom spreadsheet help? Send us a note
+            using the contact form below.
+          </p>
         </div>
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Get in Touch
-        </h1>
-        <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
-          Have a question or want to get in touch with us? We&apos;d love to
-          hear from you! Please use the contact form below.
-        </p>
+
+        <div className="shrink-0">
+          <Image
+            src="/images/contact-handoff.svg"
+            alt="Stylized hand passing a structured .xlsx spreadsheet card with an fx formula badge across a grid plane"
+            width={360}
+            height={180}
+            priority
+            className="h-auto w-full max-w-[280px] object-contain sm:w-[280px]"
+          />
+        </div>
       </header>
 
       <div className="mt-10 grid gap-6 lg:grid-cols-5 lg:gap-8">
         <aside className="space-y-5 lg:col-span-2">
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-navy-deep via-navy to-navy-soft p-6 text-primary-foreground shadow-lg">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-white/10 blur-2xl"
-            />
-            <div className="relative space-y-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary-foreground/25 bg-primary-foreground/10">
-                <IconClock className="h-5 w-5" />
+          <div className="rounded-2xl border border-white/10 bg-navy-deep p-6 text-white">
+            <div className="space-y-3">
+              <div className="flex size-10 items-center justify-center rounded-lg border border-white/15 bg-white/5 text-brand-light">
+                <IconClock className="size-5 stroke-[1.5]" />
               </div>
-              <p className="text-2xl font-bold tracking-tight">24–48 hours</p>
-              <p className="text-sm leading-relaxed text-primary-foreground/75">
+              <p className="font-mono text-2xl font-semibold tracking-tight tabular-nums">
+                24–48 hours
+              </p>
+              <p className="text-sm leading-relaxed text-white/75">
                 We usually respond within 24–48 hours on business days.
               </p>
             </div>

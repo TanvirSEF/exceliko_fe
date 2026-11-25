@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" fill="none">
+  <!-- Crisp 1px perspective grid plane -->
+  <g stroke="#cbd5e1" stroke-width="1" stroke-linecap="round">
+    <path d="M44 156 L112 122 H324 L272 156 Z" fill="#ffffff" />
+    <line x1="88" y1="134" x2="306" y2="134" />
+    <line x1="66" y1="145" x2="289" y2="145" />
+    <line x1="164" y1="122" x2="108" y2="156" />
+    <line x1="218" y1="122" x2="164" y2="156" />
+    <line x1="272" y1="122" x2="218" y2="156" />
+  </g>
+
+  <!-- Stylized Editorial Hand Passing Card (Left) -->
+  <g stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cuff / sleeve -->
+    <path d="M12 106 L58 92 L68 126 L20 140 Z" fill="#ffffff" />
+    <line x1="48" y1="95" x2="58" y2="129" stroke="#cbd5e1" stroke-width="1" />
+    <circle cx="48" cy="118" r="2.2" fill="#15803d" stroke="none" />
+
+    <!-- Palm & lower fingers supporting card -->
+    <path
+      d="M59 95 C74 90, 92 86, 110 86 L142 86 C149 86, 152 91, 148 96 C154 97, 156 103, 150 107 C154 110, 153 116, 146 118 L120 123 C102 126, 84 127, 67 124 Z"
+      fill="#ffffff"
+    />
+  </g>
+
+  <!-- Structured .xlsx Spreadsheet Card -->
+  <g transform="translate(126, 30) rotate(-6)" stroke="#1a2744" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="0" y="0" width="164" height="106" rx="6" fill="#ffffff" />
+    <!-- Top bar -->
+    <line x1="0" y1="24" x2="164" y2="24" stroke="#cbd5e1" stroke-width="1" />
+    <rect x="10" y="7" width="34" height="11" rx="2" fill="#15803d" stroke="none" />
+    <text x="27" y="15" text-anchor="middle" fill="#ffffff" stroke="none" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="7.5" font-weight="600">.xlsx</text>
+    <line x1="52" y1="12.5" x2="96" y2="12.5" stroke="#94a3b8" stroke-width="1.25" />
+
+    <!-- 3x2 Spreadsheet Cell Grid -->
+    <rect x="12" y="34" width="140" height="58" rx="3" fill="#ffffff" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="12" y1="53" x2="152" y2="53" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="12" y1="73" x2="152" y2="73" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="58" y1="34" x2="58" y2="92" stroke="#cbd5e1" stroke-width="1" />
+    <line x1="106" y1="34" x2="106" y2="92" stroke="#cbd5e1" stroke-width="1" />
+
+    <!-- Data strokes -->
+    <line x1="20" y1="43.5" x2="48" y2="43.5" stroke="#64748b" stroke-width="1.5" />
+    <line x1="66" y1="43.5" x2="96" y2="43.5" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="20" y1="63" x2="46" y2="63" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="20" y1="82.5" x2="50" y2="82.5" stroke="#94a3b8" stroke-width="1.5" />
+    <line x1="66" y1="82.5" x2="92" y2="82.5" stroke="#94a3b8" stroke-width="1.5" />
+
+    <!-- Active forest-green cell with fill handle -->
+    <rect x="106" y="53" width="46" height="20" fill="#dcfce7" stroke="#15803d" stroke-width="1.5" />
+    <line x1="115" y1="63" x2="142" y2="63" stroke="#15803d" stroke-width="1.75" />
+    <rect x="149.5" y="70.5" width="4.5" height="4.5" fill="#15803d" stroke="#ffffff" stroke-width="0.75" />
+  </g>
+
+  <!-- Thumb overlapping front left edge of card -->
+  <path
+    d="M104 86 C114 82, 128 80, 138 84 C144 86.5, 144 94, 136 96 L112 99"
+    fill="#ffffff"
+    stroke="#1a2744"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Forest-Green fx Formula Badge -->
+  <g>
+    <rect x="272" y="14" width="32" height="24" rx="5" fill="#15803d" stroke="#ffffff" stroke-width="2" />
+    <text x="288" y="30" text-anchor="middle" fill="#ffffff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="700">fx</text>
+  </g>
+
+  <!-- Subtle Handoff Direction Arrow (Right) -->
+  <g stroke="#15803d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="312" y1="74" x2="338" y2="74" />
+    <path d="M332 69 L339 74 L332 79" fill="none" />
+  </g>
+</svg>
